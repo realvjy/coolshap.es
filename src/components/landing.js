@@ -1,0 +1,52 @@
+import { Container } from "@/components/reusableStyles";
+import Link from "next/link";
+import styled from "styled-components"
+import ShapeGrid from "./shapeGrid";
+
+// {[...Array(100)].map((_, i) => (
+
+export default function landing() {
+  return (
+    <ShapeSection>
+      <Container>
+        <ShapeWrapper>
+          <IconListWrap>
+            {[...Array(10)].map((_, i) => (
+              <ShapeGrid />
+            ))}
+          </IconListWrap>
+        </ShapeWrapper>
+      </Container>
+    </ShapeSection>
+  );
+}
+
+const ShapeSection = styled.section``;
+const ShapeWrapper = styled.div`
+  display: flex;
+  padding-top: 50px;
+`;
+
+const IconListWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  @media screen and (max-width: ${({ theme }) => theme.deviceSize.tablet}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: ${({ theme }) => theme.deviceSize.mobileL}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const CopyBtn = styled.a`
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 114.1%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: red;
+  text-transform: uppercase
+`;
+
+

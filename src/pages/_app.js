@@ -1,18 +1,19 @@
-import globalStyle from '@/styles/globals.scss'
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import defaultTheme from '@/styles/theme.config';
-const GlobalStyle = createGlobalStyle`
-    ${globalStyle}
-    :root{
-      --background: ${({theme})=> theme.colors.background}
-    }
-`;
+import React, { useState, useEffect } from "react";
+import GlobalStyle from "../styles/GlobalStyle";
+import Layout from "@/components/layout";
+import useDarkMode from "use-dark-mode";
+import { darkTheme, lightTheme } from "../styles/theme.config";
 
 export default function App({ Component, pageProps }) {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyle/>
-      <Component {...pageProps} />
+    <ThemeProvider theme={darkTheme}>
+      <GlobalStyle />
+      <Layout>{isMounted && <Component {...pageProps} />}</Layout>
     </ThemeProvider>
   );
 }
