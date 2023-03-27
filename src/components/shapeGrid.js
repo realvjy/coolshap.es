@@ -4,19 +4,19 @@ import styled from "styled-components"
 
 
 export default function ShapeGrid(
-  name,
-  keyword,
-  url,
-  color,
-  type,
-  imgRef,
-  canRef,
+  props
 ) {
   return (
     <ShapeWrap>
-      <Shape src="/images/test-2a.png" />
+      <Shape
+        src={props.isNoise? "/images/test-2a.png" : "/images/test-1.png"}
+      />
       <ShapeBtnWrap className="copy-btn">
-        <SvgBtn>
+        <SvgBtn
+          href="/images/logo/copy.svg"
+          download="MyExampleDoc"
+          target="_blank"
+        >
           <img src="/images/logo/copy.svg" />
           svg
         </SvgBtn>
@@ -88,7 +88,11 @@ const CopyBtn = styled.a`
   padding: 10px 15px;
   border-radius: 20px;
   background: red;
-  text-transform: uppercase
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 const SvgBtn = styled(CopyBtn)`
   background: linear-gradient(
@@ -101,6 +105,7 @@ const SvgBtn = styled(CopyBtn)`
     rgba(44, 47, 58, 0.44);
 `;
 const JsxBtn = styled(CopyBtn)`
+  margin-left: 8px;
   background: linear-gradient(
       284.86deg,
       #ffc83a -8.52%,

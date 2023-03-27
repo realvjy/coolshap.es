@@ -1,18 +1,19 @@
 import { Container } from "@/components/reusableStyles";
 import Link from "next/link";
+import { useState } from "react";
 import styled from "styled-components"
 import ShapeGrid from "./shapeGrid";
 
 // {[...Array(100)].map((_, i) => (
 
-export default function landing() {
+export default function landing(props) {
   return (
     <ShapeSection>
       <Container>
         <ShapeWrapper>
           <IconListWrap>
             {[...Array(10)].map((_, i) => (
-              <ShapeGrid />
+              <ShapeGrid key={i} isNoise={props.noise} />
             ))}
           </IconListWrap>
         </ShapeWrapper>

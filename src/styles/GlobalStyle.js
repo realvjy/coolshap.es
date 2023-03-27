@@ -38,6 +38,7 @@ body.light-mode {
 
   --dark-color: #000;
     --dark-light: rgba(83,91,118,.28);
+    --light-black: rgb(255,255,255,0.79);
     --top-gradient-height: 212px;
     --top-gradient-half-height: calc(var(--top-gradient-height) / 2);
     --max-desktop: 800px;
@@ -50,7 +51,10 @@ body.light-mode {
     --emo: cubic-bezier(.4,0,.2,1);
     --emo-in-out: cubic-bezier(.4,0,.2,1);
     --emo-out: cubic-bezier(0,.2,.2,1);
-  
+
+    /* device sizes */
+    --desktop-size: 1330px;
+    --tablet-size: 900px;
 }
 
 html{
@@ -86,7 +90,9 @@ a{
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  
+  @media screen and (max-width: 700px){
+    padding: 0 20px;
+  }
 }
 
 .nft-clipped{

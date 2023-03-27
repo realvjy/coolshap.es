@@ -5,9 +5,10 @@ export const Container = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 1330px;
+  max-width: var(--desktop-size);
   margin: 0 auto;
-  @media screen and (max-width: ${({ theme }) => theme.deviceSize.tablet}) {
+  @media screen and (max-width: ${({theme})=>theme.deviceSize.desktop_default}) {
+    padding: 0 20px;
     width: 100%;
   }
 `;
@@ -19,7 +20,6 @@ export const Wrapper = styled.div`
 
 
 export const Button = styled.button`
-
 
 `
 

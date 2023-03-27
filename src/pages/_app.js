@@ -2,7 +2,6 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import React, { useState, useEffect } from "react";
 import GlobalStyle from "../styles/GlobalStyle";
 import Layout from "@/components/layout";
-import useDarkMode from "use-dark-mode";
 import { darkTheme, lightTheme } from "../styles/theme.config";
 
 export default function App({ Component, pageProps }) {
