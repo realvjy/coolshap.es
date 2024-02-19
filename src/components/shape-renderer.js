@@ -5,6 +5,7 @@ import { CoolShapes } from '@/lib/data/cool-shapes';
 const ShapeRenderer = ({ iconName, ...iconProps }) => {
     const SvgData = CoolShapes.find((config) => config.slug === iconName).svg;
 
+    console.log(SvgData);
     if (!SvgData) {
         return null;
     }

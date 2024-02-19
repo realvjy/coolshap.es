@@ -130,58 +130,59 @@ export const Star_2 = (props) => {
             className="uilogos-heart"
             viewBox="0 0 200 200"
         >
-            <g clipPath="url(#clip0_617_1875)">
+            <g clipPath="url(#clip0_620_2150)">
                 <mask
-                    id="mask0_617_1875"
+                    id="mask0_620_2150"
                     style={{ maskType: "alpha" }}
                     width="200"
-                    height="200"
+                    height="190"
                     x="0"
-                    y="0"
+                    y="5"
                     maskUnits="userSpaceOnUse"
                 >
                     <path
-                        fill="#D9D9D9"
-                        d="M50 0C22.386 0 0 22.386 0 50s22.386 50 50 50c-27.614 0-50 22.386-50 50s22.386 50 50 50h100c27.614 0 50-22.386 50-50s-22.386-50-50-50c27.614 0 50-22.386 50-50S177.614 0 150 0H50z"
+                        fill="#fff"
+                        d="M100 5l27.194 67.642L200 77.573l-56 46.737L161.803 195 100 156.242 38.197 195 56 124.31 0 77.573l72.806-4.93L100 5z"
                     ></path>
                 </mask>
-                <g mask="url(#mask0_617_1875)">
+                <g mask="url(#mask0_620_2150)">
                     <path fill="#fff" d="M200 0H0v200h200V0z"></path>
                     <path
-                        fill="#FFC700"
-                        fillOpacity="0.112"
+                        fill="url(#paint0_linear_620_2150)"
                         d="M200 0H0v200h200V0z"
                     ></path>
-                    <g filter="url(#filter0_f_617_1875)">
-                        <path fill="#FFC700" d="M197.75 48.25H38v107h159.75v-107z"></path>
+                    <g filter="url(#filter0_f_620_2150)">
+                        <path fill="#FF58E4" d="M130 0H69v113h61V0z"></path>
                         <path
-                            fill="#18A0FB"
-                            d="M129.25 18.375H3.125v104H129.25v-104z"
+                            fill="#0CE548"
+                            fillOpacity="0.35"
+                            d="M196 91H82v102h114V91z"
                         ></path>
                         <path
-                            fill="#EE46D3"
-                            d="M233.625 80.75H76.25v102.625h157.375V80.75z"
+                            fill="#FFE500"
+                            fillOpacity="0.74"
+                            d="M113 80H28v120h85V80z"
                         ></path>
                     </g>
                 </g>
             </g>
-            <g style={{ mixBlendMode: "overlay" }} mask="url(#mask0_36_3348)">
+            <g style={{ mixBlendMode: "overlay" }} mask="url(#mask0_620_2150)">
                 {showNoise && (
                     <path
                         fill="gray"
                         stroke="transparent"
-                        d="M50 0C22.386 0 0 22.386 0 50s22.386 50 50 50c-27.614 0-50 22.386-50 50s22.386 50 50 50h100c27.614 0 50-22.386 50-50s-22.386-50-50-50c27.614 0 50-22.386 50-50S177.614 0 150 0H50z"
-                        filter="url(#feTurb03)"
+                        d="M200 0H0v200h200V0z"
+                        filter="url(#feTurbS02)"
                     />
                 )}
             </g>
             <defs>
                 <filter
-                    id="filter0_f_617_1875"
-                    width="310.5"
-                    height="245"
-                    x="-36.875"
-                    y="-21.625"
+                    id="filter0_f_620_2150"
+                    width="278"
+                    height="310"
+                    x="-27"
+                    y="-55"
                     colorInterpolationFilters="sRGB"
                     filterUnits="userSpaceOnUse"
                 >
@@ -192,12 +193,12 @@ export const Star_2 = (props) => {
                         result="shape"
                     ></feBlend>
                     <feGaussianBlur
-                        result="effect1_foregroundBlur_617_1875"
-                        stdDeviation="20"
+                        result="effect1_foregroundBlur_620_2150"
+                        stdDeviation="27.5"
                     ></feGaussianBlur>
                 </filter>
                 <filter
-                    id="feTurb03"
+                    id="feTurbS02"
                     width="100%"
                     height="100%"
                     x="0%"
@@ -223,7 +224,18 @@ export const Star_2 = (props) => {
                         result="out3"
                     ></feBlend>
                 </filter>
-                <clipPath id="clip0_617_1875">
+                <linearGradient
+                    id="paint0_linear_620_2150"
+                    x1="186.5"
+                    x2="37"
+                    y1="37"
+                    y2="186.5"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop stopColor="#0E6FFF" stopOpacity="0.51"></stop>
+                    <stop offset="1" stopColor="#00F0FF" stopOpacity="0.59"></stop>
+                </linearGradient>
+                <clipPath id="clip0_620_2150">
                     <path fill="#fff" d="M0 0H200V200H0z"></path>
                 </clipPath>
             </defs>

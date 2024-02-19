@@ -8,7 +8,7 @@ import ShapeGrid from "./shapeGrid";
 import { CoolShapes } from "@/lib/data/cool-shapes";
 import { Star_1 } from "./shapes";
 export default function Landing(props) {
-  const noise = true;
+  const noise = false;
   return (
     <ShapeSection>
       <Container>
