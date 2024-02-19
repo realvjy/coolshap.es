@@ -30,7 +30,7 @@ body.light-mode {
   
   --white: #FFFFFF;
   --white20: #ecedee;
-  --black: #090A0B;
+  --black: #0C0D10;
   --light-gray: #858585;
   --gray: #1C1F21;
   --light-black: rgba(0,0,0,.05);
@@ -66,7 +66,6 @@ body {
   text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background-image: url('/images/dots.png');
-
 }
 
 a{

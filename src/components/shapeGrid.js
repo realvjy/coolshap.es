@@ -13,16 +13,25 @@ export default function ShapeGrid(
     url,
     color,
     type,
-    imgRef,
+    size,
     noise,
     slug,
   }) {
-
+  const handleCopySvg = () => {
+    navigator.clipboard.writeText(Star_1.toString())
+      .then(() => {
+      })
+      .catch((error) => {
+        console.error('Unable to copy SVG code to clipboard:', error);
+      });
+  };
+  console.log(Star_1.toString());
   return (
     <ShapeWrap>
-      <ShapeRenderer iconName={slug} showNoise={noise} />
+      <ShapeRenderer iconName={slug} showNoise={noise} size={size} />
+
       <ShapeBtnWrap className="copy-btn">
-        <SvgBtn>
+        <SvgBtn onClick={handleCopySvg}>
           <img src="/images/logo/copy.svg" />
           svg
         </SvgBtn>
@@ -38,7 +47,7 @@ export default function ShapeGrid(
 
 const ShapeWrap = styled.div`
   border-radius: 36px;
-  background: linear-gradient(180deg, rgba(17, 19, 22, 0.7) 0%, rgba(10, 12, 14, 0.7) 100%);
+  background: linear-gradient(180deg, rgba(17, 19, 22, 0.01) 0%, rgba(10, 12, 14, 0.01) 100%);
   position: relative;
   display: flex;
   flex-direction: column;

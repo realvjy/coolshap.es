@@ -6,9 +6,8 @@ import styled from "styled-components"
 import { Container } from "@/styles/ReuseableStyle";
 import ShapeGrid from "./shapeGrid";
 import { CoolShapes } from "@/lib/data/cool-shapes";
-import { Star_1 } from "./shapes";
 export default function Landing(props) {
-  const noise = false;
+  const noise = true;
   return (
     <ShapeSection>
       <Container>
@@ -17,7 +16,7 @@ export default function Landing(props) {
             {CoolShapes.map((data, i) => {
               console.log(data);
               return (
-                <ShapeGrid key="s" slug={data.slug} noise={noise} />
+                <ShapeGrid key="s" slug={data.slug} noise={noise} size={140} />
               );
             })}
           </IconListWrap>

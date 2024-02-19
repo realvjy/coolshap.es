@@ -3,13 +3,13 @@ import React from 'react';
 import { CoolShapes } from '@/lib/data/cool-shapes';
 
 const ShapeRenderer = ({ iconName, ...iconProps }) => {
-    const SvgData = CoolShapes.find((config) => config.slug === iconName).svg;
+    const SVGData = CoolShapes.find((config) => config.slug === iconName).svg;
 
-    console.log(SvgData);
-    if (!SvgData) {
+    console.log(SVGData);
+    if (!SVGData) {
         return null;
     }
-    return <SvgData {...iconProps} />;
+    return <SVGData {...iconProps} />;
 };
 
 export default ShapeRenderer;
