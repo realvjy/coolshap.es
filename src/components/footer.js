@@ -1,8 +1,9 @@
+"use client";
 import { Container } from "@/components/reusableStyles";
 import styled from "styled-components"
 
 
-export default function footer() {
+export default function Footer() {
     return (
         <Section>
             <Container>

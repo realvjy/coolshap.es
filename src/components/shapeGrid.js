@@ -1,20 +1,26 @@
-import { Container } from "@/components/reusableStyles";
+"use client";
 import Link from "next/link";
 import styled from "styled-components"
+import { Shape2, Star_1 } from "./shapes";
+import { CoolShapes } from "@/lib/data/cool-shapes";
+import ShapeRenderer from "./shape-renderer";
+
 
 
 export default function ShapeGrid(
-  name,
-  keyword,
-  url,
-  color,
-  type,
-  imgRef,
-  canRef,
-) {
+  { name,
+    keyword,
+    url,
+    color,
+    type,
+    imgRef,
+    noise,
+    slug,
+  }) {
+
   return (
     <ShapeWrap>
-      <Shape src="/images/test-2a.png" />
+      <ShapeRenderer iconName={slug} showNoise={noise} />
       <ShapeBtnWrap className="copy-btn">
         <SvgBtn>
           <img src="/images/logo/copy.svg" />
@@ -42,10 +48,10 @@ const ShapeWrap = styled.div`
   align-items: center;
   transition: all .4s var(--emo-in-out)!important;
   cursor: pointer;
-  @media screen and (max-width: ${({ theme }) => theme.deviceSize.tablet}) {
+  @media screen and (max-width: 768px) {
     padding: 40px;
   }
-  @media screen and (max-width: ${({ theme }) => theme.deviceSize.mobileL}) {
+  @media screen and (max-width: 768px) {
     padding: 30px;
   }
   &::before{

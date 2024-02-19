@@ -1,19 +1,25 @@
-import { Container } from "@/components/reusableStyles";
+"use client";
+
 import Link from "next/link";
 import styled from "styled-components"
+
+import { Container } from "@/styles/ReuseableStyle";
 import ShapeGrid from "./shapeGrid";
-
-// {[...Array(100)].map((_, i) => (
-
-export default function landing() {
+import { CoolShapes } from "@/lib/data/cool-shapes";
+import { Star_1 } from "./shapes";
+export default function Landing(props) {
+  const noise = true;
   return (
     <ShapeSection>
       <Container>
         <ShapeWrapper>
           <IconListWrap>
-            {[...Array(10)].map((_, i) => (
-              <ShapeGrid />
-            ))}
+            {CoolShapes.map((data, i) => {
+              console.log(data);
+              return (
+                <ShapeGrid key="s" slug={data.slug} noise={noise} />
+              );
+            })}
           </IconListWrap>
         </ShapeWrapper>
       </Container>
@@ -31,10 +37,10 @@ const IconListWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  @media screen and (max-width: ${({ theme }) => theme.deviceSize.tablet}) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media screen and (max-width: ${({ theme }) => theme.deviceSize.mobileL}) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

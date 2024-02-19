@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sass": "^1.59.3",
-    "scss-reset": "^1.2.2",
-    "styled-components": "^5.3.9",
-    "use-dark-mode": "^2.3.1"
+    "fs": "^0.0.1-security",
+    "next": "14.1.0",
+    "next-seo": "^6.4.0",
+    "nextjs-google-analytics": "^2.3.3",
+    "react": "^18",
+    "react-collapsible": "^2.10.0",
+    "react-dom": "^18",
+    "styled-components": "^6.1.8"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0"
   }
 }

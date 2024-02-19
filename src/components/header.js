@@ -1,9 +1,11 @@
-import { Container } from "@/components/reusableStyles";
+"use client";
+
+import { Container } from "@/styles/ReuseableStyle";
 import Link from "next/link";
 import styled from "styled-components"
 
 
-export default function header() {
+export default function Header() {
   return (
     <HeaderSection>
       <Container>

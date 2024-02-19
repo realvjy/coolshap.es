@@ -1,0 +1,35 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_620_2150)">
+<mask id="mask0_620_2150" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+<g clip-path="url(#clip1_620_2150)">
+<path d="M100 5L127.194 72.6424L200 77.5735L144 124.31L161.803 195L100 156.242L38.1966 195L56 124.31L0 77.5735L72.8065 72.6424L100 5Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_620_2150)">
+<path d="M200 0H0V200H200V0Z" fill="white"/>
+<path d="M200 0H0V200H200V0Z" fill="url(#paint0_linear_620_2150)"/>
+<g filter="url(#filter0_f_620_2150)">
+<path d="M130 0H69V113H130V0Z" fill="#FF58E4"/>
+<path d="M196 91H82V193H196V91Z" fill="#0CE548" fill-opacity="0.35"/>
+<path d="M113 80H28V200H113V80Z" fill="#FFE500" fill-opacity="0.74"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_620_2150" x="-27" y="-55" width="278" height="310" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="27.5" result="effect1_foregroundBlur_620_2150"/>
+</filter>
+<linearGradient id="paint0_linear_620_2150" x1="186.5" y1="37" x2="37" y2="186.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0E6FFF" stop-opacity="0.51"/>
+<stop offset="1" stop-color="#00F0FF" stop-opacity="0.59"/>
+</linearGradient>
+<clipPath id="clip0_620_2150">
+<rect width="200" height="200" fill="white"/>
+</clipPath>
+<clipPath id="clip1_620_2150">
+<rect width="200" height="200" fill="white"/>
+</clipPath>
+</defs>
+</svg>

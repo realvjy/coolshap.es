@@ -1,0 +1,28 @@
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-repeat: no-repeat;
+  font-family: var(--font-interDisplay);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+main {
+  background-size: 1100px auto;
+}

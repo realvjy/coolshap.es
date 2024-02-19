@@ -1,3 +1,4 @@
+"use client";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -58,10 +59,10 @@ html{
 }
 body {
   font-family: 'Outfit', sans-serif;
-  background: ${({ theme }) => theme.bg.primary};
+  background: var(--black);
   margin: 0;
   padding: 0;
-  color: ${({ theme }) => theme.text.primary};
+  color: var(--light-white);
   text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background-image: url('/images/dots.png');
@@ -69,7 +70,7 @@ body {
 }
 
 a{
-  color: ${({ theme }) => theme.text.primary};
+  color: var(--light-white);
 }
 
 .main{
