@@ -1,11 +1,19 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
-import { interDisplay } from "@/styles/fonts";
+import { Outfit } from 'next/font/google'
 import GlobalStyle from "@/styles/GlobalStyle";
 import AnalyticsProvider from "@/lib/analytics";
 import seoData from "@/lib/next-seo.config";
 
+
+const outfit = Outfit({
+  weight: ['400', '500', '600', '700', '800'],
+  style: ['normal'],
+  subsets: ['latin'],
+  variable: '--font-outfit',
+  display: 'swap',
+})
 
 export const metadata = {
   metadataBase: new URL(seoData.openGraph.url),
@@ -54,9 +62,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${interDisplay.variable}`}>
+    <html lang="en" className={`${outfit.variable}`}>
       <body>
-
         <StyledComponentsRegistry>
           <AnalyticsProvider />
           <GlobalStyle />

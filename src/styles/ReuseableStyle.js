@@ -1,5 +1,6 @@
 'use client'
 import styled from "styled-components";
+import Link from "next/link";
 
 export const Container = styled.div`
   position: relative;
@@ -21,8 +22,53 @@ export const Wrapper = styled.div`
 export const Button = styled.button`
 
 
-`
+`;
+export const LinkButton = styled.a`
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    gap: 8px;
+    background: linear-gradient(180deg, rgba(65, 65, 65, 0.22) 0%, rgba(35, 35, 35, 0) 100%);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
+    padding: 12px 24px;
+    border-radius: 24px;
+    span{
+      line-height: 24px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    &.blue{
+        background: linear-gradient(274.9deg, #5418FF -37.07%, #451FD9 78.43%);
+        box-shadow: inset 0px 2px 3.1px rgba(255, 255, 255, 0.2);
+    }
+`;
 
+export const SocialShare = styled.a`
+    display: flex;
+    align-items: center;
+    color: var(--text-gray2);
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    gap: 8px;
+    background: linear-gradient(180deg, rgba(65, 65, 65, 0.22) 0%, rgba(35, 35, 35, 0) 100%);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
+    padding: 8px 16px;
+    border-radius: 24px;
+    span{
+      line-height: 24px;
+      color: var(--text-gray);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &.blue{
+        background: linear-gradient(274.9deg, #5418FF -37.07%, #451FD9 78.43%);
+        box-shadow: inset 0px 2px 3.1px rgba(255, 255, 255, 0.2);
+    }
+`;
 export const EarlyButton = styled.a`
     background: var(--main-btn-color);
     border-radius: 16px;
@@ -33,36 +79,11 @@ export const EarlyButton = styled.a`
     cursor: pointer;
     text-decoration: none;
     box-shadow: var(--main-btn-box-shadow)
-`
+`;
 
-export const LinkButton = styled.a`
-    display: flex;
-    align-items: center;
-    color: var(--white);
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    outline: none;
-    line-height: 20px;
-    p{
-      line-height: 24px;
-      font-size: 20px;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-style: normal;
-      border-top-left-radius: 16px;
-      border-bottom-left-radius: 16px;
-      background: var(--lfg-sky-200);
-      border: 2px solid var(--lfg-sky-200);
-    }
-    div{
-      line-height: 0;
-      border-top-right-radius: 16px;
-      border-bottom-right-radius: 16px;
-      border: 2px solid var(--lfg-sky-200);
-      background: var(--lfg-sky-300);
-    }
-`
+
+
+
 
 export const Tag = styled.div`
     font-size: 16px;

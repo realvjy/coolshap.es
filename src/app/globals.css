@@ -8,21 +8,10 @@ body {
 body {
   background: var(--bg-gradient);
   background-repeat: no-repeat;
-  font-family: var(--font-interDisplay);
+  font-family: var(--font-outfit);
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
 
 main {
-  background-size: 1100px auto;
 }

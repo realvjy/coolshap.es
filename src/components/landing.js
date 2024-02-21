@@ -39,7 +39,7 @@ const IconListWrap = styled.div`
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

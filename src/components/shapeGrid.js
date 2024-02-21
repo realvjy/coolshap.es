@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import styled from "styled-components"
-import { Shape2, Star_1 } from "./shapes";
 import { CoolShapes } from "@/lib/data/cool-shapes";
 import ShapeRenderer from "./shape-renderer";
+import { CopyIcon, DownloadIcon } from "./icons";
 
 
 
@@ -25,18 +25,17 @@ export default function ShapeGrid(
         console.error('Unable to copy SVG code to clipboard:', error);
       });
   };
-  console.log(Star_1.toString());
   return (
     <ShapeWrap>
       <ShapeRenderer iconName={slug} showNoise={noise} size={size} />
 
       <ShapeBtnWrap className="copy-btn">
         <SvgBtn onClick={handleCopySvg}>
-          <img src="/images/logo/copy.svg" />
+          <CopyIcon />
           svg
         </SvgBtn>
         <JsxBtn>
-          <img src="/images/logo/copy.svg" />
+          <DownloadIcon />
           jsx
         </JsxBtn>
       </ShapeBtnWrap>
@@ -47,7 +46,7 @@ export default function ShapeGrid(
 
 const ShapeWrap = styled.div`
   border-radius: 36px;
-  background: linear-gradient(180deg, rgba(17, 19, 22, 0.01) 0%, rgba(10, 12, 14, 0.01) 100%);
+  background: linear-gradient(180deg, rgba(17, 19, 22, 0.01) 0%, rgba(10, 12, 14, 0.01) 100%), var(--surface-black);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -95,16 +94,21 @@ const ShapeBtnWrap = styled.div`
   opacity: 0;
   overflow: hidden;
   transition: all .5s var(--emo-in-out)!important;
+  gap: 12px;
 `;
 const CopyBtn = styled.a`
   font-weight: 600;
   font-size: 14px;
   line-height: 114.1%;
+  display: flex;
+  align-items: center;
   padding: 10px 15px;
   border-radius: 20px;
   background: red;
+  
   text-transform: uppercase
 `;
+
 const SvgBtn = styled(CopyBtn)`
   background: linear-gradient(
       284.15deg,
