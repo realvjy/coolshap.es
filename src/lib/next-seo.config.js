@@ -2,7 +2,7 @@ export default {
     openGraph: {
         type: 'website',
         locale: 'en_IE',
-        title: 'uilogos - lorem ipsum for logos | free logo placeholder',
+        title: 'coolshapes',
         url: 'https://uilogos.co',
         description: 'More than 25+ professionally designed logos and plugin to add dummy logos to your design and mockups.',
         locale: 'en_EN',

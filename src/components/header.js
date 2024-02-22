@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, LinkButton, SocialShare } from "@/styles/ReuseableStyle";
+import { Container, LinkButton, SocialShare, ToggleButton } from "@/styles/ReuseableStyle";
 import Link from "next/link";
 import styled from "styled-components"
 import { CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
@@ -40,14 +40,9 @@ export default function Header() {
                   <span>100+ Abstract shapes </span>with cool grainy gradient.
                   Ready to use with any design dev project.
                 </h1>
-                <h4>Open-Source with MIT License, Check <a href="#">Github</a></h4>
+                <h4>Open-Source with MIT License, Check <a href="https://github.com/realvjy/coolshap.es">Github</a></h4>
               </Text>
             </LeftWrap>
-
-            {/* <NoiseWrap>
-                <NoiseBtn type="checkbox" name="noise" />
-                Noise
-              </NoiseWrap> */}
             <ButtonWrap>
               <LinkButton href="/" className="blue">
                 <FigmaIcon size={20} />
@@ -70,13 +65,6 @@ export default function Header() {
             </ButtonWrap>
           </HeroSection>
 
-          <div class="button b2" id="button-10">
-            <input type="checkbox" class="checkbox" />
-            <div class="knobs">
-              <span>Noise</span>
-            </div>
-            <div class="layer"></div>
-          </div>
         </Wrapper>
       </Container>
     </HeaderSection>
@@ -147,7 +135,6 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 30px 0;
-    border-bottom: 1px solid var(--gray);
 `;
 const ButtonWrap = styled.div`
   font-weight: 500;
@@ -208,6 +195,9 @@ const Text = styled.div`
   }
   a{
     color: var(--text-gray2);
+    &:hover{
+      color: var(--light-white);
+    }
   }
 `;
 const HeroSection = styled.div`
@@ -231,3 +221,4 @@ const RightBtn = styled.div`
   display: flex;
   gap: 10px;
 `
+

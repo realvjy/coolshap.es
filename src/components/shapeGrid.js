@@ -46,7 +46,7 @@ export default function ShapeGrid(
 
 const ShapeWrap = styled.div`
   border-radius: 36px;
-  background: linear-gradient(180deg, rgba(17, 19, 22, 0.01) 0%, rgba(10, 12, 14, 0.01) 100%), var(--surface-black);
+  background: linear-gradient(180deg, rgba(17, 19, 22, 0.0) 0%, rgba(10, 12, 14, 0.0) 100%), var(--surface-black);
   position: relative;
   display: flex;
   flex-direction: column;
