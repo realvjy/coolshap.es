@@ -4,9 +4,36 @@ import styled from "styled-components"
 import { CoolShapes } from "@/lib/data/cool-shapes";
 import ShapeRenderer from "./shape-renderer";
 import { CopyIcon, DownloadIcon } from "./icons";
+import React, { useState, useEffect } from 'react';
 
+// Dynamic component loader function
+async function getSVGComponent(name) {
+  const [type, index] = name.split('-');
+  const componentName = `${type.charAt(0).toUpperCase()}${type.slice(1)}${index}`;
 
+  try {
+    // Dynamically import the entire package
+    const svgPackage = await import("react-coolshapes");
 
+    // Access the specific component from the package
+    const SVGComponent = svgPackage[componentName];
+    // Check if SVGComponent has a render function
+    if (SVGComponent && typeof SVGComponent.render === 'function') {
+      // Call the render function to get the SVG content
+      const svgContent = SVGComponent.render({}, null);
+
+      console.log(svgContent, 'content');
+      // Render the SVG content
+      // return svgContent;
+    } else {
+      console.error(`Invalid component structure for ${name}.`);
+      return null;
+    }
+  } catch (error) {
+    console.error(`Component ${name} not found.`, error);
+    return null;
+  }
+}
 export default function ShapeGrid(
   { name,
     keyword,
@@ -17,25 +44,58 @@ export default function ShapeGrid(
     noise,
     slug,
   }) {
+  const [infoText, setInfoText] = useState('');
+  const [isCopy, setIsCopy] = useState(false);
+  const shapeType = 'svg';
+  const svgSrc = `shapes/${shapeType}/${slug}.svg`;
   const handleCopySvg = () => {
-    navigator.clipboard.writeText(Star_1.toString())
-      .then(() => {
+    fetch(svgSrc)
+      .then(response => response.text())
+      .then(svgCode => {
+        navigator.clipboard.writeText(svgCode)
+          .then(() => {
+            setIsCopy(true);
+            setInfoText('SVG Copied!');
+            setTimeout(() => {
+              setIsCopy(false);
+            }, 1400);
+          })
+          .catch((error) => {
+            console.error('Unable to copy SVG code to clipboard:', error);
+          });
       })
-      .catch((error) => {
-        console.error('Unable to copy SVG code to clipboard:', error);
+      .catch(error => {
+        console.error('Error fetching SVG:', error);
       });
   };
+
+  const [dynamicSVGStar1, setDynamicSVGStar1] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const svgComponent = await getSVGComponent("star-1");
+      setDynamicSVGStar1(svgComponent);
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(dynamicSVGStar1, 'dynamicSVGStar1');
   return (
     <ShapeWrap>
       <ShapeRenderer iconName={slug} showNoise={noise} size={size} />
 
+      {isCopy && <Notify>
+        <h4>{infoText}</h4>
+      </Notify>}
+
       <ShapeBtnWrap className="copy-btn">
         <SvgBtn onClick={handleCopySvg}>
-          <CopyIcon />
+          <CopyIcon size={16} />
           svg
         </SvgBtn>
         <JsxBtn>
-          <DownloadIcon />
+          <DownloadIcon size={16} />
           jsx
         </JsxBtn>
       </ShapeBtnWrap>
@@ -46,15 +106,16 @@ export default function ShapeGrid(
 
 const ShapeWrap = styled.div`
   border-radius: 36px;
-  background: linear-gradient(180deg, rgba(17, 19, 22, 0.0) 0%, rgba(10, 12, 14, 0.0) 100%), var(--surface-black);
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all .4s var(--emo-in-out)!important;
+
+  background: radial-gradient(76% 25% at 50% -15%, rgba(32,88,233, 0.0) 0%, rgba(12,12,12,.0) 100%), var(--card-bg);
   cursor: pointer;
   @media screen and (max-width: 768px) {
     padding: 40px;
@@ -62,26 +123,31 @@ const ShapeWrap = styled.div`
   @media screen and (max-width: 768px) {
     padding: 30px;
   }
-  &::before{
-    content: "";
-    pointer-events: none;
-    user-select: none;
-    position: absolute;
-    inset: 0px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-    -webkit-mask: linear-gradient(black, black) content-box content-box, linear-gradient(black, black);
-    -webkit-mask-composite: xor;
-  }
+
   &:hover {
     padding-top: 10px;
-    background: linear-gradient(180deg, rgba(15, 16, 19, 0.6) 0%, rgba(12, 12, 14, 0.6) 100%);
-    box-shadow: inset 0px 8px 10px -6px rgba(32, 172, 233, 0.23);
+    background: radial-gradient(76% 25% at 50% -15%, rgba(32,88,233, 0.8) 0%, rgba(12,12,12,.0) 100%), var(--card-bg);
     .copy-btn {
       bottom: 20px;
       opacity: 1;
     }
+    &::before{
+    }
+    &::after{
+      inset: 0;
+      box-shadow: inset 0 2px 4px 0 rgba(132,188,233, 0.1), inset 0 0px 0px 1px rgba(199,211,234,.05);
+    }
+  }
+  &::before, &::after{
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+  }
+  &::before{
+  }
+  &::after{
+    inset: 0;
+    box-shadow: inset 0 2px 1px 0 rgba(132,188,233, 0.1), inset 0 0px 1px 1px rgba(199,211,234,.03);
   }
 `;
 const ShapeBtnWrap = styled.div`
@@ -96,17 +162,18 @@ const ShapeBtnWrap = styled.div`
   transition: all .5s var(--emo-in-out)!important;
   gap: 12px;
 `;
+
 const CopyBtn = styled.a`
   font-weight: 600;
   font-size: 14px;
   line-height: 114.1%;
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 8px 14px;
   border-radius: 20px;
   background: red;
-  
-  text-transform: uppercase
+  text-transform: uppercase;
+  gap: 2px;
 `;
 
 const SvgBtn = styled(CopyBtn)`
@@ -132,4 +199,17 @@ const JsxBtn = styled(CopyBtn)`
 const Shape = styled.img`
   width: 100%;
   height: auto;
+`;
+
+const Notify = styled.div`
+  position: absolute;
+  
+  h4{
+    background: rgba(12,12,12,0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    font-weight: 500;
+    color: #70FFF6;
+    padding: 6px 18px;
+  }
 `;

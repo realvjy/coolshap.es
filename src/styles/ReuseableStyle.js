@@ -6,7 +6,7 @@ export const Container = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 1330px;
+  width: 1400px;
   margin: 0 auto;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -16,6 +16,9 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 768px) {
+    margin: 0 16px;
+  }
 `;
 
 
@@ -28,6 +31,7 @@ export const LinkButton = styled.a`
     align-items: center;
     color: var(--white);
     text-decoration: none;
+    justify-content: center;
     cursor: pointer;
     outline: none;
     gap: 8px;
@@ -35,6 +39,7 @@ export const LinkButton = styled.a`
     box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
     padding: 12px 24px;
     border-radius: 24px;
+    font-size: 16px;
     span{
       line-height: 24px;
       font-size: 18px;
@@ -52,6 +57,11 @@ export const LinkButton = styled.a`
     &:hover{
       background: linear-gradient(180deg, rgba(65, 65, 65, 0.42) 0%, rgba(35, 35, 35, 0) 100%);
       color: var(--light-white);
+    }
+    @media screen and (max-width: 768px) {
+      min-width: 250px;
+      font-size: 14px;
+      padding: 10px 24px;
     }
 `;
 
@@ -71,12 +81,23 @@ export const SocialShare = styled.a`
       line-height: 24px;
       font-size: 14px;
       font-weight: 500;
-
     }
 
     &:hover{
         color: var(--light-white);
       }
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        padding: 4px 12px;
+        gap: 4px;
+        svg{
+          transform: scale(0.8);
+        }
+        span{
+          font-size: 13px;
+          line-height: 18px;
+        }
+    }
 `;
 
 export const EarlyButton = styled.a`
@@ -261,4 +282,22 @@ export const BoxButton = styled.a`
       opacity: 0.8;
       box-shadow: 0px 0px 0px 1px #EBEBEB, 0px 1px 3px rgba(143, 143, 143, 0.3), inset 0px 0px 0.4px rgba(62, 62, 62, 0.04);
     }
-` 
+`
+
+export const GridBackground = styled.div`
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  box-sizing: border-box;
+  background-image: radial-gradient(circle at 13px 13px, rgba(243,243,243, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px; /* Adjust to change the grid spacing */
+  
+  -webkit-mask: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  mask: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  
+`

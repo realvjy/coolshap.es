@@ -44,8 +44,8 @@ body.light-mode {
   
   --white: #FFFFFF;
   --white20: #ecedee;
-  --black: #0D0D0D;
-  --surface-black: #121212;
+  --black: #0A0A0D;
+  --surface-black: #131313;
   --light-gray: #858585;
   --gray: #1C1F21;
   --light-black: rgba(0,0,0,.05);
@@ -68,6 +68,7 @@ body.light-mode {
     --emo-in-out: cubic-bezier(.4,0,.2,1);
     --emo-out: cubic-bezier(0,.2,.2,1);
     --head-gradient-size: 2000px;
+    --card-bg: linear-gradient(rgba(18, 18, 20, 1) 0%, rgba(12, 12, 14, 1) 100%);
 }
 
 html{
@@ -82,7 +83,6 @@ body {
   color: var(--white);
   text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background-image: url('/images/dots.png');
 }
 
 a{
@@ -168,6 +168,90 @@ main{
 }
 
 
+.Collapsible{
+    font-size: 22px;
+    font-weight: 500;
+    padding: 20px 0;
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px; /* Set the height of the bottom border */
+      background: radial-gradient(50% 50% at 50% 50%, #EBEBEB 0%, rgba(235, 235, 235, 0) 100%);
+    }
+    &:last-child{
+      &::after{
+        background: none;
+        height: 0;
+      }
+    }
+    .details{
+      ul{
+        display: flex;
+        flex-direction: column;
+        li{
+          font-size: 16px;
+          margin: 8px 0;
+          font-weight: 400;
+          color: var(--text-black2);
+        }
+      }
+    }
+    p{  
+        margin-top: 24px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 140%;
+        opacity: 0.6;
+        color: var(--text-black2);
+        span{
+          color: var(--white);
+          opacity: 0.6;
+        }
+        @media screen and (max-width: 768px) {
+          width: auto;
+          font-size: 16px;
+        }
+    }
+    .collapsible-title{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      span{
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 500;
+        color: var(--text-black2);
+        @media screen and (max-width: 768px) {
+          width: auto;
+          font-size: 18px;
+        }
+      }
+    }
+    .Collapsible__trigger{
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        .plus-icon{
+          color: var(--blue);
+          transition: all 0.3s ease;
+          transform: scale(0.8);
+        }
+        &.is-open{
+            transition: all 0.3s ease;
+            .plus-icon{
+                transform: scale(0.8) rotateZ(45deg); 
+            }
+        }
+    }
+}
 
 
 `;

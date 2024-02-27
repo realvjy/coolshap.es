@@ -1,14 +1,16 @@
 "use client";
 
-import { Container, LinkButton, SocialShare, ToggleButton } from "@/styles/ReuseableStyle";
+import { Container, GridBackground, LinkButton, SocialShare, ToggleButton } from "@/styles/ReuseableStyle";
 import Link from "next/link";
 import styled from "styled-components"
+import { Circle1, Coolshape, Star1, Star2 } from "react-coolshapes"
 import { CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
 
 
 export default function Header() {
   return (
     <HeaderSection>
+      <GridBackground />
       <GradientBG>
         <BorderGradient />
         <MaskGradient>
@@ -22,16 +24,18 @@ export default function Header() {
               <CoolShapeLogoColor />
             </LeftLogo>
             <RightBtn>
-              <SocialShare>
+              <SocialShare href="https://www.buymeacoffee.com/realvjy">
                 <HeartIcon size={20} /> <span>Donate</span>
               </SocialShare>
-              <SocialShare>
+              <SocialShare
+                href="https://twitter.com/intent/tweet?text=Grab%20100%2B%20cool%20shapes%20with%20grainy%20gradients%20and%20use%20in%20your%20design%20or%20dev%20projects%20from%20https%3A%2F%2Fcoolshap.es%20by%20%40realvjy&url="
+              >
                 <TwitterIcon size={20} /> <span>Post</span>
               </SocialShare>
             </RightBtn>
           </NavBar>
           <HeroSection>
-            <LeftWrap>
+            <ContentWrap>
               <LogoWrap>
                 <Logo src="/images/logo/coolshapes.svg" />
               </LogoWrap>
@@ -42,7 +46,7 @@ export default function Header() {
                 </h1>
                 <h4>Open-Source with MIT License, Check <a href="https://github.com/realvjy/coolshap.es">Github</a></h4>
               </Text>
-            </LeftWrap>
+            </ContentWrap>
             <ButtonWrap>
               <LinkButton href="/" className="blue">
                 <FigmaIcon size={20} />
@@ -135,10 +139,12 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 30px 0;
+    @media screen and (max-width: 768px) {
+      padding: 30px 16px;
+    }
 `;
 const ButtonWrap = styled.div`
   font-weight: 500;
-  font-size: 16px;
   line-height: 20px;
   display: flex;
   align-items: center;
@@ -147,6 +153,7 @@ const ButtonWrap = styled.div`
   gap: 20px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    gap: 12px;
   }
 `;
 
@@ -156,10 +163,11 @@ const NoiseWrap = styled.label`
 const NoiseBtn = styled.input`
     margin-right: 5px;
 `;
-const LeftWrap = styled.div`
+const ContentWrap = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 16px;
 `;
 const LogoWrap = styled.a`
 
@@ -186,12 +194,18 @@ const Text = styled.div`
       font-weight: 500;
       color: var(--white)
     }
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
   h4{
     font-size: 15px;
     font-weight: 500;
     margin: 4px 0;
     color: var(--text-gray2);
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
   }
   a{
     color: var(--text-gray2);

@@ -5,15 +5,18 @@ import Landing from "@/components/landing";
 import styled from "styled-components"
 import { Shape2, Shape3, Shape4 } from "@/components/shapes";
 import Footer from "@/components/footer";
+import { GridBackground } from "@/styles/ReuseableStyle";
+import Faq from "@/components/faq";
 
 
 export default function Home() {
   return (
-    <main >
+    <Main>
       <Header />
       <Landing />
+      <Faq />
       <Footer />
-    </main>
+    </Main>
   );
 }
 
@@ -22,3 +25,4 @@ export default function Home() {
 const Main = styled.main`
   position: relative;
 `;
+

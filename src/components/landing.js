@@ -2,20 +2,22 @@
 
 import Link from "next/link";
 import styled from "styled-components"
-import { Container, ToggleButton } from "@/styles/ReuseableStyle";
+import { Container, GridBackground, ToggleButton } from "@/styles/ReuseableStyle";
 import ShapeGrid from "./shapeGrid";
 import { CoolShapes } from "@/lib/data/cool-shapes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { shapes } from "react-coolshapes"
 export default function Landing(props) {
   const [isNoise, setNoise] = useState(true);
-
+  const [coolshapes, setCoolshapes] = useState(Object.keys(shapes));
   const handleToggleChange = () => {
     setNoise(!isNoise);
   };
 
-
+  console.log(coolshapes);
   return (
     <ShapeSection>
+      <GridBackground />
       <Container>
         <Seprator>
           <ToggleWrapper>
@@ -35,11 +37,13 @@ export default function Landing(props) {
         </Seprator>
         <ShapeWrapper>
           <IconListWrap>
-            {CoolShapes.map((data, i) => {
-              return (
-                <ShapeGrid key={i} slug={data.slug} noise={isNoise} size={140} />
-              );
-            })}
+            {coolshapes &&
+              coolshapes.map((data, i) => {
+                return (
+                  <ShapeGrid key={i} slug={data} noise={isNoise} size={140} />
+                );
+              })
+            }
           </IconListWrap>
         </ShapeWrapper>
       </Container>
@@ -47,16 +51,19 @@ export default function Landing(props) {
   );
 }
 
-const ShapeSection = styled.section``;
+const ShapeSection = styled.section`
+position: relative;
+`;
 const ShapeWrapper = styled.div`
   display: flex;
   padding-top: 50px;
+  justify-content: center;
 `;
 
 const IconListWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: 25px;
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
