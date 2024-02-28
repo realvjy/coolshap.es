@@ -8,7 +8,7 @@ const ShapeRenderer = ({ iconName, showNoise }) => {
     console.log(showNoise);
     return (
         <>
-            <Coolshape shape={iconName} noise={showNoise} size={150} />
+            <Coolshape shape={iconName} noise={showNoise} size={140} />
         </>
     )
 };

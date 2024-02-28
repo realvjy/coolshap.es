@@ -44,6 +44,20 @@ export default function Landing(props) {
                 );
               })
             }
+            {coolshapes &&
+              coolshapes.map((data, i) => {
+                return (
+                  <ShapeGrid key={i} slug={data} noise={isNoise} size={140} />
+                );
+              })
+            }
+            {coolshapes &&
+              coolshapes.map((data, i) => {
+                return (
+                  <ShapeGrid key={i} slug={data} noise={isNoise} size={140} />
+                );
+              })
+            }
           </IconListWrap>
         </ShapeWrapper>
       </Container>
@@ -63,7 +77,7 @@ const ShapeWrapper = styled.div`
 const IconListWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 25px;
+  gap: 20px;
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }

@@ -109,13 +109,14 @@ const ShapeWrap = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 55px;
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all .4s var(--emo-in-out)!important;
 
-  background: radial-gradient(76% 25% at 50% -15%, rgba(32,88,233, 0.0) 0%, rgba(12,12,12,.0) 100%), var(--card-bg);
+  /* background: radial-gradient(76% 25% at 50% -15%, rgba(32,88,233, 0.0) 0%, rgba(12,12,12,.0) 100%), var(--card-bg); */
+  background: linear-gradient(180deg,rgba(255,255,255,0.0) 0%,rgba(255,255,255,0.02) 100%);
   cursor: pointer;
   @media screen and (max-width: 768px) {
     padding: 40px;
@@ -126,7 +127,7 @@ const ShapeWrap = styled.div`
 
   &:hover {
     padding-top: 10px;
-    background: radial-gradient(76% 25% at 50% -15%, rgba(32,88,233, 0.8) 0%, rgba(12,12,12,.0) 100%), var(--card-bg);
+    background: radial-gradient(76% 25% at 50% -15%, rgba(32, 88, 233, 0.3) 0%, rgba(12,12,12, 0.0) 100%), linear-gradient(180deg,rgba(255,255,255,0.0) 0%,rgba(255,255,255,0.02) 100%);
     .copy-btn {
       bottom: 20px;
       opacity: 1;
@@ -135,7 +136,8 @@ const ShapeWrap = styled.div`
     }
     &::after{
       inset: 0;
-      box-shadow: inset 0 2px 4px 0 rgba(132,188,233, 0.1), inset 0 0px 0px 1px rgba(199,211,234,.05);
+      /* box-shadow: inset 0 2px 4px 0 rgba(132,188,233, 0.1), inset 0 0px 0px 1px rgba(199,211,234,.05); */
+      box-shadow: inset 0 0px 0px 1px rgba(255,255,255,.04);
     }
   }
   &::before, &::after{
@@ -147,7 +149,8 @@ const ShapeWrap = styled.div`
   }
   &::after{
     inset: 0;
-    box-shadow: inset 0 2px 1px 0 rgba(132,188,233, 0.1), inset 0 0px 1px 1px rgba(199,211,234,.03);
+    /* box-shadow: inset 0 2px 1px 0 rgba(132,188,233, 0.1), inset 0 0px 1px 1px rgba(199,211,234,.03); */
+    box-shadow: inset 0 0px 0px 1px rgba(255,255,255,.04);
   }
 `;
 const ShapeBtnWrap = styled.div`

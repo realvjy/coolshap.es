@@ -1,10 +1,10 @@
 "use client";
 
-import { Container, GridBackground, LinkButton, SocialShare, ToggleButton } from "@/styles/ReuseableStyle";
+import { Container, GhostButton, GridBackground, LinkButton, SocialShare, ToggleButton } from "@/styles/ReuseableStyle";
 import Link from "next/link";
 import styled from "styled-components"
 import { Circle1, Coolshape, Star1, Star2 } from "react-coolshapes"
-import { CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
+import { ArrowUpIcon, CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
 
 
 export default function Header() {
@@ -21,9 +21,17 @@ export default function Header() {
         <Wrapper>
           <NavBar>
             <LeftLogo>
-              <CoolShapeLogoColor />
+              <a href="/">
+                <CoolShapeLogoColor />
+              </a>
             </LeftLogo>
             <RightBtn>
+              <GhostButton href="#usage">
+                Usage
+              </GhostButton>
+              <GhostButton href="https://github.com/realvjy/react-coolshapes">
+                Github<ArrowUpIcon size={18} />
+              </GhostButton>
               <SocialShare href="https://www.buymeacoffee.com/realvjy">
                 <HeartIcon size={20} /> <span>Donate</span>
               </SocialShare>
@@ -223,9 +231,12 @@ const NavBar = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const LeftLogo = styled.div`
+  display: flex;
+  align-items: center;
   img{
     height: 36px;
   }

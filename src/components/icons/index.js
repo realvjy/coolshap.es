@@ -145,6 +145,22 @@ export const PlusIcon = (props) => (
     </svg>
 );
 
+export const ArrowUpIcon = (props) => (
+    <svg
+        width={props.size || 24}
+        height={props.size || 24}
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        viewBox="0 0 24 24"
+        className="arrow-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+    >
+        <path d="M8 5C7.44772 5 7 5.44772 7 6C7 6.55228 7.44772 7 8 7H15.5859L5.29289 17.293C4.90237 17.6836 4.90237 18.3167 5.29289 18.7073C5.68342 19.0978 6.31658 19.0978 6.70711 18.7073L17 8.41436V16C17 16.5523 17.4477 17 18 17C18.5523 17 19 16.5523 19 16V6C19 5.44772 18.5523 5 18 5H8Z" />
+    </svg>
+);
+
 
 export const HeartIcon = (props) => (
     <svg

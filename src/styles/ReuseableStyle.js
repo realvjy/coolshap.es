@@ -6,7 +6,7 @@ export const Container = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 1400px;
+  width: 1180px;
   margin: 0 auto;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -65,6 +65,34 @@ export const LinkButton = styled.a`
     }
 `;
 
+export const GhostButton = styled.a`
+    display: flex;
+    align-items: center;
+    color: var(--text-gray);
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    gap: 2px;
+    padding: 6px;
+    border-radius: 24px;
+    font-size: 14px;
+    opacity: 0.8;
+
+    font-weight: 500;
+    &:hover{
+        color: var(--light-white);
+      }
+    @media screen and (max-width: 768px) {
+        font-size: 13px;
+        padding: 4px;
+        gap: 2px;
+        svg{
+          transform: scale(0.8);
+        }
+
+    }
+`;
+
 export const SocialShare = styled.a`
     display: flex;
     align-items: center;
@@ -72,10 +100,10 @@ export const SocialShare = styled.a`
     text-decoration: none;
     cursor: pointer;
     outline: none;
-    gap: 8px;
+    gap: 4px;
     background: linear-gradient(180deg, rgba(65, 65, 65, 0.22) 0%, rgba(35, 35, 35, 0) 100%);
     box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
-    padding: 8px 16px;
+    padding: 6px 16px;
     border-radius: 24px;
     span{
       line-height: 24px;
@@ -89,7 +117,7 @@ export const SocialShare = styled.a`
     @media screen and (max-width: 768px) {
         font-size: 12px;
         padding: 4px 12px;
-        gap: 4px;
+        gap: 2px;
         svg{
           transform: scale(0.8);
         }
@@ -136,7 +164,6 @@ export const Tag = styled.div`
 export const StyledLink = styled.a`
     line-height: normal;
     cursor: pointer;
-    color: ${({ theme }) => theme.text.primary};
 `
 
 export const IssueGrid = styled.div`
