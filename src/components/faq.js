@@ -41,7 +41,7 @@ export default function Faq() {
 
               <Question className="dev">
                 <h3>
-                  How to use in Dev?
+                  How to use in Dev project?
                 </h3>
                 <p>
                   You can grab react package and follow the <a href="https://github.com/realvjy/react-coolshapes?tab=readme-ov-file">documentation</a> to use in your project-
@@ -266,7 +266,7 @@ const Question = styled.div`
   h3{
     font-size: 20px;
     font-weight: 400;
-    color: var(--text-gray);
+    color: var(--white);
   }
   p{
     color: var(--text-gray2);

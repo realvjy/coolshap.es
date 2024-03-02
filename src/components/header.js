@@ -4,10 +4,66 @@ import { Container, GhostButton, GridBackground, LinkButton, SocialShare, Toggle
 import Link from "next/link";
 import styled from "styled-components"
 import { Circle1, Coolshape, Star1, Star2 } from "react-coolshapes"
+import { renderToStaticMarkup } from 'react-dom/server';
+
+import prettier from 'prettier/standalone';
+import parserBabel from 'prettier/parser-babel';
+import reactElementToJSXString from 'react-element-to-jsx-string';
+
+import svgToJsx from "svg-to-jsx";
+
+const svgss = `<svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="55" cy="55" r="55" fill="url(#paint0_linear_434_1196)" />
+<defs>
+  <linearGradient id="paint0_linear_434_1196" x1="55" y1="0" x2="55" y2="110" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#D9D9D9" />
+    <stop offset="1" stop-color="#FF3131" />
+  </linearGradient>
+</defs>
+</svg>`
 import { ArrowUpIcon, CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
+const YourComponent = () => {
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="110"
+      height="110"
+      fill="none"
+      viewBox="0 0 110 110"
+    >
+      <circle
+        cx="55"
+        cy="55"
+        r="55"
+        fill="url(#paint0_linear_434_1196)"
+      ></circle>
+      <defs>
+        <linearGradient
+          id="paint0_linear_434_1196"
+          x1="55"
+          x2="55"
+          y1="0"
+          y2="110"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#D9D9D9"></stop>
+          <stop offset="1" stopColor="#FF3131"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+
 
 
 export default function Header() {
+  const componentCodeString = renderToStaticMarkup(<YourComponent />);
+  // svgToJsx(svgss, function (error, jsx) {
+  //   console.log(jsx);
+  // });
+
   return (
     <HeaderSection>
       <GridBackground />
@@ -71,7 +127,7 @@ export default function Header() {
               <LinkButton href="/">
                 <NpmIcon size={20} />
                 <span>
-                  npm package
+                  react package
                 </span>
               </LinkButton>
             </ButtonWrap>

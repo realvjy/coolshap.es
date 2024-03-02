@@ -10,9 +10,9 @@ export default function Star_9(props) {
             className="coolshapes"
             viewBox="0 0 200 200"
         >
-            <g clipPath="url(#clip0_620_2286)">
+            <g clipPath="url(#clip0_748_4274)">
                 <mask
-                    id="mask0_620_2286"
+                    id="mask0_748_4274"
                     style={{ maskType: "alpha" }}
                     width="200"
                     height="200"
@@ -25,44 +25,39 @@ export default function Star_9(props) {
                         d="M199.686.315C144.773 55.57 144.877 144.877 200 200c-55.123-55.123-144.432-55.229-199.686-.315C55.227 144.432 55.123 55.123 0 0c55.123 55.123 144.432 55.23 199.686.315z"
                     ></path>
                 </mask>
-                <g mask="url(#mask0_620_2286)">
+                <g mask="url(#mask0_748_4274)">
                     <path fill="#fff" d="M200 0H0v200h200V0z"></path>
                     <path
-                        fill="url(#paint0_linear_620_2286)"
-                        fillOpacity="0.55"
+                        fill="url(#paint0_linear_748_4274)"
                         d="M200 0H0v200h200V0z"
                     ></path>
-                    <g filter="url(#filter0_f_620_2286)">
-                        <path fill="#18A0FB" d="M131 3H-12v108h143V3z"></path>
-                        <path fill="#FF58E4" d="M190 109H0v116h190V109z"></path>
+                    <g filter="url(#filter0_f_748_4274)">
                         <ellipse
-                            cx="153.682"
-                            cy="64.587"
-                            fill="#FFD749"
-                            rx="83"
-                            ry="57"
-                            transform="rotate(-33.875 153.682 64.587)"
+                            cx="143.777"
+                            cy="159.535"
+                            fill="#FF58E4"
+                            rx="91.994"
+                            ry="58.126"
+                            transform="rotate(-33.875 143.777 159.535)"
+                        ></ellipse>
+                        <ellipse
+                            cx="64.482"
+                            cy="49.587"
+                            fill="#00F0FF"
+                            rx="69.531"
+                            ry="47.75"
+                            transform="rotate(-26.262 64.482 49.587)"
                         ></ellipse>
                     </g>
                 </g>
             </g>
-            <g style={{ mixBlendMode: "overlay" }} mask="url(#mask0_620_2286)">
-                {showNoise && (
-                    <path
-                        fill="gray"
-                        stroke="transparent"
-                        d="M200 0H0v200h200V0z"
-                        filter="url(#feTurbS09)"
-                    />
-                )}
-            </g>
             <defs>
                 <filter
-                    id="filter0_f_620_2286"
-                    width="361.583"
-                    height="346.593"
-                    x="-72"
-                    y="-61.593"
+                    id="filter0_f_748_4274"
+                    width="388.137"
+                    height="393.095"
+                    x="-81.372"
+                    y="-83.144"
                     colorInterpolationFilters="sRGB"
                     filterUnits="userSpaceOnUse"
                 >
@@ -73,49 +68,22 @@ export default function Star_9(props) {
                         result="shape"
                     ></feBlend>
                     <feGaussianBlur
-                        result="effect1_foregroundBlur_620_2286"
-                        stdDeviation="30"
+                        result="effect1_foregroundBlur_748_4274"
+                        stdDeviation="40"
                     ></feGaussianBlur>
                 </filter>
                 <linearGradient
-                    id="paint0_linear_620_2286"
-                    x1="200"
-                    x2="0"
-                    y1="0"
+                    id="paint0_linear_748_4274"
+                    x1="158.5"
+                    x2="29"
+                    y1="12.5"
                     y2="200"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stopColor="#FF1F00"></stop>
-                    <stop offset="1" stopColor="#FFD600"></stop>
+                    <stop stopColor="#0E6FFF"></stop>
+                    <stop offset="1" stopColor="#00F0FF"></stop>
                 </linearGradient>
-                <filter
-                    id="feTurbS09"
-                    width="100%"
-                    height="100%"
-                    x="0%"
-                    y="0%"
-                    filterUnits="objectBoundingBox"
-                >
-                    <feTurbulence
-                        baseFrequency="0.6"
-                        numOctaves="5"
-                        result="out1"
-                        seed="4"
-                    ></feTurbulence>
-                    <feComposite
-                        in="out1"
-                        in2="SourceGraphic"
-                        operator="in"
-                        result="out2"
-                    ></feComposite>
-                    <feBlend
-                        in="SourceGraphic"
-                        in2="out2"
-                        mode="overlay"
-                        result="out3"
-                    ></feBlend>
-                </filter>
-                <clipPath id="clip0_620_2286">
+                <clipPath id="clip0_748_4274">
                     <path fill="#fff" d="M0 0H200V200H0z"></path>
                 </clipPath>
             </defs>

@@ -10,9 +10,9 @@ export default function Star_3(props) {
             className="coolshapes"
             viewBox="0 0 200 200"
         >
-            <g clipPath="url(#clip0_620_2190)">
+            <g clipPath="url(#clip0_748_4229)">
                 <mask
-                    id="mask0_620_2190"
+                    id="mask0_748_4229"
                     style={{ maskType: "alpha" }}
                     width="200"
                     height="200"
@@ -25,14 +25,14 @@ export default function Star_3(props) {
                         d="M58.579 0L100 31.485 141.421 0l7.027 51.552L200 58.58 168.515 100 200 141.421l-51.552 7.027L141.421 200 100 168.515 58.579 200l-7.027-51.552L0 141.421 31.485 100 0 58.579l51.552-7.027L58.58 0z"
                     ></path>
                 </mask>
-                <g mask="url(#mask0_620_2190)">
+                <g mask="url(#mask0_748_4229)">
                     <path fill="#fff" d="M200 0H0v200h200V0z"></path>
                     <path
                         fill="#FFF500"
                         fillOpacity="0.44"
                         d="M200 0H0v200h200V0z"
                     ></path>
-                    <g filter="url(#filter0_f_620_2190)">
+                    <g filter="url(#filter0_f_748_4229)">
                         <ellipse
                             cx="106"
                             cy="22.5"
@@ -51,19 +51,9 @@ export default function Star_3(props) {
                     </g>
                 </g>
             </g>
-            <g style={{ mixBlendMode: "overlay" }} mask="url(#mask0_620_2190)">
-                {showNoise && (
-                    <path
-                        fill="gray"
-                        stroke="transparent"
-                        d="M200 0H0v200h200V0z"
-                        filter="url(#feTurbS03)"
-                    />
-                )}
-            </g>
             <defs>
                 <filter
-                    id="filter0_f_620_2190"
+                    id="filter0_f_748_4229"
                     width="378"
                     height="433"
                     x="-80"
@@ -78,38 +68,11 @@ export default function Star_3(props) {
                         result="shape"
                     ></feBlend>
                     <feGaussianBlur
-                        result="effect1_foregroundBlur_620_2190"
+                        result="effect1_foregroundBlur_748_4229"
                         stdDeviation="40"
                     ></feGaussianBlur>
                 </filter>
-                <filter
-                    id="feTurbS03"
-                    width="100%"
-                    height="100%"
-                    x="0%"
-                    y="0%"
-                    filterUnits="objectBoundingBox"
-                >
-                    <feTurbulence
-                        baseFrequency="0.6"
-                        numOctaves="5"
-                        result="out1"
-                        seed="4"
-                    ></feTurbulence>
-                    <feComposite
-                        in="out1"
-                        in2="SourceGraphic"
-                        operator="in"
-                        result="out2"
-                    ></feComposite>
-                    <feBlend
-                        in="SourceGraphic"
-                        in2="out2"
-                        mode="overlay"
-                        result="out3"
-                    ></feBlend>
-                </filter>
-                <clipPath id="clip0_620_2190">
+                <clipPath id="clip0_748_4229">
                     <path fill="#fff" d="M0 0H200V200H0z"></path>
                 </clipPath>
             </defs>

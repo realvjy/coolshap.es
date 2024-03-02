@@ -10,9 +10,9 @@ export default function Star_8(props) {
             className="coolshapes"
             viewBox="0 0 200 200"
         >
-            <g clipPath="url(#clip0_620_2273)">
+            <g clipPath="url(#clip0_748_4266)">
                 <mask
-                    id="mask0_620_2273"
+                    id="mask0_748_4266"
                     style={{ maskType: "alpha" }}
                     width="200"
                     height="200"
@@ -25,31 +25,21 @@ export default function Star_8(props) {
                         d="M100 0c12.424 62.382 37.256 87.456 100 100-62.759 12.544-87.591 37.618-100 100-12.424-62.382-37.256-87.471-100-100C62.758 87.456 87.591 62.382 100 0z"
                     ></path>
                 </mask>
-                <g mask="url(#mask0_620_2273)">
+                <g mask="url(#mask0_748_4266)">
                     <path fill="#fff" d="M200 0H0v200h200V0z"></path>
                     <path
-                        fill="url(#paint0_linear_620_2273)"
+                        fill="url(#paint0_linear_748_4266)"
                         fillOpacity="0.55"
                         d="M200 0H0v200h200V0z"
                     ></path>
-                    <g filter="url(#filter0_f_620_2273)">
+                    <g filter="url(#filter0_f_748_4266)">
                         <path fill="#06F" d="M213 69H93v141h120V69z"></path>
                     </g>
                 </g>
             </g>
-            <g style={{ mixBlendMode: "overlay" }} mask="url(#mask0_620_2273)">
-                {showNoise && (
-                    <path
-                        fill="gray"
-                        stroke="transparent"
-                        d="M200 0H0v200h200V0z"
-                        filter="url(#feTurbS08)"
-                    />
-                )}
-            </g>
             <defs>
                 <filter
-                    id="filter0_f_620_2273"
+                    id="filter0_f_748_4266"
                     width="245"
                     height="266"
                     x="30.5"
@@ -64,12 +54,12 @@ export default function Star_8(props) {
                         result="shape"
                     ></feBlend>
                     <feGaussianBlur
-                        result="effect1_foregroundBlur_620_2273"
+                        result="effect1_foregroundBlur_748_4266"
                         stdDeviation="31.25"
                     ></feGaussianBlur>
                 </filter>
                 <linearGradient
-                    id="paint0_linear_620_2273"
+                    id="paint0_linear_748_4266"
                     x1="162"
                     x2="49.5"
                     y1="38"
@@ -79,34 +69,7 @@ export default function Star_8(props) {
                     <stop stopColor="#FF1F00"></stop>
                     <stop offset="1" stopColor="#FF58E4"></stop>
                 </linearGradient>
-                <filter
-                    id="feTurbS08"
-                    width="100%"
-                    height="100%"
-                    x="0%"
-                    y="0%"
-                    filterUnits="objectBoundingBox"
-                >
-                    <feTurbulence
-                        baseFrequency="0.6"
-                        numOctaves="5"
-                        result="out1"
-                        seed="4"
-                    ></feTurbulence>
-                    <feComposite
-                        in="out1"
-                        in2="SourceGraphic"
-                        operator="in"
-                        result="out2"
-                    ></feComposite>
-                    <feBlend
-                        in="SourceGraphic"
-                        in2="out2"
-                        mode="overlay"
-                        result="out3"
-                    ></feBlend>
-                </filter>
-                <clipPath id="clip0_620_2273">
+                <clipPath id="clip0_748_4266">
                     <path fill="#fff" d="M0 0H200V200H0z"></path>
                 </clipPath>
             </defs>

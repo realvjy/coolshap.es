@@ -11,7 +11,7 @@ export default function Footer() {
             <Container>
                 <Wrapper>
                     <LeftWrap>
-                        <CoolShapeLogo size={20} /> <span>Free for Commercial and Personal Use</span>
+                        <CoolShapeLogo size={20} />
                     </LeftWrap>
                     <Credit><h3>made by <a href="https://x.com/realvjy"> <Realvjy /> </a> at <a href="https://x.com/overlayzstudio">overlayz</a></h3></Credit>
                     <RightWrap>
