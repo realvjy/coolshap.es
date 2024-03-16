@@ -1,28 +1,23 @@
-// DynamicIconRenderer.js
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 // import { CoolShapes } from '@/lib/data/cool-shapes';
+import ReactDOMServer from 'react-dom/server';
+import dynamic from 'next/dynamic';
+
 
 import { Coolshape, Star1, Star2 } from "react-coolshapes"
 import { renderToString } from 'react-dom/server'
-import svgToJsx from 'svg-to-jsx';
 
-const ShapeRenderer = ({ iconName, showNoise }) => {
+const Shappp = lazy(() => import('react-coolshapes').then((module) => ({ default: module.Coolshape })));
+
+
+
+const ShapeRenderer = ({ type, showNoise, index }) => {
     const [svgCode, setSvgCode] = useState(null);
-    const str = renderToString(<Coolshape shape={iconName} noise={showNoise} size={140} />)
 
-    useEffect(() => {
-        const svgCode = renderToString(<Coolshape shape={iconName} noise={showNoise} size={140} />)
-        setSvgCode(svgCode);
-    }, [])
-
-    svgToJsx(svgCode, function (error, jsx) {
-        // console.log(jsx);
-    });
 
     return (
         <>
-
-            <Coolshape shape={iconName} noise={showNoise} size={140} />
+            <Coolshape type={type} index={index} noise={showNoise} size={140} />
         </>
     )
 };

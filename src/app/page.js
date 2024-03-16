@@ -30,24 +30,7 @@ export default function Home() {
   return (
     <Main>
       <Header />
-      <Container>
-        <Moon_1 size={160} />
-        <Moon_2 size={160} />
-        <Moon_3 size={160} />
-        <Moon_4 size={160} />
-        <Moon_5 size={160} />
-        <Moon_6 size={160} />
-        <Moon_7 size={160} />
-        <Moon_8 size={160} />
-        <Moon_9 size={160} />
-        <Moon_10 size={160} />
-        <Moon_11 size={160} />
-        <Moon_12 size={160} />
-        <Moon_13 size={160} />
-        <Moon_14 size={160} />
-        <Moon_15 size={160} />
-      </Container>
-      {/* <Landing /> */}
+      <Landing />
       <Faq />
       <Footer />
     </Main>

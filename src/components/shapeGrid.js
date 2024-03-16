@@ -7,7 +7,9 @@ import { CopyIcon, DownloadIcon } from "./icons";
 import React, { useState, useEffect } from 'react';
 import { renderToString } from 'react-dom/server'
 import { Coolshape, Star1, Star2 } from "react-coolshapes"
-import svgToJsx from 'svg-to-jsx';
+import * as copy from "copy-to-clipboard";
+import svgToJsx from "@/lib/svg-to-jsx";
+const template = require("lodash.template");
 
 const YourComponent = () => {
   return (
@@ -47,15 +49,17 @@ export default function ShapeGrid(
     type,
     size,
     noise,
-    slug,
+    index,
   }) {
   const [infoText, setInfoText] = useState('');
   const [isCopy, setIsCopy] = useState(false);
   const shapeType = 'svg';
-  const str = renderToString(<Coolshape shape={slug} noise={true} size={140} />)
+  const [svgName, setSvgName] = useState(null);
+  const [svg, setSvg] = useState(null);
+  const [jsxCode, setJsxcode] = useState(null);
+
   const handleCopySvg = () => {
-    console.log('cling');
-    navigator.clipboard.writeText(str)
+    navigator.clipboard.writeText(svg)
       .then(() => {
         setIsCopy(true);
         setInfoText('SVG Copied!');
@@ -69,31 +73,66 @@ export default function ShapeGrid(
 
   };
 
-  const handleCopyJsx = () => {
-    console.log('cling');
-    svgToJsx(str, function (error, jsx) {
-      navigator.clipboard.writeText(jsx)
-        .then(() => {
-          setIsCopy(true);
-          setInfoText('PNG Copied!');
-          setTimeout(() => {
-            setIsCopy(false);
-          }, 1400);
-        })
-        .catch((error) => {
-          console.error('Unable to copy SVG code to clipboard:', error);
-        });
+
+  const TEMPLATES = {
+    functional: `// Generated from SVG to Code Figma Plugin
+  import React from "react";
+      
+  export const <%= componentName %> = (props) => (
+  <%=  svg %>
+  );
+  `,
+  };
+
+  function reactify(svg, { type = "functional", name }) {
+    const data = {
+      parentComponent: `React.Component`,
+      componentName: `${name}`,
+    };
+
+    const compile = template(TEMPLATES[type]);
+    const component = compile({
+      ...data,
+      svg,
     });
 
+    return component;
+  }
 
+  useEffect(() => {
+    const str = renderToString(<ShapeRenderer type={type} index={index} showNoise={noise} size={size} />)
+    setSvg(str);
+    // Perform the conversion using svgToJsx
+
+  }, []);
+
+  const handleCopyJsx = () => {
+    console.log('copying', svg);
+    svgToJsx(svg, function (error, jsx) {
+      let newCode = reactify(jsx, { type: "functional", name: type });
+      setJsxcode(newCode);
+      console.log('svg', newCode);
+      try {
+        copy(newCode);
+        // This code block will be executed after copy(viewCode) completes
+        setIsCopy(true);
+        setInfoText('JSX Copied!');
+        setTimeout(() => {
+          setIsCopy(false);
+        }, 1400);
+      } catch (error) {
+        // Handle any errors that may occur during the copy(viewCode) operation
+        console.error('Copy failed:', error);
+      }
+    });
   };
 
 
 
   return (
     <ShapeWrap>
-      <ShapeRenderer iconName={slug} showNoise={noise} size={size} />
-
+      <ShapeRenderer type={type} index={index} showNoise={noise} size={size} />
+      {/* <Coolshape type="ellipse" index={1} noise={true} size={140} /> */}
       {isCopy && <Notify>
         <h4>{infoText}</h4>
       </Notify>}
@@ -105,7 +144,7 @@ export default function ShapeGrid(
         </SvgBtn>
         <JsxBtn onClick={handleCopyJsx}>
           <CopyIcon size={16} />
-          png
+          jsx
         </JsxBtn>
       </ShapeBtnWrap>
     </ShapeWrap>

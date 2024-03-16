@@ -406,4 +406,17 @@ export const RotatingGradient = () => {
 
 
 
+function SIcon() {
+    return <svg height="114" width="114" fill="none" viewBox="0 0 114 114" xmlns="http://www.w3.org/2000/svg">
+        <rect height="114" width="114" fill="url(#paint0_linear_145_1279)" />
+        <defs>
+            <linearGradient id="paint0_linear_145_1279" gradientUnits="userSpaceOnUse" x1="57" x2="57" y1="0" y2="114">
+                <stop stopColor="#5000FA" />
+                <stop offset="0.975" stopColor="#FF0000" />
+                <stop offset="1" stopColor="#737373" />
+            </linearGradient>
+        </defs>
+    </svg>;
+}
 
+export default SIcon;

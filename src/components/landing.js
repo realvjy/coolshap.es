@@ -6,15 +6,21 @@ import { Container, GridBackground, ToggleButton } from "@/styles/ReuseableStyle
 import ShapeGrid from "./shapeGrid";
 import { CoolShapes } from "@/lib/data/cool-shapes";
 import { useEffect, useState } from "react";
-import { shapes } from "react-coolshapes"
+import svgToJsx from "../lib/svg-to-jsx";
+import { Coolshape, Star1, Star2, shapes } from "react-coolshapes"
+
+
 export default function Landing(props) {
   const [isNoise, setNoise] = useState(true);
-  const [coolshapes, setCoolshapes] = useState(Object.keys(shapes));
+  // const [coolshapes, setCoolshapes] = useState(Object.keys(shapes).flat());
+  const [svgName, setSvgName] = useState(null);
+  const [svg, setSvg] = useState(null);
+  const coolshapeskeys = Object.keys(shapes).flat();
   const handleToggleChange = () => {
     setNoise(!isNoise);
   };
 
-  console.log(coolshapes);
+
   return (
     <ShapeSection>
       <GridBackground />
@@ -37,25 +43,17 @@ export default function Landing(props) {
         </Seprator>
         <ShapeWrapper>
           <IconListWrap>
-            {coolshapes &&
-              coolshapes.map((data, i) => {
+            {
+              coolshapeskeys.map((shapeType) => {
+                const shapesMeta = shapes[shapeType];
+                console.log(shapesMeta);
                 return (
-                  <ShapeGrid key={i} slug={data} noise={isNoise} size={140} />
-                );
-              })
-            }
-            {coolshapes &&
-              coolshapes.map((data, i) => {
-                return (
-                  <ShapeGrid key={i} slug={data} noise={isNoise} size={140} />
-                );
-              })
-            }
-            {coolshapes &&
-              coolshapes.map((data, i) => {
-                return (
-                  <ShapeGrid key={i} slug={data} noise={isNoise} size={140} />
-                );
+                  shapesMeta.map((_, i) => {
+                    return (
+                      <ShapeGrid index={i + 1} type={shapeType} noise={isNoise} size={140} key={i} />
+                    );
+                  })
+                )
               })
             }
           </IconListWrap>

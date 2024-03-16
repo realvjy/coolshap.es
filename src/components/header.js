@@ -10,7 +10,6 @@ import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babel';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import svgToJsx from "svg-to-jsx";
 
 const svgss = `<svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="55" cy="55" r="55" fill="url(#paint0_linear_434_1196)" />
@@ -21,7 +20,8 @@ const svgss = `<svg width="110" height="110" viewBox="0 0 110 110" fill="none" x
   </linearGradient>
 </defs>
 </svg>`
-import { ArrowUpIcon, CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
+import SIcon, { ArrowUpIcon, CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
+import { Test_P } from "./shapes/test_p";
 const YourComponent = () => {
 
   return (
@@ -91,6 +91,7 @@ export default function Header() {
               <SocialShare href="https://www.buymeacoffee.com/realvjy">
                 <HeartIcon size={20} /> <span>Donate</span>
               </SocialShare>
+              <Test_P />
               <SocialShare
                 href="https://twitter.com/intent/tweet?text=Grab%20100%2B%20cool%20shapes%20with%20grainy%20gradients%20and%20use%20in%20your%20design%20or%20dev%20projects%20from%20https%3A%2F%2Fcoolshap.es%20by%20%40realvjy&url="
               >
