@@ -1,14 +1,9 @@
-<p align=center><img width="480" src="https://lucide.dev/lucide-logo-repo.svg" alt="Lucide Logo"></p>
+# <p align=center>Coolshapes</p>
 <p align="center">
-  <a href="https://github.com/lucide-icons/lucide/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/coolshapes-react" alt="license"></a>
-  <a href="https://www.npmjs.com/package/lucide"><img src="https://img.shields.io/npm/v/react-coolshapes" alt="npm package"></a>
-  <a href="https://www.figma.com/community/plugin/939567362549682242/Lucide-Icons"><img src="https://img.shields.io/endpoint?logo=figma&label=installs&url=https://yuanqing.github.io/figma-plugins-stats/plugin/939567362549682242/installs.json" alt="figma installs"></a>
-  <a href="https://github.com/lucide-icons/lucide/actions/workflows/release.yml"><img src="https://github.com/lucide-icons/lucide/actions/workflows/release.yml/badge.svg" alt="build status"></a>
+  <a href="https://github.com/realvjy/coolshapes-react/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/coolshapes-react" alt="license"></a>
+  <a href="https://www.npmjs.com/package/coolshapes-react"><img src="https://img.shields.io/npm/v/coolshapes-react" alt="npm package"></a>
 
 </p>
-
-# Coolshapes
-
 
 
 ### Why?
@@ -19,7 +14,6 @@
 ## Table of Contents
 
 - [Usage](#usage)
-  - [Web](#web)
   - [React](#react)
 - [Contributing](#contributing)
 - [Community](#community)
@@ -36,7 +30,7 @@ With the Javascript library you can easily incorporate the icon you want in your
 
 ### Web
 
-Implementation of the lucide icon library for web applications.
+Implementation of the coolshapes icon library for web applications.
 
 ```sh
 npm install coolshapes-react
@@ -50,7 +44,7 @@ yarn add coolshapes-react
 
 # Coolshapes React
 
-Implementation of the lucide icon library for react applications.
+Implementation of the coolshapes icon library for react applications.
 
 
 ## How to use
@@ -84,84 +78,20 @@ export default App;
 
 ### Props
 
-| name          | type     | default      |
-| ------------- | -------- | ------------ |
+| name          | type     | default       |
+| ------------- | -------- | -------------  |
 | `size`        | _Number_ | 200           |
-| `type`        | _String_ | currentColor |
-| `noise`       | _Boolean_| true         |
-| `strokeWidth` | _Number_ | 2            |
-| `strokeWidth` | _Number_ | 2            |
-| `strokeWidth` | _Number_ | 2            |
+| `type`        | _String_ | currentColor  |
+| `noise`       | _Boolean_| true          |
+| `index`       | _Number_ | random        |
 
 
-
-
-#### With Dynamic Imports
-
-Lucide react exports a dynamic import map `dynamicIconImports`. Useful for applications that want to show icons dynamically by icon name. For example when using a content management system with where icon names are stored in a database.
-
-When using client side rendering, it will fetch the icon component when it's needed. This will reduce the initial bundle size.
-
-The keys of the dynamic import map are the lucide original icon names.
-
-Example with React suspense:
-
-```tsx
-import React, { lazy, Suspense } from 'react';
-import { LucideProps } from 'lucide-react';
-import dynamicIconImports from 'lucide-react/dynamicIconImports';
-
-const fallback = <div style={{ background: '#ddd', width: 24, height: 24 }}/>
-
-interface IconProps extends Omit<LucideProps, 'ref'> {
-  name: keyof typeof dynamicIconImports;
-}
-
-const Icon = ({ name, ...props }: IconProps) => {
-  const LucideIcon = lazy(dynamicIconImports[name]);
-
-  return (
-    <Suspense fallback={fallback}>
-      <LucideIcon {...props} />
-    </Suspense>
-  );
-}
-
-export default Icon
-```
 
 ##### NextJS Example
 
-In NextJS, [the dynamic function](https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#nextdynamic) can be used to dynamically load the icon component.
-
-To make dynamic imports work with NextJS, you need to add `lucide-react` to the [`transpilePackages`](https://nextjs.org/docs/app/api-reference/next-config-js/transpilePackages) option in your `next.config.js` like this:
-
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ['lucide-react'] // add this
-}
-
-module.exports = nextConfig
-
-```
 
 You can then start using it:
 
-```tsx
-import dynamic from 'next/dynamic'
-import { LucideProps } from 'lucide-react';
-import dynamicIconImports from 'lucide-react/dynamicIconImports';
+## Contributor
 
-interface IconProps extends LucideProps {
-  name: keyof typeof dynamicIconImports;
-}
 
-const Icon = ({ name, ...props }: IconProps) => {
-  const LucideIcon = dynamic(dynamicIconImports[name])
-
-  return <LucideIcon {...props} />;
-};
-
-export default Icon;
-```
