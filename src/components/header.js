@@ -3,7 +3,7 @@
 import { Container, GhostButton, GridBackground, LinkButton, SocialShare, ToggleButton } from "@/styles/ReuseableStyle";
 import Link from "next/link";
 import styled from "styled-components"
-import { Circle1, Coolshape, Star1, Star2 } from "react-coolshapes"
+import { Coolshape, Star1, Star2 } from "coolshapes-react"
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import prettier from 'prettier/standalone';
@@ -91,7 +91,6 @@ export default function Header() {
               <SocialShare href="https://www.buymeacoffee.com/realvjy">
                 <HeartIcon size={20} /> <span>Donate</span>
               </SocialShare>
-              <Test_P />
               <SocialShare
                 href="https://twitter.com/intent/tweet?text=Grab%20100%2B%20cool%20shapes%20with%20grainy%20gradients%20and%20use%20in%20your%20design%20or%20dev%20projects%20from%20https%3A%2F%2Fcoolshap.es%20by%20%40realvjy&url="
               >

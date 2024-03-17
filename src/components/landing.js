@@ -7,7 +7,7 @@ import ShapeGrid from "./shapeGrid";
 import { CoolShapes } from "@/lib/data/cool-shapes";
 import { useEffect, useState } from "react";
 import svgToJsx from "../lib/svg-to-jsx";
-import { Coolshape, Star1, Star2, shapes } from "react-coolshapes"
+import { Coolshape, Star1, Star2, shapes } from "coolshapes-react"
 
 
 export default function Landing(props) {
@@ -46,7 +46,6 @@ export default function Landing(props) {
             {
               coolshapeskeys.map((shapeType) => {
                 const shapesMeta = shapes[shapeType];
-                console.log(shapesMeta);
                 return (
                   shapesMeta.map((_, i) => {
                     return (

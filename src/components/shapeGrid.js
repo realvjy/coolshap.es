@@ -6,7 +6,7 @@ import ShapeRenderer from "./shape-renderer";
 import { CopyIcon, DownloadIcon } from "./icons";
 import React, { useState, useEffect } from 'react';
 import { renderToString } from 'react-dom/server'
-import { Coolshape, Star1, Star2 } from "react-coolshapes"
+import { Coolshape, Star1, Star2 } from "coolshapes-react"
 import * as copy from "copy-to-clipboard";
 import svgToJsx from "@/lib/svg-to-jsx";
 const template = require("lodash.template");

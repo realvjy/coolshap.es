@@ -2,39 +2,37 @@
 import React from "react";
 
 export const Test_P = (props) => (
-  <svg className="coolshape star-2 " height="140" width="140" fill="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <g clipPath="url(#cs_clip_1_star-2)">
-      <mask height="190" id="cs_mask_1_star-2" style={{ "maskType": "alpha" }} width="200" x="0" y="5" maskUnits="userSpaceOnUse">
-        <path d="M100 5l27.194 67.642L200 77.573l-56 46.737L161.803 195 100 156.242 38.197 195 56 124.31 0 77.573l72.806-4.93L100 5z" fill="#fff" />
+  <svg className="coolshape flower-10 " height="140" width="140" fill="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g clipPath="url(#cs_clip_1_flower-10)">
+      <mask height="200" id="cs_mask_1_flower-10" style={{ "maskType": "alpha" }} width="200" x="0" y="0" maskUnits="userSpaceOnUse">
+        <path d="M80.319 34.111C76.102 17.444 81.824 0 99.999 0c18.177 0 23.9 17.444 19.682 34.111-1.636 6.467-4.364 17.835-7.089 29.327-3.332 14.049-4.997 21.073-1.05 25.02 3.947 3.947 10.971 2.281 25.02-1.05 11.492-2.725 22.86-5.453 29.327-7.089C182.556 76.102 200 81.824 200 99.999c0 18.177-17.444 23.9-34.111 19.682-6.467-1.636-17.835-4.364-29.327-7.089-14.049-3.332-21.073-4.997-25.02-1.05-3.947 3.947-2.281 10.971 1.05 25.02 2.725 11.492 5.453 22.86 7.089 29.327C123.898 182.556 118.176 200 100 200c-18.176 0-23.898-17.444-19.681-34.111 1.636-6.467 4.364-17.835 7.089-29.327 3.332-14.049 4.997-21.073 1.05-25.02-3.947-3.947-10.971-2.281-25.02 1.05-11.492 2.725-22.86 5.453-29.327 7.089C17.444 123.898 0 118.176 0 100c0-18.176 17.444-23.898 34.111-19.681 6.467 1.636 17.835 4.364 29.327 7.089 14.049 3.332 21.073 4.997 25.02 1.05 3.947-3.947 2.281-10.971-1.05-25.02-2.725-11.492-5.453-22.86-7.089-29.327z" fill="#fff" />
+        <path d="M50 73c12.703 0 23-10.297 23-23S62.703 27 50 27 27 37.297 27 50s10.297 23 23 23zM150 73c12.703 0 23-10.297 23-23s-10.297-23-23-23-23 10.297-23 23 10.297 23 23 23zM73 150c0 12.703-10.297 23-23 23s-23-10.297-23-23 10.297-23 23-23 23 10.297 23 23zM150 173c12.703 0 23-10.297 23-23s-10.297-23-23-23-23 10.297-23 23 10.297 23 23 23z" fill="#fff" />
       </mask>
-      <g mask="url(#cs_mask_1_star-2)">
+      <g mask="url(#cs_mask_1_flower-10)">
         <path d="M200 0H0v200h200V0z" fill="#fff" />
-        <path d="M200 0H0v200h200V0z" fill="url(#paint0_linear_748_4335)" fillOpacity="0.55" />
-        <g filter="url(#filter0_f_748_4335)">
-          <path d="M224 5H96v113h128V5z" fill="#06F" />
-          <path d="M99 72H0v97h99V72z" fill="#FF00D6" />
+        <path d="M200 0H0v200h200V0z" fill="#FF6C02" fillOpacity="0.19" />
+        <g filter="url(#filter0_f_748_4624)">
+          <path d="M152 84H13v105h139V84z" fill="#FF3216" />
+          <path d="M163-10H42v89h121v-89z" fill="#FF58E4" />
+          <path d="M204 77H100v129h104V77z" fill="#FFE500" />
         </g>
       </g>
     </g>
-    <g style={{ "mixBlendMode": "overlay" }} mask="url(#cs_mask_1_star-2)">
-      <path d="M200 0H0v200h200V0z" fill="gray" stroke="transparent" filter="url(#feTurbS01-star-2)" />
+    <g style={{ "mixBlendMode": "overlay" }} mask="url(#cs_mask_1_flower-10)">
+      <path d="M200 0H0v200h200V0z" fill="gray" stroke="transparent" filter="url(#feTurbS01-flower-10)" />
     </g>
     <defs>
-      <filter height="304" id="filter0_f_748_4335" width="364" x="-70" y="-65" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+      <filter height="341" id="filter0_f_748_4624" width="316" x="-49.5" y="-72.5" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
         <feFlood result="BackgroundImageFix" floodOpacity="0" />
         <feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" />
-        <feGaussianBlur result="effect1_foregroundBlur_748_4335" stdDeviation="35" />
+        <feGaussianBlur result="effect1_foregroundBlur_748_4624" stdDeviation="31.25" />
       </filter>
-      <linearGradient id="paint0_linear_748_4335" gradientUnits="userSpaceOnUse" x1="162" x2="49.5" y1="38" y2="150.5">
-        <stop stopColor="#FF1F00" />
-        <stop offset="1" stopColor="#FF58E4" />
-      </linearGradient>
-      <clipPath id="cs_clip_1_star-2">
+      <clipPath id="cs_clip_1_flower-10">
         <path d="M0 0H200V200H0z" fill="#fff" />
       </clipPath>
     </defs>
     <defs>
-      <filter height="100%" id="feTurbS01-star-2" width="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <filter height="100%" id="feTurbS01-flower-10" width="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
         <feBlend result="out3" in="SourceGraphic" in2="out2" />
       </filter>
     </defs>
