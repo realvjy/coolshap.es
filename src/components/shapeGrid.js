@@ -17,39 +17,9 @@ import {
   svgBase64,
   unit8toPng,
 } from "@/lib/helpers";
-import { camelCase } from "@/lib/svg-to-jsx/utils";
 
 const template = require("lodash.template");
 
-const YourComponent = () => {
-  return (
-    <svg className="coolshapes star-1 " height="140" width="140" fill="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <g clipPath="url(#cs_clip_1_star-1)">
-        <mask height="200" id="cs_mask_1_star-1" style={{ "maskType": "alpha" }} width="200" x="0" y="0" maskUnits="userSpaceOnUse">
-          <path d="M200 100C200 44.772 155.228 0 100 0S0 44.772 0 100s44.772 100 100 100 100-44.772 100-100zm-85.203-14.797c8.22 8.22 20.701 9.966 45.664 13.461L170 100l-9.539 1.335c-24.963 3.495-37.444 5.242-45.664 13.462-8.219 8.22-9.967 20.701-13.462 45.664L100 170l-1.335-9.539c-3.495-24.963-5.243-37.444-13.462-45.664-8.22-8.22-20.701-9.967-45.664-13.462L30 100l9.539-1.336c24.963-3.495 37.444-5.242 45.664-13.462 8.22-8.22 9.967-20.7 13.462-45.663L100 30l1.335 9.538c3.495 24.963 5.243 37.445 13.462 45.665z" fill="#fff" fillRule="evenodd" />
-        </mask>
-        <g mask="url(#cs_mask_1_star-1)">
-          <path d="M200 0H0v200h200V0z" fill="#fff" />
-          <path d="M200 0H0v200h200V0z" fill="#FFF9C5" fillOpacity="0.44" />
-          <g>
-            <path d="M158 22H15v108h143V22z" fill="#00F0FF" fillOpacity="0.85" />
-            <path d="M209 101H52v116h157V101z" fill="#FF58E4" />
-            <ellipse cx="156" cy="80" fill="#FFE500" fillOpacity="0.79" rx="83" ry="57" />
-          </g>
-        </g>
-      </g>
-      <g style={{ "mixBlendMode": "overlay" }} mask="url(#cs_mask_1_star-1)">
-        <path d="M200 0H0v200h200V0z" fill="gray" stroke="transparent" />
-      </g>
-      <defs>
-        <clipPath id="cs_clip_1_star-1">
-          <path d="M0 0H200V200H0z" fill="#fff" />
-        </clipPath>
-      </defs>
-      <defs />
-    </svg>
-  );
-};
 
 export default function ShapeGrid(
   { name,
@@ -74,17 +44,18 @@ export default function ShapeGrid(
   const pngRef = React.useRef(null);
 
   const handleCopySvg = () => {
-    navigator.clipboard.writeText(svg)
-      .then(() => {
-        setIsCopy(true);
-        setInfoText('SVG Copied!');
-        setTimeout(() => {
-          setIsCopy(false);
-        }, 1400);
-      })
-      .catch((error) => {
-        console.error('Unable to copy SVG code to clipboard:', error);
-      });
+    try {
+      copy(svg);
+      // This code block will be executed after copy(viewCode) completes
+      setIsCopy(true);
+      setInfoText('SVG Copied!');
+      setTimeout(() => {
+        setIsCopy(false);
+      }, 1400);
+    } catch (error) {
+      // Handle any errors that may occur during the copy(viewCode) operation
+      console.error('Copy failed:', error);
+    }
 
   };
 
@@ -116,14 +87,20 @@ export default function ShapeGrid(
   }
 
   useEffect(() => {
+    setSVGandName();
+  }, []);
+
+  useEffect(() => {
+    setSVGandName();
+  }, [noise]);
+
+  const setSVGandName = () => {
     const str = renderToString(<ShapeRenderer type={type} index={index} showNoise={noise} size={400} />)
     setSvg(str);
 
     let name = type + "_" + index
     setSvgName(convertToCamelCase(name));
-  }, []);
-
-
+  }
 
   const handleCopyJsx = () => {
     console.log('copying', svg);
@@ -290,7 +267,8 @@ const ShapeBtnWrap = styled.div`
   transition: all .5s var(--emo-in-out)!important;
   gap: 12px;
   background: radial-gradient(76% 25% at 50% -15%, rgba(32, 88, 233, 0.4) 0%, rgba(12,12,12, 0.3) 100%), linear-gradient(180deg,rgba(12,12,12,0.1) 0%,rgba(12,12,12,0.2) 100%);
-  backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px)!important;
+  -webkit-backdrop-filter: blur(22px)!important;
   &::before, &::after{
     content: "";
     position: absolute;
@@ -311,6 +289,9 @@ const ShapeBtnWrap = styled.div`
     width: 100%;
     gap: 16px;
     transition: all .5s var(--emo-in-out)!important;
+    @media screen and (max-width: 768px) {
+      gap: 12px;
+    }
   }
   .dwn-row{
     transform: translateY(20px);
@@ -333,6 +314,11 @@ const CopyBtn = styled.a`
   gap: 2px;
   min-width: 78px;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    font-size: 13px;
+    min-width: 70px;
+    padding: 6px 12px;
+  }
 `;
 
 const SvgBtn = styled(CopyBtn)`
