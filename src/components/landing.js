@@ -12,15 +12,35 @@ import { Coolshape, Star1, Star2, shapes } from "coolshapes-react"
 
 export default function Landing(props) {
   const [isNoise, setNoise] = useState(true);
-  // const [coolshapes, setCoolshapes] = useState(Object.keys(shapes).flat());
-  const [svgName, setSvgName] = useState(null);
-  const [svg, setSvg] = useState(null);
   const coolshapeskeys = Object.keys(shapes).flat();
+  const [shapeSize, setShapeSize] = useState(140);
   const handleToggleChange = () => {
     setNoise(!isNoise);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      // Update itemsPerRow based on screen size
+      if (window.innerWidth >= 768) {
+        // Desktop view
+        setShapeSize(140);
+      } else {
+        // Mobile view
+        setShapeSize(120);
+      }
+    };
 
+    // Attach the event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Initial call to set itemsPerRow based on the initial screen size
+    handleResize();
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array ensures that the effect runs only once on mount
   return (
     <ShapeSection>
       <GridBackground />
@@ -49,7 +69,7 @@ export default function Landing(props) {
                 return (
                   shapesMeta.map((_, i) => {
                     return (
-                      <ShapeGrid index={i + 1} type={shapeType} noise={isNoise} size={140} key={i} />
+                      <ShapeGrid index={i + 1} type={shapeType} noise={isNoise} size={shapeSize} key={i} />
                     );
                   })
                 )

@@ -4,11 +4,21 @@ import styled from "styled-components"
 import { CoolShapes } from "@/lib/data/cool-shapes";
 import ShapeRenderer from "./shape-renderer";
 import { CopyIcon, DownloadIcon } from "./icons";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { renderToString } from 'react-dom/server'
 import { Coolshape, Star1, Star2 } from "coolshapes-react"
 import * as copy from "copy-to-clipboard";
 import svgToJsx from "@/lib/svg-to-jsx";
+import {
+  convertToCamelCase,
+  encodeImage,
+  getImageData,
+  loadImage,
+  svgBase64,
+  unit8toPng,
+} from "@/lib/helpers";
+import { camelCase } from "@/lib/svg-to-jsx/utils";
+
 const template = require("lodash.template");
 
 const YourComponent = () => {
@@ -52,11 +62,16 @@ export default function ShapeGrid(
     index,
   }) {
   const [infoText, setInfoText] = useState('');
+  const [imgData, setImgData] = React.useState(null);
   const [isCopy, setIsCopy] = useState(false);
   const shapeType = 'svg';
   const [svgName, setSvgName] = useState(null);
   const [svg, setSvg] = useState(null);
   const [jsxCode, setJsxcode] = useState(null);
+  const imgRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [imageSrc, setImageSrc] = useState('');
+  const pngRef = React.useRef(null);
 
   const handleCopySvg = () => {
     navigator.clipboard.writeText(svg)
@@ -75,7 +90,7 @@ export default function ShapeGrid(
 
 
   const TEMPLATES = {
-    functional: `// Generated from SVG to Code Figma Plugin
+    functional: `// Generated from https://coolshap.es by realvjy
   import React from "react";
       
   export const <%= componentName %> = (props) => (
@@ -85,9 +100,10 @@ export default function ShapeGrid(
   };
 
   function reactify(svg, { type = "functional", name }) {
+
     const data = {
       parentComponent: `React.Component`,
-      componentName: `${name}`,
+      componentName: `${svgName}`,
     };
 
     const compile = template(TEMPLATES[type]);
@@ -100,11 +116,14 @@ export default function ShapeGrid(
   }
 
   useEffect(() => {
-    const str = renderToString(<ShapeRenderer type={type} index={index} showNoise={noise} size={size} />)
+    const str = renderToString(<ShapeRenderer type={type} index={index} showNoise={noise} size={400} />)
     setSvg(str);
-    // Perform the conversion using svgToJsx
 
+    let name = type + "_" + index
+    setSvgName(convertToCamelCase(name));
   }, []);
+
+
 
   const handleCopyJsx = () => {
     console.log('copying', svg);
@@ -129,24 +148,76 @@ export default function ShapeGrid(
 
 
 
+  const svgToPng = async () => {
+    const imgSource = svgBase64(svg);
+    const svgImg = await loadImage(imgSource, imgRef);
+    const { imageData, canvas, context } = getImageData(svgImg, canvasRef);
+
+    const imageEncoded = await encodeImage(canvas, context, imageData);
+    const dataUrl = unit8toPng(imageEncoded);
+    setImageSrc(dataUrl);
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = 'CS_' + svgName + '.png';
+    document.body.appendChild(a);
+
+    a.click();
+    // Remove the anchor element from the document
+    document.body.removeChild(a);
+  }
+
+  const dwnSVG = async () => {
+    try {
+      const svgData = svg; // Assuming svg is your SVG content
+      const blob = new Blob([svgData], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'CS_' + svgName + '.svg';
+      document.body.appendChild(a);
+
+      a.click();
+
+      // Cleanup: Remove the anchor element and revoke the URL
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading SVG:', error);
+    }
+  };
   return (
     <ShapeWrap>
       <ShapeRenderer type={type} index={index} showNoise={noise} size={size} />
-      {/* <Coolshape type="ellipse" index={1} noise={true} size={140} /> */}
-      {isCopy && <Notify>
-        <h4>{infoText}</h4>
-      </Notify>}
 
       <ShapeBtnWrap className="copy-btn">
-        <SvgBtn onClick={handleCopySvg}>
-          <CopyIcon size={16} />
-          svg
-        </SvgBtn>
-        <JsxBtn onClick={handleCopyJsx}>
-          <CopyIcon size={16} />
-          jsx
-        </JsxBtn>
+        {isCopy && <Notify>
+          <h4>{infoText}</h4>
+        </Notify>}
+        <div className="copy-row">
+          <SvgBtn onClick={handleCopySvg}>
+            <CopyIcon size={16} />
+            svg
+          </SvgBtn>
+          <JsxBtn onClick={handleCopyJsx}>
+            <CopyIcon size={16} />
+            jsx
+          </JsxBtn>
+        </div>
+        <div className="dwn-row">
+          <SvgLineBtn onClick={dwnSVG}>
+            <DownloadIcon size={16} />
+            svg
+          </SvgLineBtn>
+          <JsxLineBtn onClick={svgToPng}>
+            <DownloadIcon size={16} />
+            PNG
+          </JsxLineBtn>
+        </div>
       </ShapeBtnWrap>
+      <canvas ref={canvasRef} style={{ display: "none" }} />
+      <img ref={imgRef} style={{ display: "none" }} />
+      <img ref={pngRef} style={{ display: 'none' }} />
     </ShapeWrap>
   );
 }
@@ -162,7 +233,7 @@ const ShapeWrap = styled.div`
   justify-content: center;
   align-items: center;
   transition: all .4s var(--emo-in-out)!important;
-
+  overflow: hidden;
   background: linear-gradient(180deg,rgba(255,255,255,0.0) 0%,rgba(255,255,255,0.02) 100%);
   cursor: pointer;
   @media screen and (max-width: 768px) {
@@ -172,18 +243,22 @@ const ShapeWrap = styled.div`
     padding: 30px;
   }
 
-  &:hover {
-    padding-top: 10px;
+  &:hover, &.active {
     background: radial-gradient(76% 25% at 50% -15%, rgba(32, 88, 233, 0.3) 0%, rgba(12,12,12, 0.0) 100%), linear-gradient(180deg,rgba(255,255,255,0.0) 0%,rgba(255,255,255,0.02) 100%);
     .copy-btn {
-      bottom: 20px;
+      /* bottom: 20px; */
       opacity: 1;
+    }
+    .dwn-row{
+      transform: translateY(0);
+    }
+    .copy-row{
+      transform: translateY(0);
     }
     &::before{
     }
     &::after{
       inset: 0;
-      /* box-shadow: inset 0 2px 4px 0 rgba(132,188,233, 0.1), inset 0 0px 0px 1px rgba(199,211,234,.05); */
       box-shadow: inset 0 0px 0px 1px rgba(255,255,255,.04);
     }
   }
@@ -197,34 +272,67 @@ const ShapeWrap = styled.div`
   }
   &::after{
     inset: 0;
-    /* box-shadow: inset 0 2px 1px 0 rgba(132,188,233, 0.1), inset 0 0px 1px 1px rgba(199,211,234,.03); */
     box-shadow: inset 0 0px 0px 1px rgba(255,255,255,.04);
   }
 `;
 const ShapeBtnWrap = styled.div`
+  border-radius: 36px;
   position: absolute;
   bottom: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
   transition: all .5s var(--emo-in-out)!important;
   gap: 12px;
+  background: radial-gradient(76% 25% at 50% -15%, rgba(32, 88, 233, 0.4) 0%, rgba(12,12,12, 0.3) 100%), linear-gradient(180deg,rgba(12,12,12,0.1) 0%,rgba(12,12,12,0.2) 100%);
+  backdrop-filter: blur(22px);
+  &::before, &::after{
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  &::before{
+  }
+  &::after{
+    inset: 0;
+    box-shadow: inset 0 0px 0px 1px rgba(255,255,255,.04);
+  }
+  .dwn-row, .copy-row{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 16px;
+    transition: all .5s var(--emo-in-out)!important;
+  }
+  .dwn-row{
+    transform: translateY(20px);
+  }
+  .copy-row{
+    transform: translateY(-20px);
+  }
 `;
 
 const CopyBtn = styled.a`
+  position: relative;
   font-weight: 600;
   font-size: 14px;
   line-height: 114.1%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: 8px 14px;
   border-radius: 20px;
-  background: red;
   text-transform: uppercase;
   gap: 2px;
+  min-width: 78px;
+  justify-content: center;
 `;
 
 const SvgBtn = styled(CopyBtn)`
@@ -237,6 +345,29 @@ const SvgBtn = styled(CopyBtn)`
     ),
     rgba(44, 47, 58, 0.44);
 `;
+
+const SvgLineBtn = styled(CopyBtn)`
+  &::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px; 
+    padding: 10px; 
+    border: 2px solid transparent;
+    background: linear-gradient(
+      284.15deg,
+      #ffc83a -201.13%,
+      #ff008a -108.68%,
+      #ffd600 -16.22%,
+      #17bde1 76.23%
+    ) border-box; /*3*/
+    -webkit-mask: /*4*/
+     linear-gradient(#fff 0 0) padding-box, 
+     linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; /*5'*/
+          mask-composite: exclude; /*5*/
+  }
+`;
 const JsxBtn = styled(CopyBtn)`
   background: linear-gradient(
       284.86deg,
@@ -247,6 +378,30 @@ const JsxBtn = styled(CopyBtn)`
     ),
     rgba(44, 47, 58, 0.44);
 `;
+
+const JsxLineBtn = styled(CopyBtn)`
+  &::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px; 
+    padding: 10px; 
+    border: 2px solid transparent;
+    background: linear-gradient(
+      284.86deg,
+      #ffc83a -8.52%,
+      #ff008a 77.46%,
+      #6100ff 163.44%,
+      #178ce1 249.41%
+    ) border-box; /*3*/
+    -webkit-mask: /*4*/
+     linear-gradient(#fff 0 0) padding-box, 
+     linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; /*5'*/
+          mask-composite: exclude; /*5*/
+  }
+`;
+
 const Shape = styled.img`
   width: 100%;
   height: auto;
@@ -254,10 +409,9 @@ const Shape = styled.img`
 
 const Notify = styled.div`
   position: absolute;
-  
+  top: 20px;
   h4{
-    background: rgba(12,12,12,0.7);
-    backdrop-filter: blur(8px);
+    background: rgba(12,12,12,0.4);
     border-radius: 6px;
     font-weight: 500;
     color: #70FFF6;

@@ -26,7 +26,7 @@ export default function Faq() {
                   What the hell is this?
                 </h3>
                 <p>
-                  A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted by <a href="#">@realvjy</a>. CoolShapes is a completely open-source set of 70+ abstract shapes crafted for any design and development projects. Free for both commercial and personal use. Licensed under <a href="https://github.com/realvjy/react-coolshapes?tab=MIT-1-ov-file#readme">MIT</a>.
+                  A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted by <a href="#">@realvjy</a>. CoolShapes is a completely open-source set of 100+ abstract shapes crafted for any design and development projects. Free for both commercial and personal use. Licensed under <a href="https://github.com/realvjy/react-coolshapes?tab=MIT-1-ov-file#readme">MIT</a>.
                 </p>
               </Question>
 

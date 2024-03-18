@@ -1,19 +1,11 @@
 import { useEffect, useState } from "react";
-// import { CoolShapes } from '@/lib/data/cool-shapes';
-import ReactDOMServer from 'react-dom/server';
-import dynamic from 'next/dynamic';
-
-
 import { Coolshape, Star1, Star2 } from "coolshapes-react"
-import { renderToString } from 'react-dom/server'
 
-const ShapeRenderer = ({ type, showNoise, index }) => {
-    const [svgCode, setSvgCode] = useState(null);
-
+const ShapeRenderer = ({ type, showNoise, index, size }) => {
 
     return (
         <>
-            <Coolshape type={type} index={index} noise={showNoise} size={140} />
+            <Coolshape type={type} index={index} noise={showNoise} size={size} />
         </>
     )
 };
