@@ -521,10 +521,10 @@ concat-map@0.0.1:
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-coolshapes-react@^0.0.5-alpha.0:
-  version "0.0.5-alpha.0"
-  resolved "https://registry.yarnpkg.com/coolshapes-react/-/coolshapes-react-0.0.5-alpha.0.tgz#4608881d85332460a8ac55d2d343c733f9767cb8"
-  integrity sha512-MELfjOrND9pIxIj4QhS4AYTlDUiYo2qNg+AQnct9r4tfrw7Eq96cRMeeXVAlBlL16h28CBlCS+zw0rEYB3h75A==
+coolshapes-react@^0.0.5-alpha.1:
+  version "0.0.5-alpha.1"
+  resolved "https://registry.yarnpkg.com/coolshapes-react/-/coolshapes-react-0.0.5-alpha.1.tgz#a9b9b46536cdca21c92c651c50a881943da715a7"
+  integrity sha512-CA1eUiDdhBh2uKqfxJjGENKHuK08yoo70IHKU71JMC59QdtuQ20q/FV4UaPDqdSgtBZs/ng42N8/Hz83zzFgRw==
 
 copy-to-clipboard@^3.3.3:
   version "3.3.3"
