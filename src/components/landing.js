@@ -69,7 +69,7 @@ export default function Landing(props) {
                 return (
                   shapesMeta.map((_, i) => {
                     return (
-                      <ShapeGrid index={i + 1} type={shapeType} noise={isNoise} size={shapeSize} key={i} />
+                      <ShapeGrid index={i} type={shapeType} noise={isNoise} size={shapeSize} key={i} />
                     );
                   })
                 )

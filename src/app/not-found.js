@@ -13,9 +13,9 @@ export default function NotFound() {
             <NoContainer>
                 <NoWrapper>
                     <FourOh>
-                        <Coolshape type="ellipse" index={1} />
-                        <Coolshape type="ellipse" index={2} />
-                        <Coolshape type="ellipse" index={3} />
+                        <Coolshape type="number" index={4} />
+                        <Coolshape type="number" index={0} />
+                        <Coolshape type="number" index={4} />
                     </FourOh>
                     <h2>Only 404 Shape found here</h2>
                     <LinkButton href="/">Go Back Home</LinkButton>

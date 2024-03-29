@@ -67,7 +67,7 @@ export default function Header() {
                   download all
                 </span>
               </LinkButton>
-              <LinkButton href="/">
+              <LinkButton href="https://www.npmjs.com/package/coolshapes-react" target="_blank">
                 <NpmIcon size={20} />
                 <span>
                   react package
