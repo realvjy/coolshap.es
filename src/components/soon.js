@@ -62,7 +62,8 @@ const FourOh = styled.div`
     min-height: 180px;
     padding: 24px;
     @media screen and (max-width: 768px) {
-      transform: scale(0.4);
+      flex-direction: column;
+      gap: 30px;
     }
 `
 
