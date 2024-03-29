@@ -7,15 +7,17 @@ import { Shape2, Shape3, Shape4 } from "@/components/shapes";
 import Footer from "@/components/footer";
 import { Container, GridBackground } from "@/styles/ReuseableStyle";
 import Faq from "@/components/faq";
+import Soon from "@/components/soon";
 
 
 export default function Home() {
   return (
     <Main>
-      <Header />
+      {/* <Header />
       <Landing />
       <Faq />
-      <Footer />
+      <Footer /> */}
+      <Soon />
     </Main>
   );
 }
