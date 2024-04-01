@@ -1,36 +1,35 @@
+[![Coolshapes](https://coolshap.es/preview.jpg)](https://coolshap.es)
+
 # <p align=center>Coolshapes</p>
+
 <p align="center">
   <a href="https://github.com/realvjy/coolshapes-react/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/coolshapes-react" alt="license"></a>
   <a href="https://www.npmjs.com/package/coolshapes-react"><img src="https://img.shields.io/npm/v/coolshapes-react" alt="npm package"></a>
 
 </p>
 
+A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted by [@realvjy](https://x.com/realvjy). Coolshapes is a completely open-source set of 100+ abstract shapes crafted for any design and development projects. Free for both commercial and personal use. Licensed under MIT.
 
-### Why?
+## What is this?
+This repository contains the source code for the landing page of [coolshap.es](https://coolshap.es)
+Coded in **Nextjs** and deployed on **vercel**
 
-- More icons to work with: Lucide already has hundreds of icons more than Feather does.
+----
+## Usage: Designer
+You can directly copy from website or download figma file
+#### Figma Community
+
+Grab this figma file fromt he community
+
+#### Copy or Download
+Copy or download the `svg`/ `png` file from website [coolshap.es](https://coolshap.es)
+
+---
+## Usage: Developer
 
 
-## Table of Contents
 
-- [Usage](#usage)
-  - [React](#react)
-- [Contributing](#contributing)
-- [Community](#community)
-- [License](#license)
-- [Credits](#credits)
-- [Sponsors](#sponsors)
-
-## Usage
-
-At its core, Lucide is a collection of [SVG](https://svgontheweb.com/#svg) files. This means that you can use Lucide icons in all the same ways you can use SVGs (e.g. `img`, `background-image`, `inline`, `object`, `embed`, `iframe`). Here's a helpful article detailing the many ways SVGs can be used on the web: [SVG on the Web – Implementation Options](https://svgontheweb.com/#implementation)
-
-The following are additional ways you can use Lucide.
-With the Javascript library you can easily incorporate the icon you want in your webpage.
-
-### Web
-
-Implementation of the coolshapes icon library for web applications.
+#### 🛠️ Installation
 
 ```sh
 npm install coolshapes-react
@@ -42,56 +41,50 @@ or
 yarn add coolshapes-react
 ```
 
-# Coolshapes React
-
-Implementation of the coolshapes icon library for react applications.
+#### ⭐️ How to use
 
 
-## How to use
+##### Global component example
 
-It's built with ES modules so it's completely tree-shakable.
-Each icon can be imported as a react component.
-
-### Example
-
-You can pass additional props to adjust the icon.
+Just import the Global component `Coolshape` and it will work.
 
 ```js
-import { Coolshape } from 'coolshapes-react';
+import { Coolshape } from "coolshapes-react";
 
 const App = () => {
-  return <Coolshape type="star" size={48} noise={true} />;
+  return <Coolshape type="star" index={0} size={48} noise={true} />;
 };
 
 export default App;
 ```
 
+##### Component with shape category example
+
+You can import the component for specific category - `Star`,`Ellipse`... etc - and simply pass the index of the shape.
+
 ```js
-import { Star, Ellipse } from 'coolshapes-react';
+import { Star } from "coolshapes-react";
 
 const App = () => {
-  return <Star index="1" size={48} noise={true} />;
+  return <Star index={0} size={48} />;
 };
 
 export default App;
 ```
 
-### Props
 
-| name          | type     | default       |
-| ------------- | -------- | -------------  |
-| `size`        | _Number_ | 200           |
-| `type`        | _String_ | currentColor  |
-| `noise`       | _Boolean_| true          |
-| `index`       | _Number_ | random        |
+#### Check this [detailed Documentations](https://github.com/realvjy/coolshapes-react?tab=readme-ov-file#readme) for all props details
 
+----
 
+## Contribution & Feedback
 
-##### NextJS Example
+Created by [@realvjy](https://x.com/realvjy). You are always welcome to share your feedback on twitter or any social media platform.
 
+If you want to contribute. Just create a pull request.
 
-You can then start using it:
+## Support & Donation
 
-## Contributor
+**Coffee fuels coding ☕️**
 
-
+<a href="https://www.buymeacoffee.com/realvjy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>

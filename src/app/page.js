@@ -13,16 +13,14 @@ import Soon from "@/components/soon";
 export default function Home() {
   return (
     <Main>
-      {/* <Header />
+      <Header />
       <Landing />
       <Faq />
-      <Footer /> */}
-      <Soon />
+      <Footer />
+      {/* <Soon /> */}
     </Main>
   );
 }
-
-
 
 const Main = styled.main`
   position: relative;

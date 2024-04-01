@@ -521,10 +521,10 @@ concat-map@0.0.1:
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-coolshapes-react@^0.0.6-alpha.0:
-  version "0.0.6-alpha.0"
-  resolved "https://registry.yarnpkg.com/coolshapes-react/-/coolshapes-react-0.0.6-alpha.0.tgz#a96a249fb8b3d58b59053379fd96f1c97926ea5f"
-  integrity sha512-DY2QkzL+G8l+7zfMcqh+YTm6QWhNNyMw8OuQ7/vZh7z5McG7qrdWnOHH8GxVQ6O0rI+6t8eoHALsmJAehafaow==
+coolshapes-react@^0.0.8-alpha.1:
+  version "0.0.8-alpha.1"
+  resolved "https://registry.yarnpkg.com/coolshapes-react/-/coolshapes-react-0.0.8-alpha.1.tgz#ad74fd1b07031e6f66ef43a087eb12e3ad413480"
+  integrity sha512-Bfj5l3BpRT/siPsypgHfauUaRopfwh6oQN6VptMP2vRqO7IJQRDdRZ4YS4HReYHoDXlKh3TL0fjCBbJn/4XPEg==
 
 copy-to-clipboard@^3.3.3:
   version "3.3.3"
@@ -1568,7 +1568,7 @@ locate-path@^6.0.0:
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
+  resolved "https://registry.npmjs.org/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz"
   integrity sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==
 
 lodash.merge@^4.6.2:
@@ -1578,7 +1578,7 @@ lodash.merge@^4.6.2:
 
 lodash.template@^4.5.0:
   version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
+  resolved "https://registry.npmjs.org/lodash.template/-/lodash.template-4.5.0.tgz"
   integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
   dependencies:
     lodash._reinterpolate "^3.0.0"
@@ -1586,7 +1586,7 @@ lodash.template@^4.5.0:
 
 lodash.templatesettings@^4.0.0:
   version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
+  resolved "https://registry.npmjs.org/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz"
   integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
   dependencies:
     lodash._reinterpolate "^3.0.0"
@@ -1909,7 +1909,7 @@ punycode@^2.1.0:
 
 q@^1.5.1:
   version "1.5.1"
-  resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+  resolved "https://registry.npmjs.org/q/-/q-1.5.1.tgz"
   integrity sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==
 
 queue-microtask@^1.2.2:
@@ -2047,7 +2047,7 @@ safe-regex-test@^1.0.3:
 
 sax@>=0.6.0:
   version "1.3.0"
-  resolved "https://registry.yarnpkg.com/sax/-/sax-1.3.0.tgz#a5dbe77db3be05c9d1ee7785dbd3ea9de51593d0"
+  resolved "https://registry.npmjs.org/sax/-/sax-1.3.0.tgz"
   integrity sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==
 
 scheduler@^0.23.0:
@@ -2471,7 +2471,7 @@ wrappy@1:
 
 xml2js@^0.6.2:
   version "0.6.2"
-  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.6.2.tgz#dd0b630083aa09c161e25a4d0901e2b2a929b499"
+  resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.6.2.tgz"
   integrity sha512-T4rieHaC1EXcES0Kxxj4JWgaUQHDk+qwHcYOCFHfiwKz7tOVPLq7Hjq9dM1WCMhylqMEfP7hMcOIChvotiZegA==
   dependencies:
     sax ">=0.6.0"
@@ -2479,7 +2479,7 @@ xml2js@^0.6.2:
 
 xmlbuilder@~11.0.0:
   version "11.0.1"
-  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-11.0.1.tgz#be9bae1c8a046e76b31127726347d0ad7002beb3"
+  resolved "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-11.0.1.tgz"
   integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
 yallist@^4.0.0:

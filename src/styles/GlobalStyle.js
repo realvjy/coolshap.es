@@ -48,6 +48,7 @@ body.light-mode {
   --gray: #1C1F21;
   --light-black: rgba(0,0,0,.05);
   --light-white: rgba(255,255,255,0.8);
+  --text-gray3: rgba(144,144, 144, 0.6);
   --text-gray: rgba(200,200, 200, 0.7);
   --text-gray2: rgba(147,147, 147, 0.4);
 

@@ -17,7 +17,7 @@ export default function Soon() {
                     </LogoWrap>
                     <FourOh>
                         <Coolshape size={160} />
-                        <Coolshape size={160} />
+                        <Coolshape size={160} type='ellipse' />
                         <Coolshape size={160} />
                     </FourOh>
                     <LinkButton className="blue" href="https://vjy.me/shapes">Early Access</LinkButton>
@@ -59,11 +59,14 @@ const FourOh = styled.div`
     display: flex;
     gap: 80px;
     margin-bottom: 40px;
-    min-height: 180px;
     padding: 24px;
+    svg{
+        height: 100%!important;
+        width: 100%!important;
+    }
     @media screen and (max-width: 768px) {
-      flex-direction: column;
-      gap: 30px;
+      margin-bottom: 12px;
+      gap: 20px;
     }
 `
 
