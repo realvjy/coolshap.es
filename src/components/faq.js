@@ -74,7 +74,7 @@ export default function Faq() {
                       </div>
                       <span style={{ color: 'var(--text-gray2)' }}>OR</span>
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-purple)' }}>import</span>  <span style={{ color: 'var(--code-yellow)' }}>{'{'}</span> <span style={{ color: 'var(--code-red)' }}>Star1<span style={{ color: 'var(--code-grey)' }}>,</span> Star2<span style={{ color: 'var(--code-grey)' }}>,</span> Circle1</span> <span style={{ color: 'var(--code-yellow)' }}>{'}'}</span> <span style={{ color: 'var(--code-purple)' }}>from</span>  <span style={{ color: 'var(--code-sky)' }}>&quot;coolshapes-react&quot;</span></h3>
+                        <h3> <span style={{ color: 'var(--code-purple)' }}>import</span>  <span style={{ color: 'var(--code-yellow)' }}>{'{'}</span> <span style={{ color: 'var(--code-red)' }}>Star<span style={{ color: 'var(--code-grey)' }}>,</span> Star<span style={{ color: 'var(--code-grey)' }}>,</span> Circle</span> <span style={{ color: 'var(--code-yellow)' }}>{'}'}</span> <span style={{ color: 'var(--code-purple)' }}>from</span>  <span style={{ color: 'var(--code-sky)' }}>&quot;coolshapes-react&quot;</span></h3>
                       </div>
                     </div>
                   </DevBox>

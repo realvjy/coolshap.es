@@ -28,7 +28,7 @@ export default function Header() {
               <GhostButton href="#usage">
                 Usage
               </GhostButton>
-              <GhostButton href="https://github.com/realvjy/react-coolshapes">
+              <GhostButton href="https://github.com/realvjy/coolshapes-react">
                 Github<ArrowUpIcon size={18} />
               </GhostButton>
               <SocialShare href="https://www.buymeacoffee.com/realvjy">

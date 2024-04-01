@@ -17,11 +17,11 @@ Coded in **Nextjs** and deployed on **vercel**
 ----
 ## Usage: Designer
 You can directly copy from website or download figma file
-#### Figma Community
+### Figma Community
 
 Grab this figma file fromt he community
 
-#### Copy or Download
+### Copy or Download
 Copy or download the `svg`/ `png` file from website [coolshap.es](https://coolshap.es)
 
 ---
@@ -29,7 +29,7 @@ Copy or download the `svg`/ `png` file from website [coolshap.es](https://coolsh
 
 
 
-#### 🛠️ Installation
+### 🛠️ Installation
 
 ```sh
 npm install coolshapes-react
@@ -41,7 +41,7 @@ or
 yarn add coolshapes-react
 ```
 
-#### ⭐️ How to use
+### ⭐️ How to use
 
 
 ##### Global component example
