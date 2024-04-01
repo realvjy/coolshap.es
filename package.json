@@ -1,6 +1,6 @@
 {
   "name": "coolshapes",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,7 +22,7 @@
     "react-dom": "^18",
     "react-element-to-jsx-string": "^15.0.0",
     "styled-components": "^6.1.8",
-    "xml2js": "^0.6.2"
+    "xml2js": "^0.5.0"
   },
   "devDependencies": {
     "eslint": "^8",

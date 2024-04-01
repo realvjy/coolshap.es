@@ -1,12 +1,10 @@
 "use client";
 import Link from "next/link";
 import styled from "styled-components"
-import { CoolShapes } from "@/lib/data/cool-shapes";
 import ShapeRenderer from "./shape-renderer";
 import { CopyIcon, DownloadIcon } from "./icons";
 import React, { useState, useEffect, useRef } from 'react';
 import { renderToString } from 'react-dom/server'
-import { Coolshape, Star1, Star2 } from "coolshapes-react"
 import * as copy from "copy-to-clipboard";
 import svgToJsx from "@/lib/svg-to-jsx";
 import {
