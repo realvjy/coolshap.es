@@ -16,8 +16,8 @@ export default function Faq() {
         <FAQWrap>
           <FAQHeader>
             <h2>How to use?</h2>
-            <p>If you have any more questions or suggestion you can reach me at <a href="https://x.com/realvjy">@realvjy</a>  or open <a href="https://github.com/realvjy/react-coolshapes/issues">issue</a> on <a href="https://x.com/realvjy">github</a> .</p>
-            <p><a href="#">Detailed Documentation <ArrowUpIcon size={16} /></a></p>
+            <p>If you have any more questions or suggestion you can reach me at <a href="https://x.com/realvjy">@realvjy</a>  or open <a href="https://github.com/realvjy/coolshapes-react/issues">issue</a> on <a href="https://github.com/realvjy/coolshapes-react">github</a> .</p>
+            <p><a href="https://github.com/realvjy/coolshapes-react?tab=readme-ov-file#readme">Detailed Documentation <ArrowUpIcon size={16} /></a></p>
           </FAQHeader>
           <FAQListWrap>
             <Questions>
@@ -26,16 +26,23 @@ export default function Faq() {
                   What the hell is this?
                 </h3>
                 <p>
-                  A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted by <a href="#">@realvjy</a>. CoolShapes is a completely open-source set of 100+ abstract shapes crafted for any design and development projects. Free for both commercial and personal use. Licensed under <a href="https://github.com/realvjy/react-coolshapes?tab=MIT-1-ov-file#readme">MIT</a>.
+                  A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted by realvjy. CoolShapes is a completely open-source set of 100+ abstract shapes crafted for any design and development projects. Free for both commercial and personal use.
                 </p>
               </Question>
-
+              <Question>
+                <h3>
+                  What is license?
+                </h3>
+                <p>
+                  Licensed under <a href="https://github.com/realvjy/coolshap.es/blob/main/LICENSE.md">MIT</a>. Free for both personal & commercial use.
+                </p>
+              </Question>
               <Question>
                 <h3>
                   How to use in Design project?
                 </h3>
                 <p>
-                  Grab the figma file. Or simply copy the svg and paste in figma.
+                  Grab the figma file. Or simply copy the svg and paste in your design tool (Figma, Sketch etc). You can download png as well to use anywhere.
                 </p>
               </Question>
 
@@ -44,18 +51,18 @@ export default function Faq() {
                   How to use in Dev project?
                 </h3>
                 <p>
-                  You can grab react package and follow the <a href="https://github.com/realvjy/react-coolshapes?tab=readme-ov-file">documentation</a> to use in your project-
+                  You can grab react package and follow the <a href="https://github.com/realvjy/coolshapes-react?tab=readme-ov-file#readme">documentation</a> to use in your project-
                 </p>
                 <DevWrap>
                   <DevBox>
                     <h2>1. Install package</h2>
                     <div className="code">
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-purple)' }}>yarn add</span>  <span style={{ color: 'var(--code-sky)' }}>rect-coolshapes</span> </h3>
+                        <h3> <span style={{ color: 'var(--code-purple)' }}>yarn add</span>  <span style={{ color: 'var(--code-sky)' }}>coolshapes-react</span> </h3>
                       </div>
                       <span style={{ color: 'var(--text-gray2)' }}>OR</span>
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-purple)' }}>npm i</span>  <span style={{ color: 'var(--code-sky)' }}>rect-coolshapes</span> </h3>
+                        <h3> <span style={{ color: 'var(--code-purple)' }}>npm i</span>  <span style={{ color: 'var(--code-sky)' }}>coolshapes-react</span> </h3>
                       </div>
                     </div>
                   </DevBox>
@@ -63,11 +70,11 @@ export default function Faq() {
                     <h2>2. Import it to Your React</h2>
                     <div className="code ver">
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-purple)' }}>import</span>  <span style={{ color: 'var(--code-yellow)' }}>{'{'}</span> <span style={{ color: 'var(--code-red)' }}>Coolshape</span> <span style={{ color: 'var(--code-yellow)' }}>{'}'}</span> <span style={{ color: 'var(--code-purple)' }}>from</span>  <span style={{ color: 'var(--code-sky)' }}>&quot;react-coolshapes&quot;</span></h3>
+                        <h3> <span style={{ color: 'var(--code-purple)' }}>import</span>  <span style={{ color: 'var(--code-yellow)' }}>{'{'}</span> <span style={{ color: 'var(--code-red)' }}>Coolshape</span> <span style={{ color: 'var(--code-yellow)' }}>{'}'}</span> <span style={{ color: 'var(--code-purple)' }}>from</span>  <span style={{ color: 'var(--code-sky)' }}>&quot;coolshapes-react&quot;</span></h3>
                       </div>
                       <span style={{ color: 'var(--text-gray2)' }}>OR</span>
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-purple)' }}>import</span>  <span style={{ color: 'var(--code-yellow)' }}>{'{'}</span> <span style={{ color: 'var(--code-red)' }}>Star1<span style={{ color: 'var(--code-grey)' }}>,</span> Star2<span style={{ color: 'var(--code-grey)' }}>,</span> Circle1</span> <span style={{ color: 'var(--code-yellow)' }}>{'}'}</span> <span style={{ color: 'var(--code-purple)' }}>from</span>  <span style={{ color: 'var(--code-sky)' }}>&quot;react-coolshapes&quot;</span></h3>
+                        <h3> <span style={{ color: 'var(--code-purple)' }}>import</span>  <span style={{ color: 'var(--code-yellow)' }}>{'{'}</span> <span style={{ color: 'var(--code-red)' }}>Star<span style={{ color: 'var(--code-grey)' }}>,</span> Star<span style={{ color: 'var(--code-grey)' }}>,</span> Circle</span> <span style={{ color: 'var(--code-yellow)' }}>{'}'}</span> <span style={{ color: 'var(--code-purple)' }}>from</span>  <span style={{ color: 'var(--code-sky)' }}>&quot;coolshapes-react&quot;</span></h3>
                       </div>
                     </div>
                   </DevBox>
@@ -75,13 +82,16 @@ export default function Faq() {
                     <h2>3. Here some example</h2>
                     <div className="code ver">
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-grey)' }}>&lt;</span> <span style={{ color: 'var(--code-purple)' }}>Coolshape</span> <span style={{ color: 'var(--code-sky)' }}>shape=&quot;</span><span style={{ color: 'var(--code-grey)' }}>star</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>  <span style={{ color: 'var(--code-sky)' }}>index=&quot;</span><span style={{ color: 'var(--code-grey)' }}>1</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span> <span style={{ color: 'var(--code-sky)' }}>noise=&quot;</span><span style={{ color: 'var(--code-grey)' }}>true</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>   <span style={{ color: 'var(--code-grey)' }}>/&gt;</span> </h3>
+                        <h3> <span style={{ color: 'var(--code-grey)' }}>&lt;</span><span style={{ color: 'var(--code-purple)' }}>Coolshape</span> <span style={{ color: 'var(--code-sky)' }}>type=&quot;</span><span style={{ color: 'var(--code-grey)' }}>star</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>  <span style={{ color: 'var(--code-sky)' }}>index=&quot;</span><span style={{ color: 'var(--code-grey)' }}>1</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span> <span style={{ color: 'var(--code-sky)' }}>noise=&quot;</span><span style={{ color: 'var(--code-grey)' }}>true</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>   <span style={{ color: 'var(--code-grey)' }}>/&gt;</span> </h3>
                       </div>
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-grey)' }}>&lt;</span> <span style={{ color: 'var(--code-purple)' }}>Star1</span> <span style={{ color: 'var(--code-sky)' }}>noise=&quot;</span><span style={{ color: 'var(--code-grey)' }}>true</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>   <span style={{ color: 'var(--code-grey)' }}>/&gt;</span> </h3>
+                        <h3> <span style={{ color: 'var(--code-grey)' }}>&lt;</span><span style={{ color: 'var(--code-purple)' }}>Star</span> <span style={{ color: 'var(--code-sky)' }}>noise=&quot;</span><span style={{ color: 'var(--code-grey)' }}>true</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>   <span style={{ color: 'var(--code-grey)' }}>/&gt;</span> </h3>
                       </div>
                       <div className="code-bg">
-                        <h3> <span style={{ color: 'var(--code-grey)' }}>&lt;</span> <span style={{ color: 'var(--code-purple)' }}>Circle2</span> <span style={{ color: 'var(--code-sky)' }}>size=&quot;</span><span style={{ color: 'var(--code-grey)' }}>24</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>   <span style={{ color: 'var(--code-grey)' }}>/&gt;</span> </h3>
+                        <h3> <span style={{ color: 'var(--code-grey)' }}>&lt;</span><span style={{ color: 'var(--code-purple)' }}>Circle</span> <span style={{ color: 'var(--code-sky)' }}>size=&quot;</span><span style={{ color: 'var(--code-grey)' }}>24</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span> <span style={{ color: 'var(--code-sky)' }}>index=&quot;</span><span style={{ color: 'var(--code-grey)' }}>4</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>  <span style={{ color: 'var(--code-grey)' }}>/&gt;</span> </h3>
+                      </div>
+                      <div className="code-bg">
+                        <h3> <span style={{ color: 'var(--code-grey)' }}>&lt;</span><span style={{ color: 'var(--code-purple)' }}>Polygon</span> <span style={{ color: 'var(--code-sky)' }}>index=&quot;</span><span style={{ color: 'var(--code-grey)' }}>1</span><span style={{ color: 'var(--code-sky)' }}>&quot;</span>   <span style={{ color: 'var(--code-grey)' }}>/&gt;</span> </h3>
                       </div>
                     </div>
                   </DevBox>
@@ -269,7 +279,7 @@ const Question = styled.div`
     color: var(--white);
   }
   p{
-    color: var(--text-gray2);
+    color: var(--text-gray3);
     font-size: 16px;
     line-height: 140%;
   }

@@ -28,7 +28,7 @@ export default function Header() {
               <GhostButton href="#usage">
                 Usage
               </GhostButton>
-              <GhostButton href="https://github.com/realvjy/react-coolshapes">
+              <GhostButton href="https://github.com/realvjy/coolshapes-react">
                 Github<ArrowUpIcon size={18} />
               </GhostButton>
               <SocialShare href="https://www.buymeacoffee.com/realvjy">
@@ -51,7 +51,7 @@ export default function Header() {
                   <span>100+ Abstract shapes </span>with cool grainy gradient.
                   Ready to use with any design dev project.
                 </h1>
-                <h4>Open-Source with MIT License, Check <a href="https://github.com/realvjy/coolshap.es">Github</a></h4>
+                <h4>Open-Source with <a href="https://github.com/realvjy/coolshap.es/blob/main/LICENSE.md">MIT</a> License, Check <a href="https://github.com/realvjy/coolshap.es">Github</a></h4>
               </Text>
             </ContentWrap>
             <ButtonWrap>
@@ -156,13 +156,13 @@ const Text = styled.div`
     font-size: 15px;
     font-weight: 500;
     margin: 4px 0;
-    color: var(--text-gray2);
+    color: var(--text-gray3);
     @media screen and (max-width: 768px) {
       font-size: 14px;
     }
   }
   a{
-    color: var(--text-gray2);
+    color: var(--text-gray3);
     &:hover{
       color: var(--light-white);
     }
