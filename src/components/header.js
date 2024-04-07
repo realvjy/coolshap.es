@@ -51,7 +51,7 @@ export default function Header() {
                   <span>100+ Abstract shapes </span>with cool grainy gradient.
                   Ready to use with any design dev project.
                 </h1>
-                <h4>Open-Source with <a href="https://github.com/realvjy/coolshapes-react?tab=MIT-1-ov-file#readme">MIT</a> License, Check <a href="https://github.com/realvjy/coolshap.es">Github</a></h4>
+                <h4>Open-Source with <a href="https://github.com/realvjy/coolshap.es/blob/main/LICENSE.md">MIT</a> License, Check <a href="https://github.com/realvjy/coolshap.es">Github</a></h4>
               </Text>
             </ContentWrap>
             <ButtonWrap>

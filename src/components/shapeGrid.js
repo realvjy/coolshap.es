@@ -96,7 +96,7 @@ export default function ShapeGrid(
     const str = renderToString(<ShapeRenderer type={type} index={index} showNoise={noise} size={400} />)
     setSvg(str);
 
-    let name = type + "_" + index
+    let name = `${type}_${type === 'number' ? index : index + 1}`
     setSvgName(convertToCamelCase(name));
   }
 
