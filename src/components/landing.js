@@ -4,7 +4,6 @@ import Link from "next/link";
 import styled from "styled-components"
 import { Container, GridBackground, ToggleButton } from "@/styles/ReuseableStyle";
 import ShapeGrid from "./shapeGrid";
-import { CoolShapes } from "@/lib/data/cool-shapes";
 import { useEffect, useState } from "react";
 import svgToJsx from "../lib/svg-to-jsx";
 import { Coolshape, Star1, Star2, shapes } from "coolshapes-react"

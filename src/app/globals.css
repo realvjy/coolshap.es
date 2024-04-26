@@ -12,3 +12,25 @@ body {
   
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+  height: 0px;
+  background: var(--bg-gradient);
+  /* display: none; */
+}
+
+::-webkit-scrollbar-track {
+  padding: 0 1px;
+  background: var(--bg-gradient);
+  -webkit-box-shadow: none;
+  border-left: 1px solid rgba(255,255,255,.04);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(255,255,255,.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.24);
+}
