@@ -8,7 +8,6 @@ import Link from "next/link";
 import styled from "styled-components"
 
 import SIcon, { ArrowUpIcon, CoolShapeLogo, CoolShapeLogoColor, DownloadIcon, FigmaIcon, HeartIcon, NpmIcon, RotatingGradient, TwitterIcon } from "./icons";
-import { Test_P } from "./shapes/test_p";
 import HeaderBG from "./header-bg";
 
 
@@ -55,13 +54,13 @@ export default function Header() {
               </Text>
             </ContentWrap>
             <ButtonWrap>
-              <LinkButton href="/" className="blue">
+              <LinkButton href="https://www.figma.com/file/gw0A080MFb11RXzokPuyK8/Cool-Shapes---100%2B-abstract-shapes-with-grainy-gradients?type=design&node-id=0%3A1&mode=design&t=68hO8ieFAnWBXas3-1" className="blue" target="_blank">
                 <FigmaIcon size={20} />
                 <span>
                   figma file
                 </span>
               </LinkButton>
-              <LinkButton href="/">
+              <LinkButton href="https://s.vjy.me/coolshapes" target="_blank">
                 <DownloadIcon size={20} />
                 <span>
                   download all

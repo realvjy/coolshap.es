@@ -29,7 +29,7 @@ export const metadata = {
     url: seoData.openGraph.url,
     title: seoData.openGraph.title,
     locale: "en_EN",
-    siteName: "uilogos.co",
+    siteName: "coolshap.es",
     images: [
       {
         width: 1200,
