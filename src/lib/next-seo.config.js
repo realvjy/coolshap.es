@@ -11,7 +11,7 @@ export default {
             {
                 width: 1200,
                 height: 630,
-                url: `https://coolshap.es/preview.jpg`,
+                url: `https://coolshap.es/preview.jpg?v1`,
             },
         ],
         site_name: 'realvjy',
