@@ -54,7 +54,7 @@ export default function Header() {
               </Text>
             </ContentWrap>
             <ButtonWrap>
-              <LinkButton href="https://www.figma.com/file/gw0A080MFb11RXzokPuyK8/Cool-Shapes---100%2B-abstract-shapes-with-grainy-gradients?type=design&node-id=0%3A1&mode=design&t=68hO8ieFAnWBXas3-1" className="blue" target="_blank">
+              <LinkButton href="#" className="blue" target="_blank">
                 <FigmaIcon size={20} />
                 <span>
                   figma file
