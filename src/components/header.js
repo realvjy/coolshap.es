@@ -54,7 +54,7 @@ export default function Header() {
               </Text>
             </ContentWrap>
             <ButtonWrap>
-              <LinkButton href="#" className="blue" target="_blank">
+              <LinkButton href="https://s.vjy.me/coolshapes-figma" className="blue" target="_blank">
                 <FigmaIcon size={20} />
                 <span>
                   figma file
@@ -66,7 +66,7 @@ export default function Header() {
                   download all
                 </span>
               </LinkButton>
-              <LinkButton href="https://www.npmjs.com/package/coolshapes-react" target="_blank">
+              <LinkButton href="https://s.vjy.me/coolshapes-react" target="_blank">
                 <NpmIcon size={20} />
                 <span>
                   react package
