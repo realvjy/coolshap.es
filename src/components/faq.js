@@ -31,10 +31,10 @@ export default function Faq() {
               </Question>
               <Question>
                 <h3>
-                  What is license?
+                  What is the license?
                 </h3>
                 <p>
-                  Licensed under <a href="https://github.com/realvjy/coolshap.es/blob/main/LICENSE.md">MIT</a>. Free for both personal & commercial use.
+                  Licensed under <a href="https://github.com/realvjy/coolshapes-react/blob/main/LICENSE">MIT</a>. Free for both personal & commercial use.
                 </p>
               </Question>
               <Question>
@@ -194,7 +194,7 @@ const FAQWrap = styled.div`
 const Questions = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 36px;
   @media screen and (max-width: 768px) {
     width: 100%;
     padding: 24px;
@@ -205,7 +205,7 @@ const DevWrap = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 12px;
+  margin-top: 16px;
   gap: 32px;
   background: linear-gradient(180deg,rgba(255,255,255,0.01) 0%,rgba(255,255,255,0.02) 100%);
   border-radius: 24px;
@@ -272,15 +272,16 @@ const DevBox = styled.div`
 const Question = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   h3{
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 400;
     color: var(--white);
+    opacity: 0.8;
   }
   p{
     color: var(--text-gray3);
-    font-size: 16px;
+    font-size: 17px;
     line-height: 140%;
   }
   a{
