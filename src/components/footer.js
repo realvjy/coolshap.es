@@ -13,7 +13,7 @@ export default function Footer() {
                     <LeftWrap>
                         <CoolShapeLogo size={20} />
                     </LeftWrap>
-                    <Credit><h3>made by <a href="https://vjy.me?ref=cs"> <Realvjy /> </a> at <a href="https://x.com/overlayzstudio">overlayz</a></h3></Credit>
+                    <Credit><h3>made by <a href="https://vjy.me?ref=cs"> <Realvjy /> </a> at <a href="https://overlayz.studio?cs">overlayz</a></h3></Credit>
                     <RightWrap>
                         <a href="https://x.com/realvjy"><TwitterIcon size={16} /></a>
                     </RightWrap>
