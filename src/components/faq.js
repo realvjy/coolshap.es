@@ -51,7 +51,7 @@ export default function Faq() {
                   How to use in Dev project?
                 </h3>
                 <p>
-                  You can grab react package and follow the <a href="https://github.com/realvjy/coolshapes-react?tab=readme-ov-file#readme">documentation</a> to use in your project-
+                  You can grab react package and follow the <a href="https://github.com/realvjy/coolshapes-react?tab=readme-ov-file#readme">documentation</a> to use in your project. Also check the code snippets here <a href="https://demo.coolshap.es">demo.coolshap.es</a>
                 </p>
                 <DevWrap>
                   <DevBox>

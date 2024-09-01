@@ -83,8 +83,8 @@ export const GhostButton = styled.a`
         color: var(--light-white);
       }
     @media screen and (max-width: 768px) {
-        font-size: 13px;
-        padding: 4px;
+        font-size: 12px;
+        padding: 4px 2px;
         gap: 2px;
         svg{
           transform: scale(0.8);
@@ -115,15 +115,16 @@ export const SocialShare = styled.a`
         color: var(--light-white);
       }
     @media screen and (max-width: 768px) {
-        font-size: 12px;
-        padding: 4px 12px;
+        font-size: 11px;
+        padding: 2px 12px;
+        line-height: 12px;
         gap: 2px;
         svg{
-          transform: scale(0.8);
+          transform: scale(0.7);
         }
         span{
-          font-size: 13px;
-          line-height: 18px;
+          font-size: 11px;
+          line-height: 12px!important;
         }
     }
 `;

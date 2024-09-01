@@ -24,6 +24,9 @@ export default function Header() {
               </a>
             </LeftLogo>
             <RightBtn>
+              <GhostButton href="https://demo.coolshap.es" target="_blank">
+                Demo
+              </GhostButton>
               <GhostButton href="#usage">
                 Usage
               </GhostButton>
@@ -177,6 +180,11 @@ const NavBar = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 768px) {
+     flex-direction: column;
+     padding: 12px;
+     gap: 8px;
+  }
 `;
 
 const LeftLogo = styled.div`
@@ -190,5 +198,8 @@ const LeftLogo = styled.div`
 const RightBtn = styled.div`
   display: flex;
   gap: 10px;
+  @media screen and (max-width: 768px) {
+     gap: 6px;
+  }
 `
 
