@@ -18,6 +18,19 @@ export default function Faq() {
             <h2>How to use?</h2>
             <p>If you have any more questions or suggestion you can reach me at <a href="https://x.com/realvjy">@realvjy</a>  or open <a href="https://github.com/realvjy/coolshapes-react/issues">issue</a> on <a href="https://github.com/realvjy/coolshapes-react">github</a> .</p>
             <p><a href="https://github.com/realvjy/coolshapes-react?tab=readme-ov-file#readme">Detailed Documentation <ArrowUpIcon size={16} /></a></p>
+            <div className="product">
+              <Family>
+                <h4>Other projects</h4>
+                <div className="wrap">
+                  <a href="https://illlustrations.co?cs">
+                    <img src="illlustrations.png" className="il" />
+                  </a>
+                  <a href="https://3dicons.co?cs">
+                    <img src="3dicons.png" className="td" />
+                  </a>
+                </div>
+              </Family>
+            </div>
           </FAQHeader>
           <FAQListWrap>
             <Questions>
@@ -227,6 +240,64 @@ const DevWrap = styled.div`
     padding: 20px;
   }
 `
+const Family = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  border: 1px solid rgba(255,255,255,.04);
+  padding: 24px;
+  border-radius: 24px;
+  @media screen and (max-width: 500px) {
+    position: relative;
+    justify-content: center;
+    overflow: hidden;
+  }
+  h4{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+  .color {
+    position: absolute;
+    bottom: -50%;
+    height: 300px;
+    width: 60px;
+    border-radius: 50%;
+    z-index: -1;
+    background: linear-gradient(
+      134.41deg,
+      rgba(47, 0, 255, 0.2) 0%,
+      rgba(255, 0, 0, 1) 100%
+    );
+    filter: blur(62px);
+  }
+  .wrap {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 500px) {
+    }
+    gap: 16px;
+    a {
+      transition: all ease 400ms;
+      display: flex;
+      width: fit-content;
+      &:hover {
+        transform: rotate(-4deg) scale(1.05);
+      }
+    }
+    .cs {
+      height: 54px;
+    }
+    .il {
+      height: 40px;
+    }
+    .td {
+      height: 44px;
+    }
+  }
+`;
 
 const DevBox = styled.div`
   display: flex;
