@@ -1,0 +1,136 @@
+.footer {
+  width: min(100% - var(--cs-gutter) * 2, var(--cs-width));
+  margin: 96px auto 0;
+  font-family: var(--cs-sans);
+}
+
+.resources {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--cs-border-strong);
+}
+
+.resource {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 20px 20px 22px 0;
+  border: 0;
+  background: none;
+  color: var(--cs-foreground);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.resource + .resource {
+  padding-left: 20px;
+  border-left: 1px solid var(--cs-border);
+}
+
+.label {
+  color: var(--cs-subtle);
+  font-family: var(--cs-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-size: 13.5px;
+  letter-spacing: -0.01em;
+}
+
+.title svg {
+  flex: none;
+  color: var(--cs-subtle);
+  transition:
+    transform 0.3s var(--cs-ease),
+    color 0.2s ease;
+}
+
+.resource:hover .title svg {
+  color: var(--cs-foreground);
+  transform: translate(1px, -1px);
+}
+
+.title code {
+  overflow: hidden;
+  font-family: var(--cs-mono);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resource:focus-visible {
+  outline: 2px solid var(--cs-accent);
+  outline-offset: -2px;
+  border-radius: 6px;
+}
+
+.colophon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0 32px;
+  border-top: 1px solid var(--cs-border);
+  color: var(--cs-subtle);
+  font-size: 12px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--cs-muted);
+  font-family: var(--cs-brand);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.colophon p {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+}
+
+.colophon a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.colophon a:hover {
+  color: var(--cs-foreground);
+}
+
+@media (max-width: 720px) {
+  .footer {
+    margin-top: 64px;
+  }
+  .resources {
+    grid-template-columns: 1fr;
+  }
+  .resource,
+  .resource + .resource {
+    padding: 16px 0;
+    border-left: 0;
+  }
+  .resource + .resource {
+    border-top: 1px solid var(--cs-border);
+  }
+  .colophon {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

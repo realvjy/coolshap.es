@@ -16,9 +16,9 @@ export default function Soon() {
                         <Logo src="/images/logo/coolshapes.svg" />
                     </LogoWrap>
                     <FourOh>
-                        <Coolshape size={160} />
-                        <Coolshape size={160} type='ellipse' />
-                        <Coolshape size={160} />
+                        <Coolshape size={160} random={true} />
+                        <Coolshape size={160} type='ellipse' random={true} />
+                        <Coolshape size={160} random={true} />
                     </FourOh>
                     <LinkButton className="blue" href="https://vjy.me/shapes">Early Access</LinkButton>
                 </NoWrapper>

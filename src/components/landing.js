@@ -6,12 +6,12 @@ import { Container, GridBackground, ToggleButton } from "@/styles/ReuseableStyle
 import ShapeGrid from "./shapeGrid";
 import { useEffect, useState } from "react";
 import svgToJsx from "../lib/svg-to-jsx";
-import { Coolshape, Star1, Star2, shapes } from "coolshapes-react"
+import { Coolshape, Star1, Star2, shapeTypes, shapesCount } from "coolshapes-react"
 
 
 export default function Landing(props) {
   const [isNoise, setNoise] = useState(true);
-  const coolshapeskeys = Object.keys(shapes).flat();
+  const coolshapeskeys = shapeTypes;
   const [shapeSize, setShapeSize] = useState(140);
   const handleToggleChange = () => {
     setNoise(!isNoise);
@@ -64,11 +64,12 @@ export default function Landing(props) {
           <IconListWrap>
             {
               coolshapeskeys.map((shapeType) => {
-                const shapesMeta = shapes[shapeType];
+                const count = shapesCount[shapeType];
                 return (
-                  shapesMeta.map((_, i) => {
+                  Array.from({ length: count }).map((_, i) => {
+                    const shapeIndex = shapeType === 'number' ? i : i + 1;
                     return (
-                      <ShapeGrid index={i} type={shapeType} noise={isNoise} size={shapeSize} key={i} />
+                      <ShapeGrid index={shapeIndex} type={shapeType} noise={isNoise} size={shapeSize} key={i} />
                     );
                   })
                 )

@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Keep a review build separate when a dev server is also running.
+  distDir: process.env.COOLSHAPES_BUILD_DIR || ".next",
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config) => {

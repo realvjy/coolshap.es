@@ -1,0 +1,138 @@
+.header {
+  width: min(100% - var(--cs-gutter) * 2, var(--cs-width));
+  height: 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--cs-sans);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cs-foreground);
+  text-decoration: none;
+}
+
+.mark {
+  flex: none;
+  transition: transform 0.6s var(--cs-ease);
+}
+
+.brand:hover .mark {
+  transform: rotate(-8deg) scale(1.04);
+}
+
+.wordmark {
+  font-family: var(--cs-brand);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.version {
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: var(--cs-surface);
+  color: var(--cs-muted);
+  font-family: var(--cs-mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 99px;
+  color: var(--cs-muted);
+  font-size: 13px;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.nav a:hover {
+  color: var(--cs-foreground);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--cs-foreground);
+  background: var(--cs-surface-raised);
+  box-shadow: var(--cs-shadow-soft);
+}
+
+.nav .github {
+  width: 28px;
+  padding: 0;
+  justify-content: center;
+  margin-left: 4px;
+}
+
+.theme {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: transparent;
+  color: var(--cs-muted);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.theme:hover {
+  color: var(--cs-foreground);
+  background: var(--cs-surface);
+}
+
+.theme svg {
+  grid-area: 1 / 1;
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s var(--cs-ease);
+}
+
+.sun,
+:global([data-theme="dark"]) .moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+:global([data-theme="dark"]) .sun {
+  opacity: 1;
+  transform: none;
+}
+
+.nav a:focus-visible,
+.theme:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--cs-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+  .version,
+  .nav .home {
+    display: none;
+  }
+  .nav a {
+    padding: 0 8px;
+  }
+}
