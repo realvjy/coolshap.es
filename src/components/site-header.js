@@ -30,6 +30,9 @@ export default function SiteHeader({ active }) {
         >
           Playground
         </a>
+        <a href="/icons" aria-current={active === "icons" ? "page" : undefined}>
+          Icons
+        </a>
         <a href="/docs" aria-current={active === "docs" ? "page" : undefined}>
           Docs
         </a>

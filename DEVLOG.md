@@ -138,3 +138,25 @@ COOLSHAPES_BUILD_DIR=.next-preview npm run start -- --hostname 127.0.0.1 --port 
 - Review homepage, docs, playground, footer resources, and download dialog together; avoid polishing only the homepage.
 - Keep the three footer resource cards clear without rebuilding a large promotional section.
 - Obtain stronger design approval before treating this as ready to ship. Do not resume redesign work solely because this log lists follow-ups.
+
+## 2026-09-29 — Icon Maker
+
+Built `/icons` on the user's newer website design, following the approved Icon Kitchen-inspired plan. The user's newer layout supersedes the earlier provisional design direction above.
+
+- Visual picker for all 115 published beta shapes; original/preset/solid fills, grain, background palettes and gradients, scale, and position.
+- iOS, Android, and web previews, small-size samples, Android mask/themed previews, and safe-area guides. Editor theme stays independent from artwork colors.
+- PNG and composite SVG downloads; iOS asset catalog, Android adaptive/monochrome/legacy assets, and favicon/PWA ZIP packs. ZIPs include setup notes, settings, and the Coolshapes MIT license.
+- Versioned share links, validated query values, local composition persistence, and links from the navigation, shape dialog, and Playground.
+- Published `coolshapes-react@2.0.0-beta.1` retained. Added `fflate@0.8.2` for browser ZIP packaging, loaded when needed.
+
+Validation: six Node tests cover parameter handling, URL round trips, safe bounds, layer separation, package references, and ICO offsets. Real browser downloads were inspected for dimensions, PNG alpha modes, ZIP integrity, manifest references, and decodable ICO entries. Xcode `actool` compiled the exported iOS catalog successfully. Desktop, 390px and 320px layouts, both themes, number-zero selection, persistence, share links, and page handoffs were checked. Production build and targeted ESLint checks passed.
+
+Limitations: the iOS pack is flat artwork, not an Icon Composer file. Android resource structure and images were checked, but no Android SDK is installed here for a native build/device test. Existing Browserslist metadata produces an update notice during builds.
+
+Changes are uncommitted. The development preview is `/icons` on port 3000. `.next-icons` is an ignored isolated production-build directory.
+
+### Icon Maker refinement
+
+Renamed the heading to **Cool Icon Maker** and removed its eyebrow/subtitle and the download dialog subtitle. Extracted the homepage's expanding search, animated selection pills, and grain switch into shared site controls; Icon Maker and Playground now reuse those controls and a common dropdown treatment. Removed Icon Maker's section separators, thumbnail rings, swatch outlines, and preview divider. Keep future tool controls in `site-controls` rather than creating another visual system. Production build and shared-control checks passed, including mobile search, homepage filtering, and Playground outline mode.
+
+Dropdown follow-up: shared search/fields now use the white active surface. Replaced native option popups with Radix Select menus styled with soft panels, rounded rows, hover highlights, selected checkmarks, and bounded scrolling. Verified shape selection, long gradient lists, returning to Original, and mobile placement. Keyboard navigation/typeahead and focus management come from the shared accessible primitive. Production build and targeted lint passed.

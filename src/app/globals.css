@@ -1,7 +1,6 @@
 /* Shared website palette: cool neutral light (so pastel gradients keep their
    color), white tiles, ink type, restrained blue.
-   Light is the default; dark applies via [data-theme="dark"] (set before paint
-   in layout.js) or the system preference when no theme has been chosen. */
+   Dark is the default in layout.js; a saved light choice overrides it before paint. */
 :root {
   color-scheme: light;
   --cs-width: 960px;
@@ -48,45 +47,6 @@
   --cs-serif: var(--font-serif), ui-serif, Georgia, serif;
   --cs-mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
   --cs-brand: var(--font-outfit), var(--cs-sans);
-}
-
-/* Dark tokens are defined once and applied from two places. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --cs-page: #0f0f0e;
-    --cs-accent-hover: #2b87ff;
-    --cs-accent-text: #6fb0ff;
-    --cs-accent-soft: #0071fc24;
-    --cs-accent-border: #0071fc40;
-    --cs-foreground: #f2f1ec;
-    --cs-foreground-hover: #ffffff;
-    --cs-on-foreground: #141413;
-    --cs-text: #d0cfc9;
-    --cs-muted: #9c9b95;
-    --cs-subtle: #6b6a65;
-    --cs-surface: #1c1c1a;
-    --cs-surface-hover: #262624;
-    --cs-tile: #171716;
-    --cs-tile-ring: none;
-    --cs-shape-shadow: none;
-    --cs-surface-raised: #232321;
-    --cs-border: #ffffff0f;
-    --cs-border-strong: #ffffff1c;
-    --cs-track: #ffffff26;
-    --cs-dot: #ffffff14;
-    --cs-cast: #000000b3;
-    --cs-backdrop: #0f0f0eb8;
-    --cs-card-gradient: linear-gradient(135deg, #252523, #1a1a18);
-    --cs-shadow-soft: 0 1px 2px #00000040, 0 0 0 1px #ffffff0d;
-    --cs-shadow-lift: 0 12px 32px -12px #000000b3, 0 0 0 1px #ffffff14;
-    --cs-shadow-dialog: 0 48px 96px -32px #000000e6, 0 0 0 1px #ffffff14;
-    --cs-shadow-toast: 0 12px 32px -12px #000000cc;
-    --cs-scrollbar: #ffffff1f;
-    --cs-selection: #0071fc4d;
-    --cs-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.4 0 0 0 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-    --cs-grain-opacity: 0.05;
-  }
 }
 
 :root[data-theme="dark"] {
@@ -165,7 +125,7 @@ html body {
   color: inherit;
 }
 
-/* Theme switch: a circular reveal from the top center (see theme-toggle.js). */
+/* Theme switch: a circular reveal from the toggle icon (see theme-toggle.js). */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

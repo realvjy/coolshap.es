@@ -80,13 +80,14 @@ export const metadata = {
   },
 };
 
-// Resolve the theme before first paint so dark visitors never see a light flash.
-const themeScript = `try{var t=localStorage.getItem("cs-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}`;
+// Start dark and restore an explicit saved choice before first paint.
+const themeScript = `try{var t=localStorage.getItem("cs-theme");document.documentElement.dataset.theme=t==="light"?"light":"dark"}catch(e){}`;
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      data-theme="dark"
       className={`${outfit.variable} ${inter.variable} ${serif.variable} ${mono.variable}`}
       suppressHydrationWarning
     >

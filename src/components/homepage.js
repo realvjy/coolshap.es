@@ -19,13 +19,13 @@ import {
   RiCheckLine as Check,
   RiFileCopyLine as Copy,
   RiDownloadLine as Download,
-  RiSearchLine as Search,
   RiCloseLine as X,
 } from "@remixicon/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import styles from "./homepage.module.css";
 import SiteHeader from "./site-header";
 import SiteFooter from "./site-footer";
+import { SearchField, Switch, ChoicePills } from "./site-controls";
 
 const families = {
   star: ["Stars", "Star"],
@@ -490,7 +490,10 @@ export default function Homepage() {
               type="button"
               className={styles.install}
               onClick={() =>
-                copyText("npm i coolshapes-react@beta", "Install command copied")
+                copyText(
+                  "npm i coolshapes-react@beta",
+                  "Install command copied",
+                )
               }
               aria-label="Copy npm install command"
             >
@@ -504,74 +507,25 @@ export default function Homepage() {
 
       <div className={styles.indexBar}>
         <div className={styles.indexInner}>
-          <motion.div
-            layoutScroll
+          <ChoicePills
             className={styles.categories}
-            role="group"
-            aria-label="Shape family"
-          >
-            {filters.map(({ id, label, count }) => (
-              <button
-                type="button"
-                key={id}
-                aria-pressed={category === id}
-                onClick={() => chooseCategory(id)}
-              >
-                {category === id && (
-                  <motion.span
-                    layoutId="family-pill"
-                    className={styles.pill}
-                    transition={glide}
-                  />
-                )}
-                <span className={styles.pillLabel}>
-                  {label}
-                  <sup>{count}</sup>
-                </span>
-              </button>
-            ))}
-          </motion.div>
+            label="Shape family"
+            value={category}
+            onChange={chooseCategory}
+            options={filters.map(({ id, label, count }) => ({
+              value: id,
+              label,
+              count,
+            }))}
+          />
           <div className={styles.tools}>
-            <label
-              className={`${styles.search} ${query ? styles.searchActive : ""}`}
+            <SearchField
+              ref={searchRef}
+              value={query}
+              onChange={setQuery}
               title="Search ( / )"
-            >
-              <Search size={14} aria-hidden="true" />
-              <input
-                ref={searchRef}
-                aria-label="Search shapes"
-                placeholder="Search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key === "Escape") {
-                    setQuery("");
-                    event.currentTarget.blur();
-                  }
-                }}
-              />
-              {query && (
-                <button
-                  type="button"
-                  onClick={() => setQuery("")}
-                  aria-label="Clear search"
-                >
-                  <X size={13} />
-                </button>
-              )}
-            </label>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={noise}
-              className={styles.grain}
-              onClick={() => setNoise(!noise)}
-            >
-              <span className={styles.switch} aria-hidden="true">
-                <span />
-              </span>
-              Grain
-            </button>
+            />
+            <Switch label="Grain" checked={noise} onChange={setNoise} />
           </div>
         </div>
       </div>
@@ -743,6 +697,13 @@ export default function Homepage() {
                 href={`/v2?shape=${keyOf(selected)}`}
               >
                 Customize in playground
+                <ArrowUpRight size={13} aria-hidden="true" />
+              </a>
+              <a
+                className={styles.playgroundLink}
+                href={`/icons?shape=${keyOf(selected)}`}
+              >
+                Make app icon
                 <ArrowUpRight size={13} aria-hidden="true" />
               </a>
             </div>

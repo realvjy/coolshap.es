@@ -15,6 +15,7 @@ import {
 } from "@remixicon/react";
 import SiteHeader from "./site-header";
 import SiteFooter from "./site-footer";
+import { SelectField, ChoicePills, Switch } from "./site-controls";
 import styles from "./playground.module.css";
 
 const names = shapeTypes.flatMap((type) =>
@@ -133,6 +134,9 @@ export default function Playground({ initialShape }) {
             />
           </div>
           <div className={styles.previewActions}>
+            <a className={styles.iconMakerLink} href={`/icons?shape=${name}`}>
+              Make app icon
+            </a>
             <button className={styles.button} onClick={downloadSvg}>
               <RiDownloadLine size={14} /> Download SVG
             </button>
@@ -153,7 +157,8 @@ export default function Playground({ initialShape }) {
           <div className={styles.controlPair}>
             <label>
               Shape
-              <select
+              <SelectField
+                aria-label="Shape"
                 value={type}
                 onChange={(e) =>
                   setName(
@@ -166,11 +171,12 @@ export default function Playground({ initialShape }) {
                     {t}
                   </option>
                 ))}
-              </select>
+              </SelectField>
             </label>
             <label>
               Variant
-              <select
+              <SelectField
+                aria-label="Variant"
                 value={index}
                 onChange={(e) => setName(`${type}-${e.target.value}`)}
               >
@@ -181,24 +187,25 @@ export default function Playground({ initialShape }) {
                     {n}
                   </option>
                 ))}
-              </select>
+              </SelectField>
             </label>
           </div>
-          <div className={styles.segments} role="group" aria-label="Fill style">
-            {["gradient", "solid", "outline"].map((value) => (
-              <button
-                key={value}
-                aria-pressed={mode === value}
-                onClick={() => changeMode(value)}
-              >
-                {value}
-              </button>
-            ))}
-          </div>
+          <ChoicePills
+            label="Fill style"
+            compact
+            value={mode}
+            onChange={changeMode}
+            options={[
+              { value: "gradient", label: "Gradient" },
+              { value: "solid", label: "Solid" },
+              { value: "outline", label: "Outline" },
+            ]}
+          />
           {mode === "gradient" && (
             <label>
               Gradient
-              <select
+              <SelectField
+                aria-label="Gradient"
                 value={gradient}
                 onChange={(e) => setGradient(e.target.value)}
               >
@@ -208,7 +215,7 @@ export default function Playground({ initialShape }) {
                     {key}
                   </option>
                 ))}
-              </select>
+              </SelectField>
             </label>
           )}
           {mode === "solid" && (
@@ -233,15 +240,13 @@ export default function Playground({ initialShape }) {
               onChange={(e) => setSize(Number(e.target.value))}
             />
           </label>
-          <label className={styles.check}>
-            Grain
-            <input
-              type="checkbox"
-              checked={mode === "outline" ? false : noise}
-              disabled={mode === "outline"}
-              onChange={(e) => setNoise(e.target.checked)}
-            />
-          </label>
+          <Switch
+            label="Grain"
+            checked={mode === "outline" ? false : noise}
+            disabled={mode === "outline"}
+            onChange={setNoise}
+            between
+          />
           <label className={styles.range}>
             Outline <output>{effectiveOutline}px</output>
             <input
@@ -289,19 +294,27 @@ export default function Playground({ initialShape }) {
             <div className={styles.controlPair}>
               <label>
                 Line join
-                <select value={join} onChange={(e) => setJoin(e.target.value)}>
+                <SelectField
+                  aria-label="Line join"
+                  value={join}
+                  onChange={(e) => setJoin(e.target.value)}
+                >
                   {["round", "bevel", "miter"].map((v) => (
                     <option key={v}>{v}</option>
                   ))}
-                </select>
+                </SelectField>
               </label>
               <label>
                 Line cap
-                <select value={cap} onChange={(e) => setCap(e.target.value)}>
+                <SelectField
+                  aria-label="Line cap"
+                  value={cap}
+                  onChange={(e) => setCap(e.target.value)}
+                >
                   {["round", "butt", "square"].map((v) => (
                     <option key={v}>{v}</option>
                   ))}
-                </select>
+                </SelectField>
               </label>
             </div>
           </details>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { RiMoonLine as Moon, RiSunLine as Sun } from "@remixicon/react";
 import styles from "./site-header.module.css";
 
@@ -19,23 +18,7 @@ function applyTheme(theme) {
 }
 
 export default function ThemeToggle() {
-  // Follow the system theme until the visitor picks one.
-  useEffect(() => {
-    const media = matchMedia("(prefers-color-scheme: dark)");
-    function onChange(event) {
-      let stored = null;
-      try {
-        stored = localStorage.getItem(storageKey);
-      } catch {}
-      if (stored !== "light" && stored !== "dark") {
-        applyTheme(event.matches ? "dark" : "light");
-      }
-    }
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
-
-  function toggle() {
+  function toggle(event) {
     const next =
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     try {
@@ -50,26 +33,34 @@ export default function ThemeToggle() {
       return;
     }
 
-    // Reveal the new theme in a circle growing from the top center. The
-    // origin is a percentage so it resolves against the transition layer
-    // itself, which keeps it centered regardless of scrollbars or zoom.
-    const radius = Math.hypot(
-      document.documentElement.clientWidth / 2,
-      innerHeight,
-    );
+    // Keep the clip geometry relative to the transition snapshot. Chrome can
+    // scale pixel clip coordinates differently on high-density displays.
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = bounds.left + bounds.width / 2;
+    const y = bounds.top + bounds.height / 2;
+    const width = innerWidth;
+    const height = innerHeight;
+    const origin = `${(x / width) * 100}% ${(y / height) * 100}%`;
+    // circle() percentages use the reference box's normalized diagonal.
+    const radius =
+      (Math.hypot(Math.max(x, width - x), Math.max(y, height - y)) /
+        (Math.hypot(width, height) / Math.SQRT2)) *
+        100 +
+      0.1;
     document
       .startViewTransition(() => applyTheme(next))
       .ready.then(() => {
         document.documentElement.animate(
           {
             clipPath: [
-              `circle(0px at 50% 0%)`,
-              `circle(${Math.ceil(radius)}px at 50% 0%)`,
+              `circle(0% at ${origin})`,
+              `circle(${radius}% at ${origin})`,
             ],
           },
           {
-            duration: 700,
-            easing: "cubic-bezier(0.2, 0.8, 0.2, 1)",
+            duration: 850,
+            // Keep the opening visible at the icon before expanding across the page.
+            easing: "cubic-bezier(0.65, 0, 0.35, 1)",
             pseudoElement: "::view-transition-new(root)",
           },
         );

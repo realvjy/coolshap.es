@@ -8,7 +8,7 @@
 .page button,
 .page input,
 .page select {
-  font: inherit;
+  font-family: inherit;
 }
 .page button {
   cursor: pointer;
@@ -81,6 +81,16 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
+  flex-wrap: wrap;
+}
+.iconMakerLink {
+  color: var(--cs-text);
+  font-size: 11px;
+  text-decoration: none;
+  padding: 9px 0;
+}
+.iconMakerLink:hover {
+  color: var(--cs-accent-text);
 }
 .previewActions button {
   display: inline-flex;
@@ -128,16 +138,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
-.controls select {
-  width: 100%;
-  color: var(--cs-text);
-  font-size: 11px;
-  border: 0;
-  padding: 9px;
-  border-radius: 7px;
-  background: var(--cs-surface-raised);
-  box-shadow: var(--cs-shadow-soft);
-}
 .controls input {
   accent-color: var(--cs-accent);
 }
@@ -162,27 +162,6 @@
 .check input {
   width: 14px;
   height: 14px;
-}
-.segments {
-  display: flex;
-  padding: 3px;
-  background: var(--cs-surface);
-  border-radius: 8px;
-}
-.segments button {
-  flex: 1;
-  padding: 7px 5px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--cs-muted);
-  font-size: 10px;
-  text-transform: capitalize;
-}
-.segments button[aria-pressed="true"] {
-  color: var(--cs-foreground);
-  background: var(--cs-surface-raised);
-  box-shadow: var(--cs-shadow-soft);
 }
 .controls .color {
   display: grid;

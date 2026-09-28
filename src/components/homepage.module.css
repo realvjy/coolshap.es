@@ -282,9 +282,7 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: color-mix(in srgb, var(--cs-page) 84%, transparent);
-  -webkit-backdrop-filter: saturate(1.4) blur(16px);
-  backdrop-filter: saturate(1.4) blur(16px);
+  background: var(--cs-page);
 }
 
 .indexInner {
@@ -313,57 +311,6 @@
   display: none;
 }
 
-.categories button {
-  position: relative;
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  height: 28px;
-  padding: 0 8px;
-  border: 0;
-  border-radius: 99px;
-  background: transparent;
-  color: var(--cs-muted);
-  font-size: 13px;
-  letter-spacing: -0.005em;
-  cursor: pointer;
-  transition:
-    color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.pill {
-  position: absolute;
-  inset: 0;
-  border-radius: 99px;
-  background: var(--cs-surface-raised);
-  box-shadow: var(--cs-shadow-soft);
-}
-
-.pillLabel {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.categories sup {
-  align-self: flex-start;
-  margin: -1px 0 0 2px;
-  color: var(--cs-subtle);
-  font-family: var(--cs-mono);
-  font-size: 9px;
-  line-height: 1;
-}
-
-.categories button:hover {
-  color: var(--cs-foreground);
-}
-
-.categories button[aria-pressed="true"] {
-  color: var(--cs-foreground);
-}
-
 .categories button:focus-visible,
 .grain:focus-visible,
 .switch:focus-visible,
@@ -382,116 +329,6 @@
   display: flex;
   align-items: center;
   gap: 2px;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border-radius: 99px;
-  background: var(--cs-surface);
-  color: var(--cs-muted);
-  cursor: pointer;
-  transition:
-    width 0.4s var(--cs-ease),
-    background 0.2s ease,
-    box-shadow 0.2s ease,
-    color 0.2s ease;
-}
-
-.search:hover {
-  background: var(--cs-surface-hover);
-  color: var(--cs-foreground);
-}
-
-.search:focus-within,
-.searchActive {
-  justify-content: flex-start;
-  gap: 7px;
-  width: 188px;
-  padding: 0 7px 0 11px;
-  cursor: text;
-}
-
-.search:focus-within {
-  background: var(--cs-surface-raised);
-  box-shadow:
-    var(--cs-shadow-soft),
-    0 0 0 3px var(--cs-accent-soft);
-  color: var(--cs-foreground);
-}
-
-.search input {
-  flex: 0 0 0;
-  width: 0;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  background: none;
-  color: var(--cs-foreground);
-  font: inherit;
-  font-size: 13px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.search:focus-within input,
-.searchActive input {
-  flex: 1;
-  opacity: 1;
-}
-
-.search input::placeholder {
-  color: var(--cs-subtle);
-}
-
-.search button {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 18px;
-  height: 18px;
-  padding: 0;
-  border: 0;
-  border-radius: 5px;
-  font-family: var(--cs-mono);
-  font-size: 10px;
-}
-
-.search button {
-  border-radius: 50%;
-  background: transparent;
-  color: var(--cs-muted);
-  cursor: pointer;
-}
-
-.search button:hover {
-  background: var(--cs-surface);
-  color: var(--cs-foreground);
-}
-
-.grain {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 30px;
-  padding: 0 0 0 10px;
-  border: 0;
-  border-radius: 99px;
-  background: transparent;
-  color: var(--cs-muted);
-  font-size: 13px;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.grain:hover {
-  color: var(--cs-foreground);
 }
 
 .switch {
@@ -576,7 +413,6 @@
 .tileArt svg {
   width: 50%;
   height: auto;
-  filter: var(--cs-shape-shadow);
 }
 
 .tile:hover {
@@ -1018,7 +854,11 @@
 /* Below the full 960px layout the family row scrolls; fade its edge. */
 @media (max-width: 1023px) {
   .categories {
-    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #000 calc(100% - 32px),
+      transparent
+    );
     mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
   }
 }
@@ -1105,20 +945,6 @@
   .tools {
     gap: 2px;
   }
-  .search,
-  .search:focus-within,
-  .searchActive {
-    flex: 1;
-    justify-content: flex-start;
-    gap: 7px;
-    width: auto;
-    padding: 0 7px 0 11px;
-    cursor: text;
-  }
-  .search input {
-    flex: 1;
-    opacity: 1;
-  }
   .categories {
     margin: 0 calc(var(--cs-gutter) * -1);
     padding: 2px calc(var(--cs-gutter) - 8px);
@@ -1178,4 +1004,3 @@
     bottom: auto;
   }
 }
-

@@ -129,10 +129,25 @@
 
 @media (max-width: 520px) {
   .version,
-  .nav .home {
+  .nav .home,
+  .nav .github {
     display: none;
   }
   .nav a {
-    padding: 0 8px;
+    padding: 0 6px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    gap: 6px;
+  }
+  .wordmark {
+    font-size: 14px;
+  }
+  .nav a {
+    padding: 0 5px;
+    font-size: 11px;
   }
 }

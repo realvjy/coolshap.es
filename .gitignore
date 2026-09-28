@@ -11,6 +11,7 @@
 # next.js
 /.next/
 /.next-preview/
+/.next-icons/
 /out/
 
 # production
