@@ -1,7 +1,7 @@
 .page {
   min-height: 100vh;
   padding: 0 36px;
-  background: var(--cs-page);
+  background: transparent;
   color: var(--cs-foreground);
   font-family: var(--cs-sans);
 }
@@ -703,5 +703,91 @@
   }
   .section {
     padding-top: 34px;
+  }
+}
+
+/* ── Final layout + sidebar alignment ───────────────
+   One content column shared with the header and footer, and a sidebar where
+   the version, group labels and links all start on the same 10px indent. */
+.page,
+.page[class] {
+  padding: 0;
+}
+.page > header {
+  max-width: none;
+}
+.layout {
+  width: min(100% - var(--cs-gutter) * 2, var(--cs-width));
+  max-width: none;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 40px;
+}
+.sidebar {
+  margin-left: -10px;
+  padding: 40px 0 24px;
+}
+.sidebarVersion {
+  gap: 8px;
+  padding: 0 10px 24px;
+  font-size: 12px;
+  color: var(--cs-foreground);
+}
+.sidebarVersion > span {
+  width: 6px;
+  height: 6px;
+}
+.sidebarVersion code {
+  font-family: var(--cs-mono);
+  font-size: 10px;
+}
+.navGroup {
+  margin-bottom: 22px;
+}
+.navGroup p {
+  margin: 0 0 6px;
+  padding: 0 10px;
+  color: var(--cs-subtle);
+  font-family: var(--cs-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.navGroup nav {
+  gap: 1px;
+}
+.navGroup a,
+.navGroup a[aria-current] {
+  gap: 0;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-decoration: none;
+}
+.navGroup a {
+  color: var(--cs-muted);
+  background: transparent;
+}
+.navGroup a:hover {
+  color: var(--cs-foreground);
+  background: transparent;
+}
+.navGroup a[aria-current] {
+  color: var(--cs-foreground);
+  background: var(--cs-surface-raised);
+  box-shadow: var(--cs-shadow-soft);
+}
+.navGroup a > span {
+  display: none;
+}
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .layout {
+    display: block;
   }
 }

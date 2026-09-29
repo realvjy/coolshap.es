@@ -126,7 +126,7 @@ function fly(layer, svg, from, to, duration) {
     zIndex: "5",
     pointerEvents: "none",
     transformOrigin: "0 0",
-    filter: "var(--cs-shape-shadow)",
+    filter: "var(--cs-stage-shadow)",
   });
   layer.appendChild(copy);
   const flight = copy.animate(
@@ -474,9 +474,9 @@ export default function Homepage() {
             {allShapes.length} shapes · {shapeTypes.length} families · Free
           </p>
           <h1>
-            Little shapes,
+            Cool shapes,
             <br />
-            <em>with a little grain.</em>
+            <em>with a tiny grain.</em>
           </h1>
           <p className={styles.lede}>
             Abstract gradient shapes for interfaces, decks, avatars and

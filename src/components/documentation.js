@@ -172,10 +172,6 @@ export default function Documentation({ skill }) {
               </nav>
             </div>
           ))}
-          <a className={styles.rawSkill} href="/skill.md">
-            <FileText size={14} /> Read the skill file{" "}
-            <ArrowUpRight size={13} />
-          </a>
         </aside>
         <main id="docs-content" className={styles.article}>
           <div className={styles.intro}>

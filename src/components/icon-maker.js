@@ -24,7 +24,8 @@ import {
   geometry,
   androidViewport,
 } from "@/lib/icon-maker.mjs";
-import styles from "./icon-maker.module.css";
+import { Range, Color } from "./tool-ui";
+import styles from "./tool.module.css";
 
 const storageKey = "coolshapes-icon-v1";
 const exportOptions = [
@@ -131,38 +132,6 @@ function Artwork({
         />
       )}
     </svg>
-  );
-}
-
-function Range({ label, value, min, max, onChange }) {
-  return (
-    <label className={styles.range}>
-      <span>{label}</span>
-      <output>{value}%</output>
-      <input
-        type="range"
-        aria-label={label}
-        min={min}
-        max={max}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-      />
-    </label>
-  );
-}
-
-function Color({ label, value, onChange }) {
-  return (
-    <label className={styles.color}>
-      <span>{label}</span>
-      <span className={styles.colorValue}>{value}</span>
-      <input
-        type="color"
-        aria-label={label}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
-    </label>
   );
 }
 

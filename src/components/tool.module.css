@@ -1,7 +1,7 @@
 .page {
   min-height: 100vh;
   color: var(--cs-foreground);
-  background: var(--cs-page);
+  background: transparent;
   font-family: var(--cs-sans);
 }
 .page button,
@@ -61,6 +61,23 @@
 .primary:hover {
   background: var(--cs-foreground-hover);
 }
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 99px;
+  padding: 11px 15px;
+  background: var(--cs-surface-raised);
+  box-shadow: var(--cs-tile-ring, var(--cs-shadow-soft));
+  color: var(--cs-text);
+  font-size: 12px !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.secondary:hover {
+  color: var(--cs-foreground);
+}
 .iconButton {
   display: inline-grid;
   place-items: center;
@@ -75,13 +92,15 @@
   background: var(--cs-surface);
   color: var(--cs-foreground);
 }
+/* Every tool: preview stage on the left, settings column on the right. */
 .workspace {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 300px;
   gap: 32px;
   align-items: start;
 }
 .controls {
+  order: 2;
   min-width: 0;
   padding: 4px 0;
 }
@@ -89,6 +108,10 @@
   display: grid;
   gap: 14px;
   padding: 20px 0;
+  border-top: 1px solid var(--cs-border);
+}
+.group:first-child {
+  border-top: 0;
 }
 .group:first-child {
   padding-top: 0;
@@ -97,10 +120,13 @@
   border-bottom: 0;
 }
 .group h2 {
-  font-size: 12px;
-  font-weight: 500;
   margin: 0;
-  letter-spacing: -0.01em;
+  color: var(--cs-subtle);
+  font-family: var(--cs-mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .groupHeading {
   display: flex;
@@ -121,8 +147,8 @@
   gap: 7px;
   max-height: 190px;
   overflow-y: auto;
-  padding: 3px;
-  margin: -3px;
+  padding: 5px;
+  margin: -5px;
 }
 .shapes button {
   aspect-ratio: 1;
@@ -131,18 +157,36 @@
   border: 0;
   border-radius: 10px;
   background: var(--cs-tile);
-  transition: background 0.15s;
+  box-shadow: var(--cs-tile-ring);
+  transition:
+    background 0.15s ease,
+    box-shadow 0.2s ease;
 }
 .shapes button:hover {
   background: var(--cs-surface-hover);
 }
+/* Selected: a clear accent ring with a gap, like a picked swatch. */
 .shapes button[aria-pressed="true"] {
-  background: var(--cs-accent-soft);
+  background: var(--cs-surface-raised);
+  box-shadow:
+    0 0 0 2px var(--cs-page),
+    0 0 0 3.5px var(--cs-accent);
 }
 .shapes svg {
   width: 70%;
   height: auto;
   pointer-events: none;
+  opacity: 0.72;
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s var(--cs-ease);
+}
+.shapes button:hover svg,
+.shapes button[aria-pressed="true"] svg {
+  opacity: 1;
+}
+.shapes button[aria-pressed="true"] svg {
+  transform: scale(1.08);
 }
 .empty {
   grid-column: 1/-1;
@@ -271,9 +315,13 @@
   position: sticky;
   top: 24px;
   min-width: 0;
-  background: var(--cs-surface);
   border-radius: 20px;
   padding: 20px 24px 24px;
+  background-color: var(--cs-surface);
+  background-image: radial-gradient(var(--cs-dot) 1px, transparent 1px);
+  background-position: center;
+  background-size: 16px 16px;
+  box-shadow: var(--cs-tile-ring);
 }
 .previewTop {
   display: flex;
@@ -461,7 +509,7 @@
 }
 @media (max-width: 800px) {
   .workspace {
-    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 260px;
     gap: 24px;
   }
   .preview {

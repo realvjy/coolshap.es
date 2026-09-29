@@ -7,6 +7,7 @@
   --cs-gutter: 32px;
   --cs-radius: 14px;
   --cs-page: #f5f5f7;
+  --cs-page-glow: none;
   --cs-accent: #0071fc;
   --cs-accent-hover: #005fd6;
   --cs-accent-text: #0062db;
@@ -22,6 +23,7 @@
   --cs-surface-hover: #e3e3e7;
   --cs-tile: #ffffff;
   --cs-tile-ring: 0 0 0 1px #1414160a, 0 1px 2px #14141608;
+  --cs-stage-shadow: none;
   --cs-shape-shadow: drop-shadow(0 1px 1px #1414200f)
     drop-shadow(0 6px 10px #14142014);
   --cs-surface-raised: #ffffff;
@@ -40,8 +42,7 @@
   --cs-shadow-toast: 0 12px 32px -12px #14141366;
   --cs-scrollbar: #14141318;
   --cs-selection: #0071fc24;
-  --cs-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 0 0 0 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  --cs-grain-opacity: 0.09;
+  --cs-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.126 0 0 0 -0.0495'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
   --cs-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --cs-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --cs-serif: var(--font-serif), ui-serif, Georgia, serif;
@@ -51,38 +52,40 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --cs-page: #0f0f0e;
-  --cs-accent-hover: #2b87ff;
-  --cs-accent-text: #6fb0ff;
-  --cs-accent-soft: #0071fc24;
+  --cs-page: #09090b;
+  --cs-accent-hover: #3b8cff;
+  --cs-accent-text: #7ab4ff;
+  --cs-accent-soft: #0071fc26;
   --cs-accent-border: #0071fc40;
-  --cs-foreground: #f2f1ec;
+  --cs-foreground: #f4f4f6;
   --cs-foreground-hover: #ffffff;
-  --cs-on-foreground: #141413;
-  --cs-text: #d0cfc9;
-  --cs-muted: #9c9b95;
-  --cs-subtle: #6b6a65;
-  --cs-surface: #1c1c1a;
-  --cs-surface-hover: #262624;
-  --cs-tile: #171716;
-  --cs-tile-ring: none;
-  --cs-shape-shadow: none;
-  --cs-surface-raised: #232321;
-  --cs-border: #ffffff0f;
-  --cs-border-strong: #ffffff1c;
-  --cs-track: #ffffff26;
-  --cs-dot: #ffffff14;
-  --cs-cast: #000000b3;
-  --cs-backdrop: #0f0f0eb8;
-  --cs-card-gradient: linear-gradient(135deg, #252523, #1a1a18);
-  --cs-shadow-soft: 0 1px 2px #00000040, 0 0 0 1px #ffffff0d;
-  --cs-shadow-lift: 0 12px 32px -12px #000000b3, 0 0 0 1px #ffffff14;
-  --cs-shadow-dialog: 0 48px 96px -32px #000000e6, 0 0 0 1px #ffffff14;
+  --cs-on-foreground: #0b0b0d;
+  --cs-text: #c9c9cf;
+  --cs-muted: #8e8e96;
+  --cs-subtle: #5d5d66;
+  --cs-surface: #131316;
+  --cs-surface-hover: #1c1c21;
+  --cs-tile: #111114;
+  --cs-tile-ring: inset 0 1px 0 #ffffff0d, 0 0 0 1px #ffffff0a;
+  --cs-shape-shadow: drop-shadow(0 10px 18px #00000073);
+  --cs-stage-shadow: var(--cs-shape-shadow);
+  --cs-surface-raised: #19191d;
+  --cs-border: #ffffff0d;
+  --cs-border-strong: #ffffff17;
+  --cs-track: #ffffff1f;
+  --cs-dot: #ffffff10;
+  --cs-cast: #000000cc;
+  --cs-backdrop: #09090bc2;
+  --cs-card-gradient: linear-gradient(135deg, #1b1b20, #121215);
+  --cs-shadow-soft: inset 0 1px 0 #ffffff0f, 0 0 0 1px #ffffff0d, 0 1px 2px #00000066;
+  --cs-shadow-lift: inset 0 1px 0 #ffffff14, 0 0 0 1px #ffffff12, 0 16px 36px -14px #000000e6;
+  --cs-shadow-dialog: inset 0 1px 0 #ffffff12, 0 0 0 1px #ffffff12, 0 48px 96px -32px #000000f2;
   --cs-shadow-toast: 0 12px 32px -12px #000000cc;
-  --cs-scrollbar: #ffffff1f;
+  --cs-scrollbar: #ffffff1a;
   --cs-selection: #0071fc4d;
-  --cs-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.4 0 0 0 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  --cs-grain-opacity: 0.05;
+  --cs-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.084 0 0 0 -0.033'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --cs-page-glow: radial-gradient(900px 420px at 50% -160px, #7ab4ff14, transparent 70%),
+    radial-gradient(600px 300px at 85% -120px, #c86dda0d, transparent 70%);
 }
 
 @media (max-width: 720px) {
@@ -101,19 +104,11 @@ html {
   scrollbar-gutter: stable;
 }
 
-/* A whisper of paper grain across every page, echoing the shapes. */
-html body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  pointer-events: none;
-  background-image: var(--cs-grain);
-  opacity: var(--cs-grain-opacity);
-}
+/* A whisper of paper grain, painted into the page background only, so
+   tiles, panels, text and shapes stay clean on top of it. */
 
 html body {
-  background: var(--cs-page);
+  background: var(--cs-grain) fixed, var(--cs-page-glow), var(--cs-page);
   color: var(--cs-foreground);
   font-family: var(--cs-sans);
   font-feature-settings: "cv11", "ss01";

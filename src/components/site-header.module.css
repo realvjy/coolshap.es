@@ -18,12 +18,9 @@
 }
 
 .mark {
+  display: inline-flex;
   flex: none;
   transition: transform 0.6s var(--cs-ease);
-}
-
-.brand:hover .mark {
-  transform: rotate(-8deg) scale(1.04);
 }
 
 .wordmark {

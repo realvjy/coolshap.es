@@ -12,10 +12,13 @@ import {
   RiDownloadLine,
   RiFileCopyLine,
   RiCheckLine,
+  RiArrowRightUpLine,
 } from "@remixicon/react";
 import SiteHeader from "./site-header";
 import SiteFooter from "./site-footer";
 import { SelectField, ChoicePills, Switch } from "./site-controls";
+import { Range, Color } from "./tool-ui";
+import ui from "./tool.module.css";
 import styles from "./playground.module.css";
 
 const names = shapeTypes.flatMap((type) =>
@@ -106,227 +109,232 @@ export default function Playground({ initialShape }) {
     if (value === "outline" && !outline) setOutline(2);
   }
   return (
-    <main className={styles.page}>
+    <main className={ui.page}>
       <SiteHeader active="playground" />
-      <div className={styles.heading}>
-        <h1>A little playground.</h1>
-        <p>Your shape. Your little twist.</p>
-      </div>
-      <div className={styles.workspace}>
-        <section className={styles.previewPanel} aria-label="Shape preview">
-          <div className={styles.previewTop}>
-            <span>{name}</span>
+      <div className={ui.content}>
+        <div className={ui.heading}>
+          <h1>Playground</h1>
+          <div className={ui.actions}>
             <button
-              onClick={() => {
-                const other = names.filter((item) => item !== name);
-                setName(other[Math.floor(Math.random() * other.length)]);
-              }}
-              aria-label="Pick a random shape"
+              className={ui.iconButton}
+              onClick={copyCode}
+              aria-label="Copy React code"
+              title="Copy React code"
             >
-              <RiShuffleLine size={16} />
-            </button>
-          </div>
-          <div className={styles.canvas} ref={preview}>
-            <Coolshape
-              {...props}
-              shapeId={`${name}-${id}`}
-              aria-label={`${name} preview`}
-            />
-          </div>
-          <div className={styles.previewActions}>
-            <a className={styles.iconMakerLink} href={`/icons?shape=${name}`}>
-              Make app icon
-            </a>
-            <button className={styles.button} onClick={downloadSvg}>
-              <RiDownloadLine size={14} /> Download SVG
-            </button>
-            <button onClick={copyCode}>
               {notice === "Code copied" ? (
-                <RiCheckLine size={14} />
+                <RiCheckLine size={16} />
               ) : (
-                <RiFileCopyLine size={14} />
-              )}{" "}
-              Copy React
+                <RiFileCopyLine size={16} />
+              )}
+            </button>
+            <button className={ui.primary} onClick={downloadSvg}>
+              <RiDownloadLine size={15} /> Download SVG
             </button>
           </div>
-          <p className={styles.notice} role="status">
-            {notice}
-          </p>
-        </section>
-        <section className={styles.controls} aria-label="Shape settings">
-          <div className={styles.controlPair}>
-            <label>
-              Shape
-              <SelectField
-                aria-label="Shape"
-                value={type}
-                onChange={(e) =>
-                  setName(
-                    `${e.target.value}-${e.target.value === "number" ? 0 : 1}`,
-                  )
-                }
-              >
-                {shapeTypes.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </SelectField>
-            </label>
-            <label>
-              Variant
-              <SelectField
-                aria-label="Variant"
-                value={index}
-                onChange={(e) => setName(`${type}-${e.target.value}`)}
-              >
-                {Array.from({ length: shapesCount[type] }, (_, i) =>
-                  type === "number" ? i : i + 1,
-                ).map((n) => (
-                  <option key={n} value={n}>
-                    {n}
-                  </option>
-                ))}
-              </SelectField>
-            </label>
-          </div>
-          <ChoicePills
-            label="Fill style"
-            compact
-            value={mode}
-            onChange={changeMode}
-            options={[
-              { value: "gradient", label: "Gradient" },
-              { value: "solid", label: "Solid" },
-              { value: "outline", label: "Outline" },
-            ]}
-          />
-          {mode === "gradient" && (
-            <label>
-              Gradient
-              <SelectField
-                aria-label="Gradient"
-                value={gradient}
-                onChange={(e) => setGradient(e.target.value)}
-              >
-                <option value="">Original</option>
-                {Object.keys(gradients).map((key) => (
-                  <option key={key} value={key}>
-                    {key}
-                  </option>
-                ))}
-              </SelectField>
-            </label>
-          )}
-          {mode === "solid" && (
-            <label className={styles.color}>
-              Fill
-              <input
-                type="color"
-                value={fill}
-                onChange={(e) => setFill(e.target.value)}
-              />
-              <span>{fill}</span>
-            </label>
-          )}
-          <label className={styles.range}>
-            Size <output>{size}px</output>
-            <input
-              type="range"
-              aria-label="Size"
-              min="40"
-              max="320"
-              value={size}
-              onChange={(e) => setSize(Number(e.target.value))}
-            />
-          </label>
-          <Switch
-            label="Grain"
-            checked={mode === "outline" ? false : noise}
-            disabled={mode === "outline"}
-            onChange={setNoise}
-            between
-          />
-          <label className={styles.range}>
-            Outline <output>{effectiveOutline}px</output>
-            <input
-              type="range"
-              aria-label="Outline width"
-              min={mode === "outline" ? 1 : 0}
-              max="20"
-              value={effectiveOutline}
-              onChange={(e) => setOutline(Number(e.target.value))}
-            />
-          </label>
-          {effectiveOutline > 0 && (
-            <label className={styles.color}>
-              Outline color
-              <input
-                type="color"
-                value={outlineColor}
-                onChange={(e) => setOutlineColor(e.target.value)}
-              />
-              <span>{outlineColor}</span>
-            </label>
-          )}
-          <details className={styles.advanced}>
-            <summary>A few more details</summary>
-            <label className={styles.range}>
-              Blur <output>{blur}px</output>
-              <input
-                type="range"
-                aria-label="Blur"
-                min="0"
-                max="50"
-                value={blur}
-                onChange={(e) => setBlur(Number(e.target.value))}
-              />
-            </label>
-            <label className={styles.check}>
-              Transparent background
-              <input
-                type="checkbox"
-                disabled={mode === "outline"}
-                checked={mode === "outline" || transparent}
-                onChange={(e) => setTransparent(e.target.checked)}
-              />
-            </label>
-            <div className={styles.controlPair}>
-              <label>
-                Line join
-                <SelectField
-                  aria-label="Line join"
-                  value={join}
-                  onChange={(e) => setJoin(e.target.value)}
+        </div>
+
+        <div className={ui.workspace}>
+          <section className={ui.controls} aria-label="Shape settings">
+            <div className={ui.group}>
+              <div className={ui.groupHeading}>
+                <h2>Shape</h2>
+                <button
+                  className={ui.iconButton}
+                  onClick={() => {
+                    const other = names.filter((item) => item !== name);
+                    setName(other[Math.floor(Math.random() * other.length)]);
+                  }}
+                  aria-label="Shuffle shape"
+                  title="Shuffle shape"
                 >
-                  {["round", "bevel", "miter"].map((v) => (
-                    <option key={v}>{v}</option>
-                  ))}
-                </SelectField>
-              </label>
-              <label>
-                Line cap
-                <SelectField
-                  aria-label="Line cap"
-                  value={cap}
-                  onChange={(e) => setCap(e.target.value)}
-                >
-                  {["round", "butt", "square"].map((v) => (
-                    <option key={v}>{v}</option>
-                  ))}
-                </SelectField>
-              </label>
+                  <RiShuffleLine size={15} />
+                </button>
+              </div>
+              <div className={styles.pair}>
+                <label className={ui.field}>
+                  Family
+                  <SelectField
+                    aria-label="Shape family"
+                    value={type}
+                    onChange={(e) =>
+                      setName(
+                        `${e.target.value}-${e.target.value === "number" ? 0 : 1}`,
+                      )
+                    }
+                  >
+                    {shapeTypes.map((t) => (
+                      <option key={t} value={t}>
+                        {t}
+                      </option>
+                    ))}
+                  </SelectField>
+                </label>
+                <label className={ui.field}>
+                  Variant
+                  <SelectField
+                    aria-label="Variant"
+                    value={index}
+                    onChange={(e) => setName(`${type}-${e.target.value}`)}
+                  >
+                    {Array.from({ length: shapesCount[type] }, (_, i) =>
+                      type === "number" ? i : i + 1,
+                    ).map((n) => (
+                      <option key={n} value={n}>
+                        {n}
+                      </option>
+                    ))}
+                  </SelectField>
+                </label>
+              </div>
+              <div className={ui.selection}>
+                <span>{name}</span>
+                <a href={`/icons?shape=${name}`}>
+                  Make app icon <RiArrowRightUpLine size={11} />
+                </a>
+              </div>
             </div>
-          </details>
-        </section>
+
+            <div className={ui.group}>
+              <h2>Appearance</h2>
+              <ChoicePills
+                label="Fill style"
+                compact
+                value={mode}
+                onChange={changeMode}
+                options={[
+                  { value: "gradient", label: "Gradient" },
+                  { value: "solid", label: "Solid" },
+                  { value: "outline", label: "Outline" },
+                ]}
+              />
+              {mode === "gradient" && (
+                <label className={ui.field}>
+                  Gradient
+                  <SelectField
+                    aria-label="Gradient"
+                    value={gradient}
+                    onChange={(e) => setGradient(e.target.value)}
+                  >
+                    <option value="">Original</option>
+                    {Object.keys(gradients).map((key) => (
+                      <option key={key} value={key}>
+                        {key.replace("gradient-", "Gradient ")}
+                      </option>
+                    ))}
+                  </SelectField>
+                </label>
+              )}
+              {mode === "solid" && (
+                <Color label="Fill" value={fill} onChange={setFill} />
+              )}
+              <Switch
+                label="Grain"
+                checked={mode === "outline" ? false : noise}
+                disabled={mode === "outline"}
+                onChange={setNoise}
+                between
+              />
+            </div>
+
+            <div className={ui.group}>
+              <h2>Adjust</h2>
+              <Range
+                label="Size"
+                unit="px"
+                min={40}
+                max={320}
+                value={size}
+                onChange={setSize}
+              />
+              <Range
+                label="Outline"
+                unit="px"
+                min={mode === "outline" ? 1 : 0}
+                max={20}
+                value={effectiveOutline}
+                onChange={setOutline}
+              />
+              {effectiveOutline > 0 && (
+                <Color
+                  label="Outline color"
+                  value={outlineColor}
+                  onChange={setOutlineColor}
+                />
+              )}
+              <details className={ui.position}>
+                <summary>More details</summary>
+                <div className={styles.more}>
+                  <Range
+                    label="Blur"
+                    unit="px"
+                    min={0}
+                    max={50}
+                    value={blur}
+                    onChange={setBlur}
+                  />
+                  <Switch
+                    label="Transparent background"
+                    checked={mode === "outline" || transparent}
+                    disabled={mode === "outline"}
+                    onChange={setTransparent}
+                    between
+                  />
+                  <div className={styles.pair}>
+                    <label className={ui.field}>
+                      Line join
+                      <SelectField
+                        aria-label="Line join"
+                        value={join}
+                        onChange={(e) => setJoin(e.target.value)}
+                      >
+                        {["round", "bevel", "miter"].map((v) => (
+                          <option key={v}>{v}</option>
+                        ))}
+                      </SelectField>
+                    </label>
+                    <label className={ui.field}>
+                      Line cap
+                      <SelectField
+                        aria-label="Line cap"
+                        value={cap}
+                        onChange={(e) => setCap(e.target.value)}
+                      >
+                        {["round", "butt", "square"].map((v) => (
+                          <option key={v}>{v}</option>
+                        ))}
+                      </SelectField>
+                    </label>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section className={ui.preview} aria-label="Shape preview">
+            <div className={ui.previewTop}>
+              <span className={styles.label}>{name}</span>
+              <span className={styles.label}>{size}px</span>
+            </div>
+            <div className={styles.canvas} ref={preview}>
+              <Coolshape
+                {...props}
+                shapeId={`${name}-${id}`}
+                aria-label={`${name} preview`}
+              />
+            </div>
+            <details className={styles.code}>
+              <summary>React code</summary>
+              <pre tabIndex={0}>
+                <code>{code}</code>
+              </pre>
+            </details>
+          </section>
+        </div>
       </div>
-      <details className={styles.code}>
-        <summary>React code</summary>
-        <pre tabIndex={0}>
-          <code>{code}</code>
-        </pre>
-      </details>
       <SiteFooter />
+      <div className={ui.toast} role="status">
+        {notice}
+      </div>
     </main>
   );
 }

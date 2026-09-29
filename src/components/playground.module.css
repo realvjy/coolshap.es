@@ -1,295 +1,61 @@
-.page {
-  background: var(--cs-page);
-  color: var(--cs-foreground);
-  min-height: 100vh;
-  padding: 0 36px;
-  font-family: var(--cs-sans);
-}
-.page button,
-.page input,
-.page select {
-  font-family: inherit;
-}
-.page button {
-  cursor: pointer;
-}
-.page :is(button, a, input, select, summary, pre):focus-visible {
-  outline: 2px solid var(--cs-accent-text);
-  outline-offset: 4px;
-}
-.heading,
-.workspace,
-.code {
-  max-width: var(--cs-width);
-  margin-inline: auto;
-}
-.heading {
-  padding: 36px 0 28px;
-}
-.heading h1 {
-  font-size: 30px;
-  font-weight: 400;
-  letter-spacing: -1px;
-}
-.heading p {
-  margin-top: 8px;
-  font-size: 12px;
-  color: var(--cs-muted);
-}
-.workspace {
+/* Playground-only pieces; the shell and controls come from tool.module.css. */
+.pair {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
-.previewPanel {
-  background: var(--cs-surface);
-  border-radius: var(--cs-radius);
-  padding: 16px;
+.pair > label {
   min-width: 0;
 }
-.previewTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--cs-muted);
-  font-size: 11px;
+.more {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
 }
-.previewTop button {
-  border: 0;
-  padding: 6px;
-  border-radius: 6px;
-  color: var(--cs-muted);
-  background: transparent;
-  display: flex;
-}
-.previewTop button:hover {
-  background: var(--cs-surface);
+.label {
+  color: var(--cs-subtle);
+  font-family: var(--cs-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .canvas {
-  min-height: 330px;
   display: grid;
   place-items: center;
+  min-height: 420px;
   overflow: hidden;
 }
 .canvas svg {
   max-width: 90%;
   height: auto;
-}
-.previewActions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.iconMakerLink {
-  color: var(--cs-text);
-  font-size: 11px;
-  text-decoration: none;
-  padding: 9px 0;
-}
-.iconMakerLink:hover {
-  color: var(--cs-accent-text);
-}
-.previewActions button {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 12px;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--cs-text);
-  font-size: 11px;
-}
-.previewActions .button {
-  background: var(--cs-foreground);
-  color: var(--cs-on-foreground);
-}
-.previewActions .button:hover {
-  background: var(--cs-foreground-hover);
-}
-.notice {
-  min-height: 26px;
-  padding-top: 10px;
-  text-align: center;
-  font-size: 10px;
-  color: var(--cs-accent-text);
-}
-.controls {
-  background: var(--cs-surface);
-  border-radius: var(--cs-radius);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.controls label {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  color: var(--cs-muted);
-  font-size: 11px;
-  min-width: 0;
-}
-.controlPair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.controls input {
-  accent-color: var(--cs-accent);
-}
-.controls .range {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
-}
-.range input {
-  grid-column: 1/-1;
-  width: 100%;
-}
-.range output {
-  color: var(--cs-subtle);
-  font-size: 10px;
-}
-.controls .check {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.check input {
-  width: 14px;
-  height: 14px;
-}
-.controls .color {
-  display: grid;
-  grid-template-columns: 1fr 24px auto;
-  align-items: center;
-}
-.color input {
-  width: 24px;
-  height: 24px;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-}
-.color span {
-  font-size: 10px;
-  font-family: var(--cs-mono);
-}
-.advanced summary {
-  cursor: pointer;
-  font-size: 11px;
-  color: var(--cs-muted);
-}
-.advanced[open] {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.advanced > :not(summary) {
-  margin-top: 18px;
+  filter: var(--cs-stage-shadow);
 }
 .code {
-  margin-top: 20px;
-  padding: 16px 20px;
-  border-radius: var(--cs-radius);
-  background: var(--cs-surface);
+  margin-top: 8px;
+  border-radius: 12px;
+  background: var(--cs-surface-raised);
+  box-shadow: var(--cs-tile-ring);
 }
 .code summary {
+  padding: 10px 14px;
+  color: var(--cs-subtle);
+  font-family: var(--cs-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   cursor: pointer;
-  font-size: 11px;
-  color: var(--cs-muted);
 }
 .code pre {
-  margin-top: 18px;
-  font-size: 11px;
-  line-height: 1.8;
-  color: var(--cs-text);
+  margin: 0;
+  padding: 0 14px 14px;
   overflow: auto;
+  color: var(--cs-text);
+  font-family: var(--cs-mono);
+  font-size: 11.5px;
+  line-height: 1.65;
 }
-@media (max-width: 900px) {
-  .page {
-    padding: 0 26px;
-  }
-  .workspace {
-    grid-template-columns: minmax(0, 1fr) 250px;
-    gap: 16px;
-  }
-  .controls {
-    padding: 16px;
-  }
-}
-@media (max-width: 700px) {
-  .page {
-    padding: 0 20px;
-  }
-  .heading {
-    padding: 28px 0 24px;
-  }
-  .workspace {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 640px) {
   .canvas {
-    min-height: 240px;
+    min-height: 260px;
   }
-  .controls {
-    padding: 20px;
-  }
-}
-
-.controls input[type="range"] {
-  appearance: none;
-  height: 3px;
-  margin: 7px 0;
-  background: var(--cs-track);
-  border-radius: 3px;
-  cursor: pointer;
-}
-.controls input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  width: 11px;
-  height: 11px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--cs-accent);
-}
-.controls input[type="range"]::-moz-range-thumb {
-  width: 11px;
-  height: 11px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--cs-accent);
-}
-.check input {
-  appearance: none;
-  position: relative;
-  width: 26px;
-  height: 16px;
-  border-radius: 20px;
-  background: var(--cs-track);
-  cursor: pointer;
-}
-.check input::before {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #fff;
-}
-.check input:checked {
-  background: var(--cs-accent);
-}
-.check input:checked::before {
-  transform: translateX(10px);
-}
-.check input:disabled {
-  opacity: 0.4;
-  cursor: default;
 }

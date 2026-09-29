@@ -1,6 +1,6 @@
 .page {
   min-height: 100vh;
-  background: var(--cs-page);
+  background: transparent;
   color: var(--cs-foreground);
   font-family: var(--cs-sans);
   -webkit-font-smoothing: antialiased;
@@ -282,7 +282,8 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--cs-page);
+  /* Same grain as the page, anchored to the viewport so the bar blends in. */
+  background: var(--cs-grain) fixed, var(--cs-page);
 }
 
 .indexInner {
@@ -555,7 +556,7 @@
 .stageShape svg {
   width: 240px;
   height: 240px;
-  filter: var(--cs-shape-shadow);
+  filter: var(--cs-stage-shadow);
 }
 
 .stageSerial {

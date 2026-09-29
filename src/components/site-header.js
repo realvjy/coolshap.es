@@ -1,5 +1,5 @@
 import { RiGithubFill as Github } from "@remixicon/react";
-import { CoolShapeLogoColor } from "./icons";
+import { Coolshape } from "coolshapes-react";
 import ThemeToggle from "./theme-toggle";
 import styles from "./site-header.module.css";
 
@@ -7,12 +7,9 @@ export default function SiteHeader({ active }) {
   return (
     <header className={styles.header}>
       <a className={styles.brand} href="/" aria-label="Coolshapes home">
-        <CoolShapeLogoColor
-          width={20}
-          height={20}
-          className={styles.mark}
-          aria-hidden="true"
-        />
+        <span className={styles.mark} aria-hidden="true">
+          <Coolshape name="moon-4" shapeId="brand-moon-4" size={22} noise={false} />
+        </span>
         <span className={styles.wordmark}>coolshapes</span>
         <span className={styles.version}>v2 beta</span>
       </a>
@@ -31,7 +28,7 @@ export default function SiteHeader({ active }) {
           Playground
         </a>
         <a href="/icons" aria-current={active === "icons" ? "page" : undefined}>
-          Icons
+          App Icons
         </a>
         <a href="/docs" aria-current={active === "docs" ? "page" : undefined}>
           Docs
